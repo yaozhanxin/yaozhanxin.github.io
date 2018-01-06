@@ -1,0 +1,892 @@
+<!DOCTYPE html>
+
+
+
+
+<html class="theme-next gemini" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.3">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.3" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="什么是shell在计算机科学中，Shell俗称壳，用来区别于Kernel（核），是指“提供使用者使用界面”的软件（命令解析器）。 它类似于DOS下的command和后来的cmd.exe。它接收用户命令，然后调用相应的应用程序。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="shell">
+<meta property="og:url" content="http://yoursite.com/2014/07/22/shell & vi编辑器/index.html">
+<meta property="og:site_name" content="yzx">
+<meta property="og:description" content="什么是shell在计算机科学中，Shell俗称壳，用来区别于Kernel（核），是指“提供使用者使用界面”的软件（命令解析器）。 它类似于DOS下的command和后来的cmd.exe。它接收用户命令，然后调用相应的应用程序。">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2017-12-24T13:33:07.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="shell">
+<meta name="twitter:description" content="什么是shell在计算机科学中，Shell俗称壳，用来区别于Kernel（核），是指“提供使用者使用界面”的软件（命令解析器）。 它类似于DOS下的command和后来的cmd.exe。它接收用户命令，然后调用相应的应用程序。">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.3',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2014/07/22/shell & vi编辑器/"/>
+
+
+
+
+
+  <title>shell | yzx</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">yzx</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-sitemap">
+          <a href="/sitemap.xml" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br />
+            
+            站点地图
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/404/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
+            
+            公益404
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2014/07/22/shell & vi编辑器/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="崭新星">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/toux.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="yzx">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">shell</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2014-07-22T15:08:32+08:00">
+                2014-07-22
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="什么是shell"><a href="#什么是shell" class="headerlink" title="什么是shell"></a>什么是shell</h3><pre><code>在计算机科学中，Shell俗称壳，用来区别于Kernel（核），是指“提供使用者使用界面”的软件（命令解析器）。 它类似于DOS下的command和后来的cmd.exe。它接收用户命令，然后调用相应的应用程序。
+</code></pre><a id="more"></a>
+<h3 id="图形界面shell"><a href="#图形界面shell" class="headerlink" title="图形界面shell"></a>图形界面shell</h3><pre><code>图形界面shell：通过提供友好的可视化界面，调用相应应用程序； 比如windows系列操作系统，Linux系统上的图形化应用程序GNOME、KDE等。
+</code></pre><h3 id="命令行shell"><a href="#命令行shell" class="headerlink" title="命令行shell"></a>命令行shell</h3><pre><code>通过键盘输入特定命令的方式，调用相应的应用程序； 如windows系统的cmd.exe、Windows PowerShell， Linux系统的Bourne shell (sh)、Bourne Again shell (bash)等。
+</code></pre><!-- more -->
+<h2 id="bash"><a href="#bash" class="headerlink" title="bash"></a>bash</h2><hr>
+<blockquote>
+<p>bash是shell的一种，Linux系统中各个shell的功能都差不多， 目前大多数版本的Linux都默认使用bash 。</p>
+</blockquote>
+<h3 id="bash命令格式："><a href="#bash命令格式：" class="headerlink" title="bash命令格式："></a>bash命令格式：</h3><p>命令 [-options || –options][参数]，如：tar -zxvf dome.tar.gz</p>
+<h3 id="选项备注："><a href="#选项备注：" class="headerlink" title="选项备注："></a>选项备注：</h3><p>-后面跟着的是单词的简写形式；–后面跟着的是单词的全面。</p>
+<h3 id="自动补全功能："><a href="#自动补全功能：" class="headerlink" title="自动补全功能："></a>自动补全功能：</h3><p>按tab键会自动尝试补全命令，连按两次会将所有匹配的内容显式出来。</p>
+<h3 id="常见命令："><a href="#常见命令：" class="headerlink" title="常见命令："></a>常见命令：</h3><ul>
+<li><p>pwd(Print Working Directory) 查看当前目录</p>
+</li>
+<li><p>cd(Change Directory) 切换目录，如 cd/etc</p>
+<blockquote>
+<p>cd 进入目录可以不用加 ./<br>$ cd ..   回到上一级</p>
+</blockquote>
+</li>
+<li><p>ls(List) 查看当前目录下内容，如 ls -al</p>
+<blockquote>
+<p>-a 可以显示隐藏文件<br>-l 显示文件的详细信息<br>ls 在 dos 下为 dir<br>//不用跳转到对应的目录也可以查看<br>$ ls dirname</p>
+</blockquote>
+</li>
+<li><p>mkdir(Make Directory) 创建目录</p>
+<blockquote>
+<p>//批量创建目录<br>$ mkdir 目录1 目录2 目录3</p>
+</blockquote>
+</li>
+<li><p>touch 创建文件</p>
+</li>
+<li><p>cat(Concatenate and print files) 在监控器上查看文件全部内容</p>
+</li>
+<li><p>less 按页查看文件</p>
+</li>
+<li><p>rm(Remove) 删除文件或文件夹，如 rm index.html、rm -rf dir</p>
+<blockquote>
+<p>彻底删除，不会进回收站<br>加上 -r 后可以删除目录</p>
+</blockquote>
+</li>
+<li><p>mv(Move) 移动文件或重命名，如 mv index.html ./dome/index.html</p>
+<blockquote>
+<p>新文件名可选，mv 文件名 目录/新文件名</p>
+</blockquote>
+</li>
+<li><p>cp(Copy) 复制文件，如 mv index.html ./dome/index.html</p>
+<blockquote>
+<p>$ cp 文件名 目录名<br>默认不能复制目录，需要的话要加上-r</p>
+</blockquote>
+</li>
+<li><p>&gt;和&gt;&gt;重定向，如 echo hellow world! &gt; index.text，&gt; 覆盖，&gt;&gt; 追加。</p>
+<blockquote>
+<p>echo ‘’ &gt;&gt; a.txt<br>文件不存在时会自动创建 </p>
+</blockquote>
+</li>
+<li><p>clear 清除</p>
+</li>
+</ul>
+<h2 id="vi-编辑器"><a href="#vi-编辑器" class="headerlink" title="vi 编辑器"></a>vi 编辑器</h2><hr>
+<blockquote>
+<p>如同Windows下的记事本，vi编辑器是Linux下的标配，通过它我们可以创建、编辑文件。 它是一个随系统一起安装的文本编辑软件。</p>
+</blockquote>
+<h3 id="三种模式"><a href="#三种模式" class="headerlink" title="三种模式"></a>三种模式</h3><blockquote>
+<p>vi 辑器提供了3种模式，分别是命令模式、输入模式、末行模式， 每种模式下用户所能进行的操作是不一样的。</p>
+</blockquote>
+<h4 id="命令模式-gt-执行命令"><a href="#命令模式-gt-执行命令" class="headerlink" title="命令模式 ==&gt; 执行命令"></a>命令模式 ==&gt; 执行命令</h4><p>默认模式，在该模式中，可以输入命令来执行许多功能。在其它两种模式下可通过esc切换至该模式。</p>
+<h4 id="输入模式-gt-输入文本"><a href="#输入模式-gt-输入文本" class="headerlink" title="输入模式 ==&gt; 输入文本"></a>输入模式 ==&gt; 输入文本</h4><p>在该模式中，可以进行文本输入与编辑。在命令模式中输入i、a、o切换至该模式。</p>
+<h4 id="末行模式-gt-执行待定命令"><a href="#末行模式-gt-执行待定命令" class="headerlink" title="末行模式 ==&gt; 执行待定命令"></a>末行模式 ==&gt; 执行待定命令</h4><p>该模式类似命令模式，有些特殊命令需要在该模式下运行，比如文件的保存与退出。可视化命令（就是指令可以看到，比如wq保存退出，代替了命令行模式时不可见的ZZ）。在命令模式中输入冒号切换至该模式。</p>
+<h4 id="三种模式切换示意图"><a href="#三种模式切换示意图" class="headerlink" title="三种模式切换示意图"></a>三种模式切换示意图</h4><p>vi三模式切换<br>通过上图可以发现，输入模式是不能直接切换到末行模式的，必须要先切回到命令模式（按ESC键）。</p>
+<h3 id="常见命令"><a href="#常见命令" class="headerlink" title="常见命令"></a>常见命令</h3><p>命令模式：</p>
+<ul>
+<li>ZZ：保存并退出</li>
+<li>u：撤销操作，可多次使用</li>
+<li>x：删除</li>
+<li>dd：删除当前行</li>
+<li>yy：复制当前行</li>
+<li>p：粘贴内容</li>
+<li>ctrl+f：向前翻页</li>
+<li>ctrl+b：向后翻页</li>
+<li>i：进入编辑模式，当前光标处插入</li>
+<li>I：进入编辑模式，光标移动到行首</li>
+<li>a：进入编辑模式，当前光标后插入</li>
+<li>A：进入编辑模式，光标移动到行尾</li>
+<li>o：进入编辑模式，当前行下面插入新行</li>
+<li>O：进入编辑模式，当前行上面插入新行</li>
+<li>.：重复执行命令</li>
+</ul>
+<p>末行模式：</p>
+<ul>
+<li>w [filename]：保存或另存为</li>
+<li>q：退出</li>
+<li>wq：保存并退出</li>
+<li>e!：撤销更改，返回到上一次保存的状态</li>
+<li>q!：不保存强制退出</li>
+<li>set nu：设置行号</li>
+</ul>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.png" alt="崭新星 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.png" alt="崭新星 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2014/07/22/HTML5/" rel="next" title="HTML5">
+                <i class="fa fa-chevron-left"></i> HTML5
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/03/15/前端性能优化--js/" rel="prev" title="前端性能优化--js">
+                前端性能优化--js <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/toux.jpg"
+                alt="崭新星" />
+            
+              <p class="site-author-name" itemprop="name">崭新星</p>
+              <p class="site-description motion-element" itemprop="description">Never stop.</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">14</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">17</span>
+                  <span class="site-state-item-name">标签</span>
+                
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/yaozhanxin" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:yaozhanxin@qq.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="undefined" target="_blank" title="QQ 290101916">
+                      
+                        <i class="fa fa-fw fa-globe"></i>QQ 290101916</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.jianshu.com/" title="简书- 创作你的创作" target="_blank">简书- 创作你的创作</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.zhihu.com/" title="知乎- 学未尽，思已远" target="_blank">知乎- 学未尽，思已远</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#什么是shell"><span class="nav-number">1.</span> <span class="nav-text">什么是shell</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#图形界面shell"><span class="nav-number">2.</span> <span class="nav-text">图形界面shell</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#命令行shell"><span class="nav-number">3.</span> <span class="nav-text">命令行shell</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#bash"><span class="nav-number"></span> <span class="nav-text">bash</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#bash命令格式："><span class="nav-number">1.</span> <span class="nav-text">bash命令格式：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#选项备注："><span class="nav-number">2.</span> <span class="nav-text">选项备注：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#自动补全功能："><span class="nav-number">3.</span> <span class="nav-text">自动补全功能：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#常见命令："><span class="nav-number">4.</span> <span class="nav-text">常见命令：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#vi-编辑器"><span class="nav-number"></span> <span class="nav-text">vi 编辑器</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#三种模式"><span class="nav-number">1.</span> <span class="nav-text">三种模式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#命令模式-gt-执行命令"><span class="nav-number">1.1.</span> <span class="nav-text">命令模式 ==&gt; 执行命令</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#输入模式-gt-输入文本"><span class="nav-number">1.2.</span> <span class="nav-text">输入模式 ==&gt; 输入文本</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#末行模式-gt-执行待定命令"><span class="nav-number">1.3.</span> <span class="nav-text">末行模式 ==&gt; 执行待定命令</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#三种模式切换示意图"><span class="nav-number">1.4.</span> <span class="nav-text">三种模式切换示意图</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#常见命令"><span class="nav-number">2.</span> <span class="nav-text">常见命令</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 1995 &mdash; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">崭新星</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.3</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.3"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

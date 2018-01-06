@@ -1,0 +1,890 @@
+<!DOCTYPE html>
+
+
+
+
+<html class="theme-next gemini" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.3">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.3" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="HTML5,黑魔法,奇淫技巧," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="在线和离线事件(掌握)online浏览器从离线状态切换到在线状态时触发">
+<meta name="keywords" content="HTML5,黑魔法,奇淫技巧">
+<meta property="og:type" content="article">
+<meta property="og:title" content="HTML5">
+<meta property="og:url" content="http://yoursite.com/2014/07/22/HTML5/index.html">
+<meta property="og:site_name" content="yzx">
+<meta property="og:description" content="在线和离线事件(掌握)online浏览器从离线状态切换到在线状态时触发">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2017-12-24T13:33:07.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="HTML5">
+<meta name="twitter:description" content="在线和离线事件(掌握)online浏览器从离线状态切换到在线状态时触发">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.3',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2014/07/22/HTML5/"/>
+
+
+
+
+
+  <title>HTML5 | yzx</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">yzx</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-sitemap">
+          <a href="/sitemap.xml" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br />
+            
+            站点地图
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/404/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
+            
+            公益404
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2014/07/22/HTML5/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="崭新星">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/toux.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="yzx">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">HTML5</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2014-07-22T15:08:32+08:00">
+                2014-07-22
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="在线和离线事件-掌握"><a href="#在线和离线事件-掌握" class="headerlink" title="在线和离线事件(掌握)"></a>在线和离线事件(掌握)</h2><p>online<br><code>浏览器从离线状态切换到在线状态时触发</code></p>
+<a id="more"></a>
+<p>offline<br><code>浏览器从在线状态切换到离线状态时触发</code></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">window</span>.addEventListener(<span class="string">'online'</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;</span><br><span class="line"><span class="built_in">window</span>.addEventListener(<span class="string">'offline'</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;</span><br><span class="line"><span class="built_in">window</span>.ononline = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;;</span><br><span class="line"><span class="built_in">window</span>.onoffine = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>js事件</p>
+</blockquote>
+<hr>
+<h2 id="Video-API"><a href="#Video-API" class="headerlink" title="Video API"></a>Video API</h2><blockquote>
+<p>属性</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//只读，返回当前音频/视频的长度（以秒计）</span></span><br><span class="line">duration</span><br><span class="line"><span class="comment">//只读</span></span><br><span class="line">paused：设置或返回音频/视频是否暂停 </span><br><span class="line"><span class="comment">//可读可写</span></span><br><span class="line">currentTime：设置或返回音频/视频中的当前播放位置（以秒计）</span><br><span class="line"><span class="comment">//可读可写</span></span><br><span class="line">ended：返回音频/视频的播放是否已结束</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>事件</p>
+</blockquote>
+<pre><code>//不能跟window.onload 一起用
+//一般用来计算视频的总长度
+oncanplay：当文件就绪可以开始播放时运行的脚本（缓冲已足够开始时）。
+</code></pre><p>//当用户点击播放按钮视频开始播放时会触发<br>    ontimeupdate： 当播放位置改变时（比如当用户快进到媒介中一个不同的位置时）运行的脚本。（触发时隔为300毫秒，0.3秒执行一次）<br>    onended：当媒介已到达结尾时运行的脚本（可发送类似“感谢观看”之类的消息）。[end] and de</p>
+<blockquote>
+<p>方法</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">play()：开始播放音频/视频 </span><br><span class="line">pause()：暂停当前播放的音频/视频 [pɔːz]</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>视频全屏时去除掉默认的控制条</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">video::-webkit-media-controls-enclosure &#123;</span><br><span class="line">   <span class="comment">/*禁用播放器控制栏的样式*/</span></span><br><span class="line">  display: none !important;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>视频全屏时显示自定义的控制条</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//给自定义的控制条设置</span></span><br><span class="line">z-index必须大于（等于）<span class="number">2147483647</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">fullscreen.onclick = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line"><span class="comment">// 3.调用全屏方法 让视频全屏播放 webkitRequestFullScreen() 方法 让元素全屏显示</span></span><br><span class="line">video.webkitRequestFullscreen();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<hr>
+<h2 id="WebStorage-API"><a href="#WebStorage-API" class="headerlink" title="WebStorage API"></a>WebStorage API</h2><blockquote>
+<p>什么是WebStorage </p>
+</blockquote>
+<p>所谓的WebStorage指的是客户端存储,在这里指的是浏览器端存储,比如在网站上自动登陆这些功能,其实就是把一些少量的数据存储在浏览器等客户端中,这样可以减少没必要的请求到服务器,降低服务器的压力,给用户提供更好的体验. </p>
+<blockquote>
+<p><strong>WebStorage的三种存储方式</strong></p>
+</blockquote>
+<p><strong>cookie:</strong> 广泛使用 存储量4kb左右 会在浏览器和服务器间传递  一般由服务器端创建 可以设置存储时间(默认和session一样)</p>
+<p><strong>sessionStorage:</strong> H5新增 存储量5M左右 只会在浏览器存储数据 只会由浏览器端创建 存储时间是打开浏览器开始关闭浏览器消失  ，临时存储</p>
+<p><strong>localStorage:</strong> H5新增 存储量5M左右 只会在浏览器存储数据 只会由浏览器端创建 永久存储除非手动删除</p>
+<p><code>key-value的排序是以key的首字母来进行排序</code></p>
+<h3 id="sessionStorage"><a href="#sessionStorage" class="headerlink" title="sessionStorage"></a>sessionStorage</h3><p>储存在浏览器的内容中<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//添加数据</span></span><br><span class="line"><span class="built_in">window</span>.sessionStorage.setItem(key,value);</span><br><span class="line"><span class="comment">//获取数据</span></span><br><span class="line"><span class="built_in">window</span>.sessionStorage.getItem(key);</span><br><span class="line"><span class="comment">//移除数据</span></span><br><span class="line"><span class="built_in">window</span>.sessionStorage.removeItem(key);</span><br><span class="line"><span class="comment">//清除数据，所有的</span></span><br><span class="line"><span class="built_in">window</span>.sessionStorage.clear();</span><br><span class="line"><span class="comment">//获取key，根据索引，从 0 开始</span></span><br><span class="line"><span class="built_in">window</span>.sessionStorage.key(n);</span><br></pre></td></tr></table></figure></p>
+<pre><code>应用场景: 存储一些少量临时的数据
+</code></pre><h3 id="localStorage"><a href="#localStorage" class="headerlink" title="localStorage"></a>localStorage</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//添加数据</span></span><br><span class="line"><span class="built_in">window</span>.localStorage.setItem(key,value);</span><br><span class="line"><span class="comment">//获取数据: </span></span><br><span class="line"><span class="built_in">window</span>.localStorage.getItem(key);</span><br><span class="line"><span class="comment">//移除数据: </span></span><br><span class="line"><span class="built_in">window</span>.localStorage.removeItem(key);</span><br><span class="line"><span class="comment">//清除数据: </span></span><br><span class="line"><span class="built_in">window</span>.localStorage.clear();</span><br><span class="line"><span class="comment">//获取key:  </span></span><br><span class="line"><span class="built_in">window</span>.localStorage.key(n);</span><br></pre></td></tr></table></figure>
+<pre><code>应用场景: 网页换肤，京东购物车
+</code></pre><hr>
+<h2 id="drag-amp-drop-API"><a href="#drag-amp-drop-API" class="headerlink" title="drag&amp;drop API"></a>drag&amp;drop API</h2><p>将一个普通元素变成一个拖拽元素，加一个属性：<code>draggable=&#39;true&#39;</code><br>一定要加在行内，h5的属性，不能为CSS</p>
+<blockquote>
+<p>事件</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 拖拽对象 */</span></span><br><span class="line"><span class="comment">//按下鼠标 开始用鼠标拿起拖拽对象的时候触发</span></span><br><span class="line">dragstart </span><br><span class="line"><span class="comment">//按住鼠标 开始用鼠标拿起拖拽对象移动的过程中不停触发</span></span><br><span class="line">drag      </span><br><span class="line"><span class="comment">//松开鼠标 放开拖拽对象时触发</span></span><br><span class="line">dragend  </span><br><span class="line">    </span><br><span class="line"><span class="comment">/* 目标对象 */</span></span><br><span class="line"><span class="comment">//按住鼠标, 鼠标进入目标元素边缘后触发</span></span><br><span class="line">dragenter </span><br><span class="line"><span class="comment">//按住鼠标, 鼠标在目标元素上移动的时候</span></span><br><span class="line">dragover  </span><br><span class="line"><span class="comment">//浏览器会默认打开，阻止默认事件，e.preventDefault()</span></span><br><span class="line"><span class="comment">//按住鼠标, 鼠标离开目标元素边缘后触发</span></span><br><span class="line">dragleave </span><br><span class="line"><span class="comment">//松开鼠标之后 dragend之前 把拖拽元素放下</span></span><br><span class="line"><span class="comment">//浏览器会默认打开，阻止默认事件，e.preventDefault()</span></span><br><span class="line">drop</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>属性<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//这个属性是一个对象 它拥有一些属性</span></span><br><span class="line">DataTransfer </span><br><span class="line">e.dataTransfer</span><br><span class="line">dataTransfer.setDate(key,value);<span class="comment">//设置数据</span></span><br><span class="line">dataTransfer.getDate(key);<span class="comment">//设置数据</span></span><br><span class="line"><span class="comment">//包含一个在数据传输上所有可用的本地文件列表</span></span><br><span class="line">files</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<hr>
+<h2 id="FileReader-API-important"><a href="#FileReader-API-important" class="headerlink" title="FileReader API (!important)"></a>FileReader API <strong>(!important)</strong></h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">input type=<span class="string">'file'</span> 存储在浏览器内存中</span><br><span class="line">    <span class="keyword">var</span> file = input.files[<span class="number">0</span>]; 获取到读取的文件</span><br><span class="line">    base64 编码图片，好处不需要img文件夹，图片以base64编码方式放到html中（一般如果是特别小的图片，一般都用base64编码，用于前端优化）</span><br><span class="line">    优点：虽然文件会变大，但是加载快解析快</span><br><span class="line">    缺点：会让html文件变得乱七八糟</span><br></pre></td></tr></table></figure>
+<p><code>FileReader 对象是HTML5新增的一个内置对象,通过这个对象可以读取文件的内容</code></p>
+<blockquote>
+<p>对象</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> fileReader = <span class="keyword">new</span> FileReader();</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>方法</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">readAsDataURL  data: URL格式的字符串以表示所读取文件的内容（就是base64的编码）</span><br><span class="line">readAsText    通过文本表示读取文件的内容</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>事件</p>
+</blockquote>
+<pre><code>onload 等待把文件读取完
+</code></pre><blockquote>
+<p>属性</p>
+</blockquote>
+<pre><code>result 文件读取的结构就存在result属性中
+</code></pre><hr>
+<h2 id="Geolocation-API"><a href="#Geolocation-API" class="headerlink" title="Geolocation API"></a>Geolocation API</h2><p>  Geolocation 可以使得Web应用程序给用户提供的地理位置信息.</p>
+<p>获取一次地理位置的方法(回调)</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">navigator.geolocation.getCurrentPosition(成功时的回调,失败时的回调,参数设置);</span><br><span class="line"></span><br><span class="line">    成功时回调:</span><br><span class="line">    <span class="function"><span class="keyword">function</span>(<span class="params">position</span>) </span>&#123;</span><br><span class="line">      <span class="comment">// position.coords  &#123;</span></span><br><span class="line">      <span class="comment">//  latitude            纬度</span></span><br><span class="line">      <span class="comment">//  longitude          经度</span></span><br><span class="line">      <span class="comment">//  altitude            高度(海拔)</span></span><br><span class="line">      <span class="comment">//  accuracy            精确度</span></span><br><span class="line">      <span class="comment">//  altitude Accuracy  海拔精确度</span></span><br><span class="line">      <span class="comment">//  heading            行进方向</span></span><br><span class="line">      <span class="comment">//  speed              地面速度</span></span><br><span class="line">      <span class="comment">// &#125; </span></span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    失败时回调:</span><br><span class="line">    <span class="function"><span class="keyword">function</span>(<span class="params">error</span>) </span>&#123;</span><br><span class="line">      <span class="comment">// erroe.code :</span></span><br><span class="line">      <span class="comment">// 0:不包括其他错误编号中的错误，（浏览器不支持定位，IE6，7，8没有这些新特性）</span></span><br><span class="line">      <span class="comment">// 1:用户拒绝浏览器获取位置信息</span></span><br><span class="line">      <span class="comment">// 2:尝试获取用户信息，但失败了</span></span><br><span class="line">      <span class="comment">// 3:设置了timeout值，获取位置超时了</span></span><br><span class="line">    </span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">参数设置: </span><br><span class="line">      &#123;</span><br><span class="line">        enableHighAcuracy 更精确的查找 默认<span class="literal">false</span></span><br><span class="line">        timeout: 获取位置允许最长时间 默认:infinity</span><br><span class="line">      &#125;</span><br></pre></td></tr></table></figure>
+<p>实时获取地理位置的方法(回调)</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//地理位置信息:</span></span><br><span class="line">    watchID = navigator.geolocation.watchPosition(成功时的回调,失败时的回调,参数设置);</span><br><span class="line"><span class="comment">//清除获取</span></span><br><span class="line">    navigator.geolocation.clearWatch(watchID);</span><br></pre></td></tr></table></figure>
+<p><strong>end</strong></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.png" alt="崭新星 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.png" alt="崭新星 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/HTML5/" rel="tag"># HTML5</a>
+          
+            <a href="/tags/黑魔法/" rel="tag"># 黑魔法</a>
+          
+            <a href="/tags/奇淫技巧/" rel="tag"># 奇淫技巧</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2014/07/22/设计模式--桥接模式/" rel="next" title="设计模式--桥接模式">
+                <i class="fa fa-chevron-left"></i> 设计模式--桥接模式
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2014/07/22/shell & vi编辑器/" rel="prev" title="shell">
+                shell <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/toux.jpg"
+                alt="崭新星" />
+            
+              <p class="site-author-name" itemprop="name">崭新星</p>
+              <p class="site-description motion-element" itemprop="description">Never stop.</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">14</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">17</span>
+                  <span class="site-state-item-name">标签</span>
+                
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/yaozhanxin" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:yaozhanxin@qq.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="undefined" target="_blank" title="QQ 290101916">
+                      
+                        <i class="fa fa-fw fa-globe"></i>QQ 290101916</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.jianshu.com/" title="简书- 创作你的创作" target="_blank">简书- 创作你的创作</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.zhihu.com/" title="知乎- 学未尽，思已远" target="_blank">知乎- 学未尽，思已远</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#在线和离线事件-掌握"><span class="nav-number">1.</span> <span class="nav-text">在线和离线事件(掌握)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Video-API"><span class="nav-number">2.</span> <span class="nav-text">Video API</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#WebStorage-API"><span class="nav-number">3.</span> <span class="nav-text">WebStorage API</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#sessionStorage"><span class="nav-number">3.1.</span> <span class="nav-text">sessionStorage</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#localStorage"><span class="nav-number">3.2.</span> <span class="nav-text">localStorage</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#drag-amp-drop-API"><span class="nav-number">4.</span> <span class="nav-text">drag&amp;drop API</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#FileReader-API-important"><span class="nav-number">5.</span> <span class="nav-text">FileReader API (!important)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Geolocation-API"><span class="nav-number">6.</span> <span class="nav-text">Geolocation API</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 1995 &mdash; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">崭新星</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.3</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.3"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
