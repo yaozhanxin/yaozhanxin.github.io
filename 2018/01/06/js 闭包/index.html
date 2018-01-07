@@ -66,7 +66,7 @@
 
 
 
-  <meta name="keywords" content="interview,vue," />
+  <meta name="keywords" content="javascript," />
 
 
 
@@ -77,18 +77,18 @@
 
 
 
-<meta name="description" content="vue interview1、父组件和子组件之间如何实现通讯？">
-<meta name="keywords" content="interview,vue">
+<meta name="description" content="一、闭包1.1、概括">
+<meta name="keywords" content="javascript">
 <meta property="og:type" content="article">
-<meta property="og:title" content="vue interview">
-<meta property="og:url" content="http://yoursite.com/2017/07/22/vue interview/index.html">
+<meta property="og:title" content="js 闭包">
+<meta property="og:url" content="http://yoursite.com/2018/01/06/js 闭包/index.html">
 <meta property="og:site_name" content="yzx">
-<meta property="og:description" content="vue interview1、父组件和子组件之间如何实现通讯？">
+<meta property="og:description" content="一、闭包1.1、概括">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-12-25T16:07:10.000Z">
+<meta property="og:updated_time" content="2018-01-07T02:30:42.296Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="vue interview">
-<meta name="twitter:description" content="vue interview1、父组件和子组件之间如何实现通讯？">
+<meta name="twitter:title" content="js 闭包">
+<meta name="twitter:description" content="一、闭包1.1、概括">
 
 
 
@@ -118,13 +118,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/07/22/vue interview/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/01/06/js 闭包/"/>
 
 
 
 
 
-  <title>vue interview | yzx</title>
+  <title>js 闭包 | yzx</title>
   
 
 
@@ -281,7 +281,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/07/22/vue interview/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/06/js 闭包/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="崭新星">
@@ -298,7 +298,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">vue interview</h1>
+          <h1 class="post-title" itemprop="name headline">js 闭包</h1>
         
 
         <div class="post-meta">
@@ -310,8 +310,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-22T15:08:32+08:00">
-                2017-07-22
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-06T15:08:32+08:00">
+                2018-01-06
               </time>
             
 
@@ -348,14 +348,20 @@
       
 
       
-        <h2 id="vue-interview"><a href="#vue-interview" class="headerlink" title="vue interview"></a>vue interview</h2><p>1、父组件和子组件之间如何实现通讯？</p>
-<a id="more"></a>
-<p>首先是父传子，父在使用子组件的时候，通过v-bind的形式给子组件传递数据，子组件通过 props 项接收，名称要对应。<br>然后是子传父，子组件可以用 this.$emit来发射事件，第二个参数就是要传递的数据，接着父组件就可以通过v-on来触发对应的事件，然后在这个触发的事件函数里，它的参数就是子组件传递过来的数据。</p>
-<p>2、非父子关系的组件之间如何实现通讯？</p>
-<p>可以使用一个空的vue实例作为一个事件中心，相当于中转站。然后在组件1可以使用实例点$emit来发送事件，第一个参数就是事件，第二个参数就是要传递的数据。<br>然后在组件2就可以使用$on来接收数据，第一个参数就是对应的事件，第二个参数就是一个回调，在回调里面就可以拿到数据了。（通过this.msg?）</p>
-<p>比较复杂的情况可以使用 vuex 来实现。</p>
-<p>3、单页应用有什么缺点？</p>
-<p>4、如何解决单页应用的 SEO 优化问题？</p>
+        <h2 id="一、闭包"><a href="#一、闭包" class="headerlink" title="一、闭包"></a>一、闭包</h2><h3 id="1-1、概括"><a href="#1-1、概括" class="headerlink" title="1.1、概括"></a>1.1、概括</h3><a id="more"></a>
+<p>闭包就是指有权访问另一个函数作用域中的变量的函数。</p>
+<h3 id="1-2、如何创建"><a href="#1-2、如何创建" class="headerlink" title="1.2、如何创建"></a>1.2、如何创建</h3><p>创建闭包的常见方式，就是在一个函数内部创建另一个函数。</p>
+<h3 id="1-3、例子"><a href="#1-3、例子" class="headerlink" title="1.3、例子"></a>1.3、例子</h3><p>​    就是说当一个函数执行的时候，可以让自己内部的变量不受外部的影响，然后会存在一个返回值，一般是一个函数，并且在该函数里面引用局部变量信息。然后在函数执行完毕后，这个局部变量信息不会消失，而是长时间的驻扎在内存里面的这种机制被称为’闭包’。</p>
+<h3 id="1-4、作用"><a href="#1-4、作用" class="headerlink" title="1.4、作用"></a>1.4、作用</h3><p>①、闭包会构成一个封闭的结构，可以避免全局变量的污染；</p>
+<p>②、闭包可以读取到函数内部的变量；</p>
+<p>③、闭包可以让变量的值保持在内存中；</p>
+<h3 id="1-5、坏处"><a href="#1-5、坏处" class="headerlink" title="1.5、坏处"></a>1.5、坏处</h3><p>​    闭包会携带包含它的函数的作用域，因此会比其它函数占用更多的内存。过度使用闭包可能会导致内存占用过多。</p>
+<p>​    在IE中可能导致内存泄露。解决方法是，在退出函数之前，将不使用的局部变量全部删除。就是将其设置为null；</p>
+<h3 id="1-6、实际应用场景"><a href="#1-6、实际应用场景" class="headerlink" title="1.6、实际应用场景"></a>1.6、实际应用场景</h3><p>封装插件</p>
+<h3 id="1-7、code"><a href="#1-7、code" class="headerlink" title="1.7、code"></a>1.7、code</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 创建函数</span></span><br><span class="line"><span class="keyword">var</span> compareNames = createComparisonFunction(<span class="string">"name"</span>);</span><br><span class="line"><span class="comment">// 调用函数</span></span><br><span class="line"><span class="keyword">var</span> result = compareNames(&#123; <span class="attr">name</span>: <span class="string">"Nicholas"</span> &#125;, &#123; <span class="attr">name</span>: <span class="string">"Greg"</span> &#125;);</span><br><span class="line"><span class="comment">// 解除对匿名函数的引用（以便释放内存）</span></span><br><span class="line">compareNames = <span class="literal">null</span>;</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="number">10000</span>;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">test</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 此处的变量 a 并不受其它作用域的影响</span></span><br><span class="line">    <span class="keyword">var</span> a = <span class="number">200</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> a;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 此处的 test 函数执行完毕之后并不能被 JS 垃圾回收机制（GC）回收，因为它的局部变量 a 被 fn 所引用</span></span><br><span class="line"><span class="keyword">var</span> fn = test();</span><br><span class="line"><span class="built_in">console</span>.log(fn());</span><br><span class="line"></span><br><span class="line"><span class="comment">// 返回对象而不是函数同样可以达到闭包效果</span></span><br><span class="line"><span class="keyword">var</span> a = <span class="number">10000</span>;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">test</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 此处的变量 a 并不受其它作用域的影响</span></span><br><span class="line">    <span class="keyword">var</span> a = <span class="number">200</span>;</span><br><span class="line">    <span class="keyword">return</span> &#123; <span class="string">'param'</span> : a &#125;;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 此处的 test 函数执行完毕之后并不能被 JS 垃圾回收机制（GC）回收，因为它的局部变量 a 被 obj 所引用</span></span><br><span class="line"><span class="keyword">var</span> obj = test();</span><br><span class="line"><span class="built_in">console</span>.log(obj.param);</span><br></pre></td></tr></table></figure>
+<p>没有返回值，依然构成闭包</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">(<span class="function"><span class="keyword">function</span>(<span class="params">window,$</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> count = <span class="number">0</span>;</span><br><span class="line">    $(<span class="string">'#btn'</span>).click(<span class="function"><span class="keyword">function</span>(<span class="params">event</span>) </span>&#123;</span><br><span class="line">        $(<span class="string">'#count'</span>).html(++count);</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;)(<span class="built_in">window</span>,$)</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -402,9 +408,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/interview/" rel="tag"># interview</a>
-          
-            <a href="/tags/vue/" rel="tag"># vue</a>
+            <a href="/tags/javascript/" rel="tag"># javascript</a>
           
         </div>
       
@@ -417,8 +421,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/03/22/JS 基础/" rel="next" title="JS 基础">
-                <i class="fa fa-chevron-left"></i> JS 基础
+              <a href="/2018/01/06/nvm+nrm+全局npm环境搭建/" rel="next" title="nvm+nrm+全局npm环境搭建">
+                <i class="fa fa-chevron-left"></i> nvm+nrm+全局npm环境搭建
               </a>
             
           </div>
@@ -426,10 +430,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/07/22/css interivew/" rel="prev" title="css interview">
-                css interview <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -596,7 +596,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#vue-interview"><span class="nav-number">1.</span> <span class="nav-text">vue interview</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#一、闭包"><span class="nav-number">1.</span> <span class="nav-text">一、闭包</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1、概括"><span class="nav-number">1.1.</span> <span class="nav-text">1.1、概括</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2、如何创建"><span class="nav-number">1.2.</span> <span class="nav-text">1.2、如何创建</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-3、例子"><span class="nav-number">1.3.</span> <span class="nav-text">1.3、例子</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-4、作用"><span class="nav-number">1.4.</span> <span class="nav-text">1.4、作用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-5、坏处"><span class="nav-number">1.5.</span> <span class="nav-text">1.5、坏处</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-6、实际应用场景"><span class="nav-number">1.6.</span> <span class="nav-text">1.6、实际应用场景</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-7、code"><span class="nav-number">1.7.</span> <span class="nav-text">1.7、code</span></a></li></ol></li></ol></div>
             
 
           </div>
