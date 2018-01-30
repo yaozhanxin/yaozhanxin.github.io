@@ -66,7 +66,7 @@
 
 
 
-  <meta name="keywords" content="http," />
+  <meta name="keywords" content="vue," />
 
 
 
@@ -77,18 +77,18 @@
 
 
 
-<meta name="description" content="一、http协议1.1、简介">
-<meta name="keywords" content="http">
+<meta name="description" content="一、axios1.1、简介">
+<meta name="keywords" content="vue">
 <meta property="og:type" content="article">
-<meta property="og:title" content="http 协议">
-<meta property="og:url" content="http://yoursite.com/2017/07/22/http 协议/index.html">
+<meta property="og:title" content="axios">
+<meta property="og:url" content="http://yoursite.com/2017/07/22/axios/index.html">
 <meta property="og:site_name" content="yzx">
-<meta property="og:description" content="一、http协议1.1、简介">
+<meta property="og:description" content="一、axios1.1、简介">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-01-08T15:52:21.748Z">
+<meta property="og:updated_time" content="2018-01-30T02:42:30.699Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="http 协议">
-<meta name="twitter:description" content="一、http协议1.1、简介">
+<meta name="twitter:title" content="axios">
+<meta name="twitter:description" content="一、axios1.1、简介">
 
 
 
@@ -118,13 +118,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/07/22/http 协议/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/07/22/axios/"/>
 
 
 
 
 
-  <title>http 协议 | yzx</title>
+  <title>axios | yzx</title>
   
 
 
@@ -281,7 +281,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/07/22/http 协议/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/07/22/axios/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="崭新星">
@@ -298,7 +298,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">http 协议</h1>
+          <h1 class="post-title" itemprop="name headline">axios</h1>
         
 
         <div class="post-meta">
@@ -348,38 +348,33 @@
       
 
       
-        <h2 id="一、http协议"><a href="#一、http协议" class="headerlink" title="一、http协议"></a>一、http协议</h2><h3 id="1-1、简介"><a href="#1-1、简介" class="headerlink" title="1.1、简介"></a>1.1、简介</h3><a id="more"></a>
-<p>HTTP 是一种无状态的协议，无状态就是指浏览器和服务器之前没有一种长连接的关系，比如说浏览器发送了一次请求，服务器接收到之后返回响应到浏览器，到此连接就被关闭了，在服务器端不保留连接的有关信息。</p>
-<h3 id="1-2、结构组成"><a href="#1-2、结构组成" class="headerlink" title="1.2、结构组成"></a>1.2、结构组成</h3><h4 id="1-2-1、http-请求"><a href="#1-2-1、http-请求" class="headerlink" title="1.2.1、http 请求"></a>1.2.1、http 请求</h4><p>请求行 – 请求头 – 请求正文/请求体</p>
-<p>请求行格式：&lt;方法&gt;&lt;空格&gt;<uri>&lt;空格&gt;<http 版本=""></http></uri></p>
-<p>请求头格式：&lt;字段名&gt; : &lt;字段值&gt;</p>
-<p>​            …</p>
-<p>​            …</p>
-<p>​            …</p>
-<p>​            &lt;空行&gt;</p>
-<p>​            &lt;消息体&gt;</p>
-<h4 id="1-2-2、http-响应"><a href="#1-2-2、http-响应" class="headerlink" title="1.2.2、http 响应"></a>1.2.2、http 响应</h4><p>状态行 – 响应头 – 响应正文/响应体</p>
-<p>状态行格式：<http版本>&lt;空格&gt;&lt;状态码&gt;&lt;空格&gt;&lt;响应短语&gt;</http版本></p>
-<p>消息头格式：&lt;字段名&gt; : &lt;字段值&gt;</p>
-<p>​            …</p>
-<p>​            …</p>
-<p>​            …</p>
-<p>​            &lt;空行&gt;</p>
-<p>​            &lt;消息体&gt;</p>
-<h3 id="1-3、主要头字段"><a href="#1-3、主要头字段" class="headerlink" title="1.3、主要头字段"></a>1.3、主要头字段</h3><p>通用头：适用于请求头和响应消息的头字段</p>
-<p>Date : 表示请求和响应生成的日期</p>
-<p>Pragma : 表示数据是否允许缓存的通信选项</p>
-<p>Cache-Control : 控制缓存的相关信息 </p>
-<p>Transfer-Encoding : 表示消息主体的编码格式</p>
-<p>Via : 记录途中经过的代理和网关</p>
-<p>请求头：用于表示请求消息的附加信息的头字段</p>
-<p>If-Modified-Since : 如果希望仅当数据在某个日期之后有更新时才执行请求，可以在这个字段指定希望的日期。一般来说，这个功能的用途在于判断客户端缓存的数据是否已经过期，如果已经过期则获取新的数据 </p>
-<p>Referer : 当通过点击超级链接进入下一个页面时，在这里<br>会记录下上一个页面的 URI </p>
-<p>User-Agent : 客户端软件的名称和版本号等相关信息 </p>
-<p>Accept : 客户端可支持的数据类型（Content-Type）， 以MIME 类型来表示 </p>
-<p>响应头：用于表示响应消息的附加信息的头字段</p>
-<p>Server : 服务器程序的名称和版本号等相关信息 </p>
-<p>Location : 表示信息的准确位置。当请求的 URI 为相对路径时，这个字段用来返回绝对路径 </p>
+        <h2 id="一、axios"><a href="#一、axios" class="headerlink" title="一、axios"></a>一、axios</h2><h3 id="1-1、简介"><a href="#1-1、简介" class="headerlink" title="1.1、简介"></a>1.1、简介</h3><a id="more"></a>
+<ul>
+<li>一个基于 promise 的 HTTP 库，可以用在浏览器和 node.js 中。</li>
+<li>在浏览器环境中使用 XMLHttpRequest 对象，Node 中使用 http 模块。</li>
+<li>vue 作者不再继续维护 vue-resource，并推荐大家使用 axios。</li>
+</ul>
+<h3 id="1-2、入门"><a href="#1-2、入门" class="headerlink" title="1.2、入门"></a>1.2、入门</h3><p>在浏览器环境中导入库，然后使用库暴露的全局变量 axios 发送请求</p>
+<p><strong>get请求</strong></p>
+<ul>
+<li>函数调用会返回一个<code>Promise</code>实例，通过 then 或 catch 添加成功失败回调</li>
+<li>成功回调接收一个<code>response</code>对象，要拿到请求回来的数据，需要通过 respone.data 来取</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 得到一个 Promise 实例, 通过 then 或 catch 添加成功失败回调</span></span><br><span class="line">axios.get(<span class="string">'http://vue.studyit.io/api/getprodlist'</span>)  </span><br><span class="line"><span class="comment">// 得到response对象, 通过data属性拿数据</span></span><br><span class="line">.then(<span class="function">(<span class="params">rep</span>) =&gt;</span> <span class="built_in">console</span>.log(rep.data))    </span><br><span class="line"><span class="comment">// 得到错误描述对象</span></span><br><span class="line">.catch(<span class="function">(<span class="params">err</span>) =&gt;</span> <span class="built_in">console</span>.log(err))</span><br></pre></td></tr></table></figure>
+<h3 id="1-3、语法"><a href="#1-3、语法" class="headerlink" title="1.3、语法"></a>1.3、语法</h3><p><strong>axios(config)</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 与 jQ 的 ajax 方法类似</span></span><br><span class="line">axios(&#123;</span><br><span class="line">    url: <span class="string">''</span>,</span><br><span class="line">    method: <span class="string">'post'</span>,</span><br><span class="line">    data: &#123;&#125;</span><br><span class="line">&#125;).then()</span><br></pre></td></tr></table></figure>
+<p><strong>axios.method( )</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 与 jQ 的 get、post 方法类似</span></span><br><span class="line">axios.get(url, config)</span><br><span class="line">axios.post(url, data, config)</span><br><span class="line">axios.delete(url, config)</span><br><span class="line">axios.head(url, config)</span><br><span class="line">axios.put(url, data, config)</span><br><span class="line">axios.patch(url, data, config)</span><br></pre></td></tr></table></figure>
+<p><strong>特点</strong></p>
+<ul>
+<li>可以拦截请求与响应，或取消请求，或进行统一的请求配置与处理</li>
+</ul>
+<h3 id="1-4、使用"><a href="#1-4、使用" class="headerlink" title="1.4、使用"></a>1.4、使用</h3><p><strong>get请求</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> config = &#123;</span><br><span class="line">    params: &#123; <span class="attr">pageindex</span>: <span class="number">1</span> &#125;</span><br><span class="line">&#125;;</span><br><span class="line">axios.get(<span class="string">'/news/list'</span>, config)</span><br><span class="line">    .then(<span class="function"><span class="params">rep</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(rep.data);</span><br><span class="line">    &#125;);</span><br></pre></td></tr></table></figure>
+<p><strong>post请求</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> data = &#123;</span><br><span class="line">    user_name: <span class="string">'self'</span>,</span><br><span class="line">    user_pwd: <span class="number">111111</span></span><br><span class="line">&#125;;</span><br><span class="line">axios.post(<span class="string">'/login'</span>, data)</span><br><span class="line">    .then(<span class="function"><span class="params">rep</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(rep.obj);</span><br><span class="line">    &#125;);</span><br></pre></td></tr></table></figure>
+<p><strong>默认配置</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> config = &#123;</span><br><span class="line">  url:<span class="string">'/user'</span>,</span><br><span class="line">  method:<span class="string">'get'</span> <span class="comment">//default</span></span><br><span class="line">  baseURL:<span class="string">'https://some-domain.com/api/'</span>,</span><br><span class="line">  transformRequest:[<span class="function"><span class="keyword">function</span>(<span class="params">data</span>)</span>&#123;&#125;],</span><br><span class="line">  headers: &#123;<span class="string">'X-Requested-With'</span>:<span class="string">'XMLHttpRequest'</span>&#125;,</span><br><span class="line">  params: &#123;</span><br><span class="line">    ID:<span class="number">12345</span></span><br><span class="line">  &#125;,</span><br><span class="line">  ...</span><br><span class="line">&#125;;</span><br><span class="line">axios.defaults = <span class="built_in">Object</span>.as</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -426,7 +421,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/http/" rel="tag"><i class="fa fa-tag"></i> http</a>
+            <a href="/tags/vue/" rel="tag"><i class="fa fa-tag"></i> vue</a>
           
         </div>
       
@@ -439,8 +434,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/07/22/axios/" rel="next" title="axios">
-                <i class="fa fa-chevron-left"></i> axios
+              <a href="/2017/07/22/vue interview/" rel="next" title="vue interview">
+                <i class="fa fa-chevron-left"></i> vue interview
               </a>
             
           </div>
@@ -449,8 +444,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/07/22/css interivew/" rel="prev" title="css interview">
-                css interview <i class="fa fa-chevron-right"></i>
+              <a href="/2017/07/22/http 协议/" rel="prev" title="http 协议">
+                http 协议 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -618,7 +613,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#一、http协议"><span class="nav-number">1.</span> <span class="nav-text">一、http协议</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1、简介"><span class="nav-number">1.1.</span> <span class="nav-text">1.1、简介</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2、结构组成"><span class="nav-number">1.2.</span> <span class="nav-text">1.2、结构组成</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-2-1、http-请求"><span class="nav-number">1.2.1.</span> <span class="nav-text">1.2.1、http 请求</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-2-2、http-响应"><span class="nav-number">1.2.2.</span> <span class="nav-text">1.2.2、http 响应</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-3、主要头字段"><span class="nav-number">1.3.</span> <span class="nav-text">1.3、主要头字段</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#一、axios"><span class="nav-number">1.</span> <span class="nav-text">一、axios</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1、简介"><span class="nav-number">1.1.</span> <span class="nav-text">1.1、简介</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2、入门"><span class="nav-number">1.2.</span> <span class="nav-text">1.2、入门</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-3、语法"><span class="nav-number">1.3.</span> <span class="nav-text">1.3、语法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-4、使用"><span class="nav-number">1.4.</span> <span class="nav-text">1.4、使用</span></a></li></ol></li></ol></div>
             
 
           </div>
