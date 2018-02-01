@@ -66,7 +66,7 @@
 
 
 
-  <meta name="keywords" content="http," />
+  <meta name="keywords" content="vue," />
 
 
 
@@ -77,18 +77,18 @@
 
 
 
-<meta name="description" content="一、http协议1.1、简介">
-<meta name="keywords" content="http">
+<meta name="description" content="一、vue 自定义指令说明 作用：dom处理逻辑的封装 注意：使用时同样需要添加v-前缀 分类：全局指令与局部指令  定义 全局指令  Vue.directive(name, config) 任何 Vue 实例所关联的视图中都可以使用  局部指令  new Vue({ directives: { name1: config, name2: config } }) 只能在当前实例所关联的视图中使用">
+<meta name="keywords" content="vue">
 <meta property="og:type" content="article">
-<meta property="og:title" content="http 协议">
-<meta property="og:url" content="http://yoursite.com/2017/07/22/http 协议/index.html">
+<meta property="og:title" content="vue 自定义指令">
+<meta property="og:url" content="http://yoursite.com/2018/01/22/vue 自定义指令/index.html">
 <meta property="og:site_name" content="yzx">
-<meta property="og:description" content="一、http协议1.1、简介">
+<meta property="og:description" content="一、vue 自定义指令说明 作用：dom处理逻辑的封装 注意：使用时同样需要添加v-前缀 分类：全局指令与局部指令  定义 全局指令  Vue.directive(name, config) 任何 Vue 实例所关联的视图中都可以使用  局部指令  new Vue({ directives: { name1: config, name2: config } }) 只能在当前实例所关联的视图中使用">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-01-08T15:52:21.748Z">
+<meta property="og:updated_time" content="2018-02-01T02:33:14.051Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="http 协议">
-<meta name="twitter:description" content="一、http协议1.1、简介">
+<meta name="twitter:title" content="vue 自定义指令">
+<meta name="twitter:description" content="一、vue 自定义指令说明 作用：dom处理逻辑的封装 注意：使用时同样需要添加v-前缀 分类：全局指令与局部指令  定义 全局指令  Vue.directive(name, config) 任何 Vue 实例所关联的视图中都可以使用  局部指令  new Vue({ directives: { name1: config, name2: config } }) 只能在当前实例所关联的视图中使用">
 
 
 
@@ -118,13 +118,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/07/22/http 协议/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/01/22/vue 自定义指令/"/>
 
 
 
 
 
-  <title>http 协议 | yzx</title>
+  <title>vue 自定义指令 | yzx</title>
   
 
 
@@ -281,7 +281,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/07/22/http 协议/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/22/vue 自定义指令/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="崭新星">
@@ -298,7 +298,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">http 协议</h1>
+          <h1 class="post-title" itemprop="name headline">vue 自定义指令</h1>
         
 
         <div class="post-meta">
@@ -310,8 +310,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-22T15:08:32+08:00">
-                2017-07-22
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-22T15:08:32+08:00">
+                2018-01-22
               </time>
             
 
@@ -348,38 +348,50 @@
       
 
       
-        <h2 id="一、http协议"><a href="#一、http协议" class="headerlink" title="一、http协议"></a>一、http协议</h2><h3 id="1-1、简介"><a href="#1-1、简介" class="headerlink" title="1.1、简介"></a>1.1、简介</h3><a id="more"></a>
-<p>HTTP 是一种无状态的协议，无状态就是指浏览器和服务器之前没有一种长连接的关系，比如说浏览器发送了一次请求，服务器接收到之后返回响应到浏览器，到此连接就被关闭了，在服务器端不保留连接的有关信息。</p>
-<h3 id="1-2、结构组成"><a href="#1-2、结构组成" class="headerlink" title="1.2、结构组成"></a>1.2、结构组成</h3><h4 id="1-2-1、http-请求"><a href="#1-2-1、http-请求" class="headerlink" title="1.2.1、http 请求"></a>1.2.1、http 请求</h4><p>请求行 – 请求头 – 请求正文/请求体</p>
-<p>请求行格式：&lt;方法&gt;&lt;空格&gt;<uri>&lt;空格&gt;<http 版本=""></http></uri></p>
-<p>请求头格式：&lt;字段名&gt; : &lt;字段值&gt;</p>
-<p>​            …</p>
-<p>​            …</p>
-<p>​            …</p>
-<p>​            &lt;空行&gt;</p>
-<p>​            &lt;消息体&gt;</p>
-<h4 id="1-2-2、http-响应"><a href="#1-2-2、http-响应" class="headerlink" title="1.2.2、http 响应"></a>1.2.2、http 响应</h4><p>状态行 – 响应头 – 响应正文/响应体</p>
-<p>状态行格式：<http版本>&lt;空格&gt;&lt;状态码&gt;&lt;空格&gt;&lt;响应短语&gt;</http版本></p>
-<p>消息头格式：&lt;字段名&gt; : &lt;字段值&gt;</p>
-<p>​            …</p>
-<p>​            …</p>
-<p>​            …</p>
-<p>​            &lt;空行&gt;</p>
-<p>​            &lt;消息体&gt;</p>
-<h3 id="1-3、主要头字段"><a href="#1-3、主要头字段" class="headerlink" title="1.3、主要头字段"></a>1.3、主要头字段</h3><p>通用头：适用于请求头和响应消息的头字段</p>
-<p>Date : 表示请求和响应生成的日期</p>
-<p>Pragma : 表示数据是否允许缓存的通信选项</p>
-<p>Cache-Control : 控制缓存的相关信息 </p>
-<p>Transfer-Encoding : 表示消息主体的编码格式</p>
-<p>Via : 记录途中经过的代理和网关</p>
-<p>请求头：用于表示请求消息的附加信息的头字段</p>
-<p>If-Modified-Since : 如果希望仅当数据在某个日期之后有更新时才执行请求，可以在这个字段指定希望的日期。一般来说，这个功能的用途在于判断客户端缓存的数据是否已经过期，如果已经过期则获取新的数据 </p>
-<p>Referer : 当通过点击超级链接进入下一个页面时，在这里<br>会记录下上一个页面的 URI </p>
-<p>User-Agent : 客户端软件的名称和版本号等相关信息 </p>
-<p>Accept : 客户端可支持的数据类型（Content-Type）， 以MIME 类型来表示 </p>
-<p>响应头：用于表示响应消息的附加信息的头字段</p>
-<p>Server : 服务器程序的名称和版本号等相关信息 </p>
-<p>Location : 表示信息的准确位置。当请求的 URI 为相对路径时，这个字段用来返回绝对路径 </p>
+        <h2 id="一、vue-自定义指令"><a href="#一、vue-自定义指令" class="headerlink" title="一、vue 自定义指令"></a>一、vue 自定义指令</h2><h4 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h4><ul>
+<li>作用：dom处理逻辑的封装</li>
+<li>注意：使用时同样需要添加v-前缀</li>
+<li>分类：全局指令与局部指令</li>
+</ul>
+<h4 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h4><ul>
+<li>全局指令</li>
+</ul>
+<p>Vue.directive(name, config)</p>
+<p>任何 Vue 实例所关联的视图中都可以使用</p>
+<ul>
+<li>局部指令</li>
+</ul>
+<p>new Vue({ directives: { name1: config, name2: config } })</p>
+<p>只能在当前实例所关联的视图中使用</p>
+<h4 id="配置项"><a href="#配置项" class="headerlink" title="配置项"></a>配置项</h4><ul>
+<li>bind</li>
+</ul>
+<p>只调用一次，指令第一次绑定到元素时调用，用这个钩子函数可以定义一个在绑定时执行一次的初始化动作。</p>
+<ul>
+<li>inserted</li>
+</ul>
+<p>被绑定元素插入父节点时调用 (父节点存在即可调用，不必存在于 document 中)。</p>
+<ul>
+<li>update</li>
+</ul>
+<p>元素或值更新时调用，值更新时需要调用 <code>v-test=&quot;val&quot;</code>，val 是模型变量。</p>
+<ul>
+<li>unbind</li>
+</ul>
+<p>只调用一次，指令与元素解绑时调用。</p>
+<h4 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h4><ul>
+<li>定义指令时大部分是在bind与update时做操作</li>
+<li>可以考虑使用简写方式，传递一个函数，在 bind 与 update 时调用</li>
+<li>比如：Vue.directive(name, fn)</li>
+</ul>
+<h4 id="自定义指令简写"><a href="#自定义指令简写" class="headerlink" title="自定义指令简写"></a>自定义指令简写</h4><p>文字高亮</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">v-html</span>=<span class="string">'content'</span> <span class="attr">v-hint:abc</span>=<span class="string">'keyword'</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Vue.directive(<span class="string">'hint'</span>,<span class="function"><span class="keyword">function</span>(<span class="params">node, obj</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// bind 与 update 时会执行</span></span><br><span class="line">    <span class="comment">// obj.arg 可以拿到指定的值</span></span><br><span class="line">    <span class="comment">// 先拿到元素身上的文本内容，然后进行替换</span></span><br><span class="line">    <span class="keyword">var</span> content = node.innerHTML;</span><br><span class="line">    node.innerHTML = content.replace(obj.value,<span class="string">'&lt;strong&gt;'</span>+obj.value + <span class="string">'&lt;/strong&gt;'</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h4 id="示例1"><a href="#示例1" class="headerlink" title="示例1"></a>示例1</h4><p>应用场景：页面一但刷新，输入框会自动获取焦点</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"app"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">v-focus</span> <span class="attr">type</span>=<span class="string">"text"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 创建一个全局自定义指令</span></span><br><span class="line"><span class="comment">// 该方法第一个参数是指令名称，这个名称和使用有关，第二个参数是配置项</span></span><br><span class="line">Vue.directive(<span class="string">'focus'</span>, &#123;</span><br><span class="line">  <span class="comment">// 当vue解析标签时，会分析该标签使用了哪些指令，然后依次执行每个指令的功能</span></span><br><span class="line">    inserted: <span class="function"><span class="keyword">function</span>(<span class="params">el, binding, vnode, oldnode</span>) </span>&#123;</span><br><span class="line">        el.focus();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h4 id="示例2"><a href="#示例2" class="headerlink" title="示例2"></a>示例2</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"app"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span> <span class="attr">v-hint:strong</span>=<span class="string">"keyword"</span> <span class="attr">v-html</span>=<span class="string">"content"</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">Vue.directive(<span class="string">'hint'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">el, binding</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 指令的参数配置标签名，值配置关键字</span></span><br><span class="line">    <span class="keyword">let</span> tag = binding.arg || <span class="string">'i'</span>,</span><br><span class="line">        keyword = binding.value;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 元素内的文本内容，及关键字匹配正则</span></span><br><span class="line">    <span class="keyword">let</span> text = el.textContent,</span><br><span class="line">        reg = <span class="keyword">new</span> <span class="built_in">RegExp</span>(keyword, <span class="string">'g'</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 关键字加亮</span></span><br><span class="line">    el.innerHTML = text.replace(reg, <span class="function"><span class="keyword">function</span>(<span class="params">text</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">let</span> style = <span class="string">'red'</span>;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">`&lt;<span class="subst">$&#123;tag&#125;</span> style="color: <span class="subst">$&#123;style&#125;</span>"&gt;<span class="subst">$&#123;text&#125;</span>&lt;/<span class="subst">$&#123;tag&#125;</span>&gt;`</span>;</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;);</span><br><span class="line"><span class="keyword">var</span> vm = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">    el: <span class="string">'#app'</span>,</span><br><span class="line">    data: &#123;</span><br><span class="line">        keyword: <span class="string">'我'</span>,</span><br><span class="line">        content: <span class="string">'我想让自己放轻松一点，只可惜比我强的人从不这么想...'</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -426,7 +438,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/http/" rel="tag"><i class="fa fa-tag"></i> http</a>
+            <a href="/tags/vue/" rel="tag"><i class="fa fa-tag"></i> vue</a>
           
         </div>
       
@@ -439,8 +451,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/07/22/ES6 模块加载/" rel="next" title="ES6 模块加载">
-                <i class="fa fa-chevron-left"></i> ES6 模块加载
+              <a href="/2018/01/06/js 闭包/" rel="next" title="js 闭包">
+                <i class="fa fa-chevron-left"></i> js 闭包
               </a>
             
           </div>
@@ -448,10 +460,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/11/22/vue 生命周期函数/" rel="prev" title="vue 生命周期函数">
-                vue 生命周期函数 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -618,7 +626,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#一、http协议"><span class="nav-number">1.</span> <span class="nav-text">一、http协议</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1、简介"><span class="nav-number">1.1.</span> <span class="nav-text">1.1、简介</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2、结构组成"><span class="nav-number">1.2.</span> <span class="nav-text">1.2、结构组成</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-2-1、http-请求"><span class="nav-number">1.2.1.</span> <span class="nav-text">1.2.1、http 请求</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-2-2、http-响应"><span class="nav-number">1.2.2.</span> <span class="nav-text">1.2.2、http 响应</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-3、主要头字段"><span class="nav-number">1.3.</span> <span class="nav-text">1.3、主要头字段</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#一、vue-自定义指令"><span class="nav-number">1.</span> <span class="nav-text">一、vue 自定义指令</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#说明"><span class="nav-number">1.0.1.</span> <span class="nav-text">说明</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#定义"><span class="nav-number">1.0.2.</span> <span class="nav-text">定义</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#配置项"><span class="nav-number">1.0.3.</span> <span class="nav-text">配置项</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#函数参数"><span class="nav-number">1.0.4.</span> <span class="nav-text">函数参数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#自定义指令简写"><span class="nav-number">1.0.5.</span> <span class="nav-text">自定义指令简写</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#示例1"><span class="nav-number">1.0.6.</span> <span class="nav-text">示例1</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#示例2"><span class="nav-number">1.0.7.</span> <span class="nav-text">示例2</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
