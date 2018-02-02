@@ -1943,7 +1943,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #d07342;
+  background: #cf03e3;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -3242,4 +3242,13 @@ pre .javascript .function {
 }
 .post-block {
   background-color: #f3f2ee !important;
+}
+.end-remind {
+  font-size: 1.2em;
+  color: #8e908c;
+  padding: 2px 0;
+/* height: 42px; */
+  border-top: 1px solid #a3a5a2;
+  border-bottom: 1px solid #a3a5a2;
+  margin-bottom: 20px;
 }
