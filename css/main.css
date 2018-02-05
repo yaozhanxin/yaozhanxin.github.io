@@ -1943,7 +1943,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #12ffad;
+  background: #4518ff;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -3251,4 +3251,15 @@ pre .javascript .function {
   border-top: 1px solid #a3a5a2;
   border-bottom: 1px solid #a3a5a2;
   margin-bottom: 20px;
+}
+.site-brand-wrapper {
+  background-image: url("../../images/girlBG.png");
+  background-size: 100% auto;
+  background-position: center center;
+}
+.site-title {
+  color: transparent;
+}
+.site-meta {
+  background: transparent !important;
 }
