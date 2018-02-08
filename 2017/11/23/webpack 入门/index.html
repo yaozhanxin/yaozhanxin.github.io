@@ -1,0 +1,873 @@
+<!DOCTYPE html>
+
+
+
+
+<html class="theme-next gemini" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico?v=5.1.3">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.3" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="打包," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="一、webpack 入门1.1 简介">
+<meta name="keywords" content="打包">
+<meta property="og:type" content="article">
+<meta property="og:title" content="vuex 攻略">
+<meta property="og:url" content="http://yoursite.com/2017/11/23/webpack 入门/index.html">
+<meta property="og:site_name" content="yzx">
+<meta property="og:description" content="一、webpack 入门1.1 简介">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-02-08T01:58:14.755Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="vuex 攻略">
+<meta name="twitter:description" content="一、webpack 入门1.1 简介">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.3',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/11/23/webpack 入门/"/>
+
+
+
+
+
+  <title>vuex 攻略 | yzx</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">yzx</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-sitemap">
+          <a href="/sitemap.xml" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br />
+            
+            站点地图
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/404/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
+            
+            公益404
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/11/23/webpack 入门/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="崭新">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/toux.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="yzx">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">vuex 攻略</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-23T15:08:32+08:00">
+                2017-11-23
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="一、webpack-入门"><a href="#一、webpack-入门" class="headerlink" title="一、webpack 入门"></a>一、webpack 入门</h2><h3 id="1-1-简介"><a href="#1-1-简介" class="headerlink" title="1.1 简介"></a>1.1 简介</h3><a id="more"></a>
+<ul>
+<li>一个功能强大的js模块打包工具，可以把 <code>CommonJS</code> 模块，<code>AMD</code> 模块，<code>ES6</code> 模块打包在一起</li>
+<li>借助于 <code>loader</code> 插件，webpack 可以将 css、img、tpl 等 <code>其它文件</code> 也一起打包</li>
+</ul>
+<h3 id="1-2-打包模式"><a href="#1-2-打包模式" class="headerlink" title="1.2 打包模式"></a>1.2 打包模式</h3><h4 id="1-2-1-未打包模式"><a href="#1-2-1-未打包模式" class="headerlink" title="1.2.1 未打包模式"></a>1.2.1 未打包模式</h4><ul>
+<li>普通模式开发网站，需要在页面中通过 <code>script</code> 标签去组织 js 的 <code>加载顺序</code> ，每个单独 js 的 <code>依赖</code> 不明确</li>
+<li>同时还会造成 <code>过多</code> 的 <code>http</code> 请求，拖慢网站的载入速度</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">title</span>&gt;</span>原始模式<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"js/jquery.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"js/bootstrap.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"js/main.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"js/a.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"js/b.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h4 id="1-2-2-打包模式"><a href="#1-2-2-打包模式" class="headerlink" title="1.2.2 打包模式"></a>1.2.2 打包模式</h4><ul>
+<li>webpack提供了 <code>一站式</code> 解决方案，不论你采用 <code>何种</code> 模块化，都可以帮你完成 <code>打包</code> 任务</li>
+<li>为了 <code>减少http</code> 请求, 可以采用一种 <code>模块化</code> 的方式编写如下代码, 然后 <code>打包</code> 成一个 js 文件</li>
+<li>打包命令: </li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ webpack 入口文件 打包后文件</span><br><span class="line">$ webpack src/main.js dist/bundle.js</span><br></pre></td></tr></table></figure>
+<p>以<code>main.js</code>为入口进行打包，打包后的文件放置到<code>dist</code>目录，起名为<code>bundle.js</code></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">title</span>&gt;</span>模块打包<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!-- 引入一个打包后的文件即可 --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"js/bundle.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="二、使用配置文件"><a href="#二、使用配置文件" class="headerlink" title="二、使用配置文件"></a>二、使用配置文件</h2><ul>
+<li>上面使用 <code>命令行</code> 的打包方式比较繁琐, 每次都要 <code>手动输入</code> 很多内容, 而且不能复用</li>
+<li>webpack提供了 <code>配置文件</code> 的方式来描述整个打包过程, 这样只要 <code>写一次</code> 配置以后就方便了, <code>一劳永逸</code></li>
+<li>同时配置文件也可以让团队不同 <code>成员共享</code>, 不同开发者不同平台以 <code>相同</code> 的方式进行打包</li>
+</ul>
+<h3 id="2-1-目录结构说明"><a href="#2-1-目录结构说明" class="headerlink" title="2.1 目录结构说明"></a>2.1 目录结构说明</h3><ul>
+<li>使用了打包系统后，通常会把 <code>源代码</code> 与 <code>打包后</code> 的代码放置到<code>src</code>与<code>dist</code>两个不同的目录分离存储</li>
+<li>这样做即不会破坏原有的代码与结构，也不会引起混乱</li>
+</ul>
+<h3 id="2-2-使用说明"><a href="#2-2-使用说明" class="headerlink" title="2.2 使用说明"></a>2.2 使用说明</h3><ul>
+<li>首先在项目中创建一个<code>webpack.config.js</code>配置文件</li>
+<li>该配置文件使用<code>node</code>的方式编写代码, 要求必须向外<code>导出</code>一个配置对象, 供webpack工具调用</li>
+<li>有了配置文件, 之后的打包操作, 只需运行一条<code>webpack</code>命令即可，webpack会自动读取本地<code>webpack.config.js</code>配置的规则进行打包，如有必要还可以通过<code>webpack --config filename</code>自定义配置文件</li>
+</ul>
+<h3 id="2-3-配置"><a href="#2-3-配置" class="headerlink" title="2.3 配置"></a>2.3 配置</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 导入 Node 内置的path模块, 因为有些路径配置必须为绝对路径, 要通过该模块的方法进行动态计算</span></span><br><span class="line"><span class="keyword">const</span> path = <span class="built_in">require</span>(<span class="string">'path'</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 导出配置项</span></span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">    <span class="comment">// 配置入口模块, webpack会从这个模块开始分析项目的所有依赖, 然后进行打包</span></span><br><span class="line">    entry: path.resolve(__dirname, <span class="string">'src/main.js'</span>),</span><br><span class="line">    <span class="comment">// 配置打包后文件的输出目录与文件夹</span></span><br><span class="line">    output: &#123;</span><br><span class="line">        path: path.resolve(__dirname, <span class="string">'dist'</span>),     <span class="comment">// 这里必须为绝对路径，否则报错</span></span><br><span class="line">        filename: <span class="string">'js/bundle_[chunkhash:8].js'</span>   <span class="comment">// [chunkhash:8]的作用是给文件添加唯一的标识符，预防浏览器缓存</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h3 id="2-4-开发模式"><a href="#2-4-开发模式" class="headerlink" title="2.4 开发模式"></a>2.4 开发模式</h3><ul>
+<li>打包命令: <code>webpack -d</code></li>
+<li>解释: 因为打包后的代码不便于<code>调试</code>, 所以webpack提供了开发模式打包</li>
+<li>使用后会依据打包后代码生成<code>sourceMap</code>用于浏览器调试</li>
+</ul>
+<h2 id="三、webpack-dev-server"><a href="#三、webpack-dev-server" class="headerlink" title="三、webpack-dev-server"></a>三、webpack-dev-server</h2><h3 id="3-1-简介"><a href="#3-1-简介" class="headerlink" title="3.1 简介"></a>3.1 简介</h3><ul>
+<li>这是一个基于webpack的<code>开发工具</code>，它会<code>自动</code>调用webpack进行<code>打包</code>操作，然后在本地部署一台文件<code>服务器</code>用于<code>测试</code>打包结果。</li>
+<li>使用该工具的好处是: <code>源代码</code>发生变动, 会再次自动打包, 自动部署，自动更新浏览器, 同时打包文件只存储在<code>内存</code>, 比磁盘速度要快。</li>
+</ul>
+<h3 id="3-2-安装"><a href="#3-2-安装" class="headerlink" title="3.2 安装"></a>3.2 安装</h3><ul>
+<li>全局安装一次：<code>npm i webpack-dev-server -g</code></li>
+<li>每个项目本地安装：<code>npm i webpack-dev-server -D</code></li>
+</ul>
+<h3 id="3-3-启动"><a href="#3-3-启动" class="headerlink" title="3.3 启动"></a>3.3 启动</h3><ul>
+<li><p>脚本：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ webpack-dev-server --contentBase src --open --port 8888</span><br></pre></td></tr></table></figure>
+<ul>
+<li>–contentBase 指定托管根目录</li>
+<li>–open 自动打开浏览器</li>
+<li>–port 指定服务端口</li>
+<li>–host 指定ip，默认127.0.0.1(localhost)</li>
+</ul>
+</li>
+<li><p>webpack-dev-server打包后的文件直接存储在内存中, 不会进行磁盘读写, 所以非常快</p>
+</li>
+</ul>
+<h3 id="3-4-使用配置文件启动"><a href="#3-4-使用配置文件启动" class="headerlink" title="3.4 使用配置文件启动"></a>3.4 使用配置文件启动</h3><p>如果觉得运行<code>命令</code>较长, <code>参数</code>较多, <code>写</code>起来较麻烦, 也不便于<code>记忆</code>, 那么可以记录在<code>配置文件</code>中</p>
+<p><strong>方式1</strong></p>
+<ul>
+<li>找到在<code>package.json</code>描述文件, 找到<code>scripts</code>配置项, 把启动命令配置进去, 并给命令起个名字</li>
+<li>然后运行<code>npm run 名称</code>执行相关命令</li>
+</ul>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">"scripts": &#123;</span><br><span class="line">    "dev": "webpack-dev-server --contentBase src --open --port 8888 -d"</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>方式2</strong></p>
+<ul>
+<li>在<code>webpack-config.js</code>配置文件中添加配置, 然后运行命令: <code>webpack-dev-server</code></li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">    devServer: &#123;</span><br><span class="line">        contentBase: <span class="string">'src'</span></span><br><span class="line">        open: <span class="literal">true</span>,</span><br><span class="line">        port: <span class="number">8888</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div><div class="end-remind">本文结束，感谢您的阅读</div></div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.png" alt="崭新 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.png" alt="崭新 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/打包/" rel="tag"><i class="fa fa-tag"></i> 打包</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/11/22/vue-cli 攻略/" rel="next" title="vue-cli 攻略">
+                <i class="fa fa-chevron-left"></i> vue-cli 攻略
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/01/06/js 闭包/" rel="prev" title="js 闭包">
+                js 闭包 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/toux.jpg"
+                alt="崭新" />
+            
+              <p class="site-author-name" itemprop="name">崭新</p>
+              <p class="site-description motion-element" itemprop="description">Never stop.</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">28</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">21</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/yaozhanxin" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:yaozhanxin@qq.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="undefined" target="_blank" title="QQ 290101916">
+                      
+                        <i class="fa fa-fw fa-globe"></i>QQ 290101916</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.jianshu.com/" title="简书- 创作你的创作" target="_blank">简书- 创作你的创作</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.zhihu.com/" title="知乎- 学未尽，思已远" target="_blank">知乎- 学未尽，思已远</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#一、webpack-入门"><span class="nav-number">1.</span> <span class="nav-text">一、webpack 入门</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-简介"><span class="nav-number">1.1.</span> <span class="nav-text">1.1 简介</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-打包模式"><span class="nav-number">1.2.</span> <span class="nav-text">1.2 打包模式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-2-1-未打包模式"><span class="nav-number">1.2.1.</span> <span class="nav-text">1.2.1 未打包模式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-2-2-打包模式"><span class="nav-number">1.2.2.</span> <span class="nav-text">1.2.2 打包模式</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、使用配置文件"><span class="nav-number">2.</span> <span class="nav-text">二、使用配置文件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-目录结构说明"><span class="nav-number">2.1.</span> <span class="nav-text">2.1 目录结构说明</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-使用说明"><span class="nav-number">2.2.</span> <span class="nav-text">2.2 使用说明</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3-配置"><span class="nav-number">2.3.</span> <span class="nav-text">2.3 配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-4-开发模式"><span class="nav-number">2.4.</span> <span class="nav-text">2.4 开发模式</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三、webpack-dev-server"><span class="nav-number">3.</span> <span class="nav-text">三、webpack-dev-server</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1-简介"><span class="nav-number">3.1.</span> <span class="nav-text">3.1 简介</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2-安装"><span class="nav-number">3.2.</span> <span class="nav-text">3.2 安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-3-启动"><span class="nav-number">3.3.</span> <span class="nav-text">3.3 启动</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-4-使用配置文件启动"><span class="nav-number">3.4.</span> <span class="nav-text">3.4 使用配置文件启动</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 1995 &mdash; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">崭新</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.3</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.3"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

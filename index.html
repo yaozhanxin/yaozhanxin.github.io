@@ -474,53 +474,138 @@
 
       
         
-          
-            <h2 id="一、vue-自定义指令"><a href="#一、vue-自定义指令" class="headerlink" title="一、vue 自定义指令"></a>一、vue 自定义指令</h2><h4 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h4><ul>
-<li>作用：dom处理逻辑的封装</li>
-<li>注意：使用时同样需要添加v-前缀</li>
-<li>分类：全局指令与局部指令</li>
-</ul>
-<h4 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h4><ul>
-<li>全局指令</li>
-</ul>
-<p>Vue.directive(name, config)</p>
-<p>任何 Vue 实例所关联的视图中都可以使用</p>
-<ul>
-<li>局部指令</li>
-</ul>
-<p>new Vue({ directives: { name1: config, name2: config } })</p>
-<p>只能在当前实例所关联的视图中使用</p>
-<h4 id="配置项"><a href="#配置项" class="headerlink" title="配置项"></a>配置项</h4><ul>
-<li>bind</li>
-</ul>
-<p>只调用一次，指令第一次绑定到元素时调用，用这个钩子函数可以定义一个在绑定时执行一次的初始化动作。</p>
-<ul>
-<li>inserted</li>
-</ul>
-<p>被绑定元素插入父节点时调用 (父节点存在即可调用，不必存在于 document 中)。</p>
-<ul>
-<li>update</li>
-</ul>
-<p>元素或值更新时调用，值更新时需要调用 <code>v-test=&quot;val&quot;</code>，val 是模型变量。</p>
-<ul>
-<li>unbind</li>
-</ul>
-<p>只调用一次，指令与元素解绑时调用。</p>
-<h4 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h4><ul>
-<li>定义指令时大部分是在bind与update时做操作</li>
-<li>可以考虑使用简写方式，传递一个函数，在 bind 与 update 时调用</li>
-<li>比如：Vue.directive(name, fn)</li>
-</ul>
-<h4 id="自定义指令简写"><a href="#自定义指令简写" class="headerlink" title="自定义指令简写"></a>自定义指令简写</h4><p>文字高亮</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">v-html</span>=<span class="string">'content'</span> <span class="attr">v-hint:abc</span>=<span class="string">'keyword'</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Vue.directive(<span class="string">'hint'</span>,<span class="function"><span class="keyword">function</span>(<span class="params">node, obj</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// bind 与 update 时会执行</span></span><br><span class="line">    <span class="comment">// obj.arg 可以拿到指定的值</span></span><br><span class="line">    <span class="comment">// 先拿到元素身上的文本内容，然后进行替换</span></span><br><span class="line">    <span class="keyword">var</span> content = node.innerHTML;</span><br><span class="line">    node.innerHTML = content.replace(obj.value,<span class="string">'&lt;strong&gt;'</span>+obj.value + <span class="string">'&lt;/strong&gt;'</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-<h4 id="示例1"><a href="#示例1" class="headerlink" title="示例1"></a>示例1</h4><p>应用场景：页面一但刷新，输入框会自动获取焦点</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"app"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">v-focus</span> <span class="attr">type</span>=<span class="string">"text"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 创建一个全局自定义指令</span></span><br><span class="line"><span class="comment">// 该方法第一个参数是指令名称，这个名称和使用有关，第二个参数是配置项</span></span><br><span class="line">Vue.directive(<span class="string">'focus'</span>, &#123;</span><br><span class="line">  <span class="comment">// 当vue解析标签时，会分析该标签使用了哪些指令，然后依次执行每个指令的功能</span></span><br><span class="line">    inserted: <span class="function"><span class="keyword">function</span>(<span class="params">el, binding, vnode, oldnode</span>) </span>&#123;</span><br><span class="line">        el.focus();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-<h4 id="示例2"><a href="#示例2" class="headerlink" title="示例2"></a>示例2</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"app"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span> <span class="attr">v-hint:strong</span>=<span class="string">"keyword"</span> <span class="attr">v-html</span>=<span class="string">"content"</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">Vue.directive(<span class="string">'hint'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">el, binding</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 指令的参数配置标签名，值配置关键字</span></span><br><span class="line">    <span class="keyword">let</span> tag = binding.arg || <span class="string">'i'</span>,</span><br><span class="line">        keyword = binding.value;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 元素内的文本内容，及关键字匹配正则</span></span><br><span class="line">    <span class="keyword">let</span> text = el.textContent,</span><br><span class="line">        reg = <span class="keyword">new</span> <span class="built_in">RegExp</span>(keyword, <span class="string">'g'</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 关键字加亮</span></span><br><span class="line">    el.innerHTML = text.replace(reg, <span class="function"><span class="keyword">function</span>(<span class="params">text</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">let</span> style = <span class="string">'red'</span>;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">`&lt;<span class="subst">$&#123;tag&#125;</span> style="color: <span class="subst">$&#123;style&#125;</span>"&gt;<span class="subst">$&#123;text&#125;</span>&lt;/<span class="subst">$&#123;tag&#125;</span>&gt;`</span>;</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;);</span><br><span class="line"><span class="keyword">var</span> vm = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">    el: <span class="string">'#app'</span>,</span><br><span class="line">    data: &#123;</span><br><span class="line">        keyword: <span class="string">'我'</span>,</span><br><span class="line">        content: <span class="string">'我想让自己放轻松一点，只可惜比我强的人从不这么想...'</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+          <h2 id="一、vue-自定义指令"><a href="#一、vue-自定义指令" class="headerlink" title="一、vue 自定义指令"></a>一、vue 自定义指令</h2><h4 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h4>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/01/22/vue 自定义指令/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/06/nvm+nrm+全局npm环境搭建/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="崭新">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/toux.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="yzx">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/01/06/nvm+nrm+全局npm环境搭建/" itemprop="url">nvm+nrm+全局npm环境搭建</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-06T15:08:32+08:00">
+                2018-01-06
+              </time>
+            
+
+            
+
+            
+          </span>
 
           
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h2 id="一、nvm"><a href="#一、nvm" class="headerlink" title="一、nvm"></a>一、nvm</h2><h3 id="1-1、下载"><a href="#1-1、下载" class="headerlink" title="1.1、下载"></a>1.1、下载</h3>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/01/06/nvm+nrm+全局npm环境搭建/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -691,7 +776,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/06/nvm+nrm+全局npm环境搭建/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/11/23/webpack 入门/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="崭新">
@@ -710,7 +795,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/01/06/nvm+nrm+全局npm环境搭建/" itemprop="url">nvm+nrm+全局npm环境搭建</a></h1>
+                <a class="post-title-link" href="/2017/11/23/webpack 入门/" itemprop="url">vuex 攻略</a></h1>
         
 
         <div class="post-meta">
@@ -722,8 +807,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-06T15:08:32+08:00">
-                2018-01-06
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-23T15:08:32+08:00">
+                2017-11-23
               </time>
             
 
@@ -761,10 +846,134 @@
 
       
         
-          <h2 id="一、nvm"><a href="#一、nvm" class="headerlink" title="一、nvm"></a>一、nvm</h2><h3 id="1-1、下载"><a href="#1-1、下载" class="headerlink" title="1.1、下载"></a>1.1、下载</h3>
+          <h2 id="一、webpack-入门"><a href="#一、webpack-入门" class="headerlink" title="一、webpack 入门"></a>一、webpack 入门</h2><h3 id="1-1-简介"><a href="#1-1-简介" class="headerlink" title="1.1 简介"></a>1.1 简介</h3>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2018/01/06/nvm+nrm+全局npm环境搭建/#more" rel="contents">
+            <a class="btn" href="/2017/11/23/webpack 入门/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/11/22/vue-cli 攻略/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="崭新">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/toux.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="yzx">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/11/22/vue-cli 攻略/" itemprop="url">vue-cli 攻略</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-22T15:08:32+08:00">
+                2017-11-22
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h2 id="一、快速入门"><a href="#一、快速入门" class="headerlink" title="一、快速入门"></a>一、快速入门</h2><h3 id="1-1-简介"><a href="#1-1-简介" class="headerlink" title="1.1 简介"></a>1.1 简介</h3>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/11/22/vue-cli 攻略/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1063,130 +1272,6 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/11/22/vue-cli 攻略/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="崭新">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/toux.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="yzx">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/11/22/vue-cli 攻略/" itemprop="url">vue-cli 攻略</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-22T15:08:32+08:00">
-                2017-11-22
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="一、快速入门"><a href="#一、快速入门" class="headerlink" title="一、快速入门"></a>一、快速入门</h2><h3 id="1-1-简介"><a href="#1-1-简介" class="headerlink" title="1.1 简介"></a>1.1 简介</h3>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/11/22/vue-cli 攻略/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/11/22/vuex 攻略/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1311,7 +1396,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/07/22/rem 布局/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/07/22/axios/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="崭新">
@@ -1330,7 +1415,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/07/22/rem 布局/" itemprop="url">rem 布局</a></h1>
+                <a class="post-title-link" href="/2017/07/22/axios/" itemprop="url">axios</a></h1>
         
 
         <div class="post-meta">
@@ -1381,134 +1466,10 @@
 
       
         
-          <h2 id="详细步骤"><a href="#详细步骤" class="headerlink" title="详细步骤"></a>详细步骤</h2><p>1、UI 通常会出一张 640 的设计图，如下所示</p>
+          <h2 id="一、axios"><a href="#一、axios" class="headerlink" title="一、axios"></a>一、axios</h2><h3 id="1-1、简介"><a href="#1-1、简介" class="headerlink" title="1.1、简介"></a>1.1、简介</h3>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2017/07/22/rem 布局/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/07/22/css interivew/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="崭新">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/toux.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="yzx">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/07/22/css interivew/" itemprop="url">css interview</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-22T15:08:32+08:00">
-                2017-07-22
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="css-interview"><a href="#css-interview" class="headerlink" title="css interview"></a>css interview</h2><p>1、如何隐藏一个 dom 元素，说出三种方法？</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/07/22/css interivew/#more" rel="contents">
+            <a class="btn" href="/2017/07/22/axios/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1600,7 +1561,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">27</span>
+                  <span class="site-state-item-count">28</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -1613,7 +1574,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">20</span>
+                  <span class="site-state-item-count">21</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
