@@ -77,18 +77,18 @@
 
 
 
-<meta name="description" content="javascript 继承1、通过 apply 改变 this 的指向来实现">
+<meta name="description" content="javascript 继承1、通过 apply 改变 this 的指向来实现 123456789101112function Persion(name, age, fn) &amp;#123;    this.name = name;    this.age = age;&amp;#125;var p1 = new Persion(&apos;小洛&apos;,12);console.log(p1.name + p1.age); /">
 <meta name="keywords" content="javascript">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JS 继承">
 <meta property="og:url" content="http://yoursite.com/2017/03/22/JS 继承/index.html">
 <meta property="og:site_name" content="崭新">
-<meta property="og:description" content="javascript 继承1、通过 apply 改变 this 的指向来实现">
+<meta property="og:description" content="javascript 继承1、通过 apply 改变 this 的指向来实现 123456789101112function Persion(name, age, fn) &amp;#123;    this.name = name;    this.age = age;&amp;#125;var p1 = new Persion(&apos;小洛&apos;,12);console.log(p1.name + p1.age); /">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-12-24T13:33:07.000Z">
+<meta property="og:updated_time" content="2018-02-12T09:46:23.666Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JS 继承">
-<meta name="twitter:description" content="javascript 继承1、通过 apply 改变 this 的指向来实现">
+<meta name="twitter:description" content="javascript 继承1、通过 apply 改变 this 的指向来实现 123456789101112function Persion(name, age, fn) &amp;#123;    this.name = name;    this.age = age;&amp;#125;var p1 = new Persion(&apos;小洛&apos;,12);console.log(p1.name + p1.age); /">
 
 
 
@@ -349,7 +349,6 @@
 
       
         <h2 id="javascript-继承"><a href="#javascript-继承" class="headerlink" title="javascript 继承"></a>javascript 继承</h2><p>1、通过 apply 改变 this 的指向来实现</p>
-<a id="more"></a>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Persion</span>(<span class="params">name, age, fn</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.name = name;</span><br><span class="line">    <span class="keyword">this</span>.age = age;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> p1 = <span class="keyword">new</span> Persion(<span class="string">'小洛'</span>,<span class="number">12</span>);</span><br><span class="line"><span class="built_in">console</span>.log(p1.name + p1.age); <span class="comment">// 小洛12</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Per</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    Persion.apply(<span class="keyword">this</span>, <span class="built_in">arguments</span>);</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">var</span> p2 = <span class="keyword">new</span> Per(<span class="string">'小花'</span>,<span class="number">11</span>);</span><br><span class="line"><span class="built_in">console</span>.log(p2.name + p2.age); <span class="comment">// 小花11</span></span><br></pre></td></tr></table></figure>
 <p>2、用 apply 实现继承，那么 B 继承 A，如何在 B 里面重写 A 的方法？</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Persion</span>(<span class="params">name, age, fn</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.name = name;</span><br><span class="line">    <span class="keyword">this</span>.age = age;</span><br><span class="line">    <span class="keyword">this</span>.fn = fn || <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'我是 Persion 的方法 '</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> p1 = <span class="keyword">new</span> Persion(<span class="string">'小洛'</span>, <span class="number">12</span>);</span><br><span class="line">p1.fn(); <span class="comment">// 我是 Persion 的方法</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Per</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    Persion.apply(<span class="keyword">this</span>, <span class="built_in">arguments</span>);</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">var</span> p2 = <span class="keyword">new</span> Per(<span class="string">'小花'</span>, <span class="number">11</span>, () =&gt; <span class="built_in">console</span>.log(<span class="string">'我是 Per 的方法'</span>));</span><br><span class="line">p2.fn(); <span class="comment">//我是 Per 的方法</span></span><br></pre></td></tr></table></figure>
@@ -425,8 +424,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/05/22/js 原型与原型链/" rel="prev" title="原型与原型链">
-                原型与原型链 <i class="fa fa-chevron-right"></i>
+              <a href="/2017/03/22/Mockjs 模拟数据/" rel="prev" title="Mockjs 模拟数据">
+                Mockjs 模拟数据 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -498,7 +497,7 @@
                 alt="崭新" />
             
               <p class="site-author-name" itemprop="name">崭新</p>
-              <p class="site-description motion-element" itemprop="description">今天的风儿甚是喧嚣.</p>
+              <p class="site-description motion-element" itemprop="description">今天的风儿甚是喧嚣</p>
           </div>
 
           <nav class="site-state motion-element">
@@ -521,7 +520,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">22</span>
+                  <span class="site-state-item-count">18</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>

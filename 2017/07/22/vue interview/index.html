@@ -77,18 +77,18 @@
 
 
 
-<meta name="description" content="vue interview1、父组件和子组件之间如何实现通讯？">
+<meta name="description" content="vue interview1、父组件和子组件之间如何实现通讯？ 首先是父传子，父在使用子组件的时候，通过v-bind的形式给子组件传递数据，子组件通过 props 项接收，名称要对应。然后是子传父，子组件可以用 this.$emit来发射事件，第二个参数就是要传递的数据，接着父组件就可以通过v-on来触发对应的事件，然后在这个触发的事件函数里，它的参数就是子组件传递过来的数据。 2、非父子关系的组">
 <meta name="keywords" content="vue,interview">
 <meta property="og:type" content="article">
 <meta property="og:title" content="vue interview">
 <meta property="og:url" content="http://yoursite.com/2017/07/22/vue interview/index.html">
 <meta property="og:site_name" content="崭新">
-<meta property="og:description" content="vue interview1、父组件和子组件之间如何实现通讯？">
+<meta property="og:description" content="vue interview1、父组件和子组件之间如何实现通讯？ 首先是父传子，父在使用子组件的时候，通过v-bind的形式给子组件传递数据，子组件通过 props 项接收，名称要对应。然后是子传父，子组件可以用 this.$emit来发射事件，第二个参数就是要传递的数据，接着父组件就可以通过v-on来触发对应的事件，然后在这个触发的事件函数里，它的参数就是子组件传递过来的数据。 2、非父子关系的组">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-12-25T16:07:10.000Z">
+<meta property="og:updated_time" content="2018-02-12T09:47:19.584Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="vue interview">
-<meta name="twitter:description" content="vue interview1、父组件和子组件之间如何实现通讯？">
+<meta name="twitter:description" content="vue interview1、父组件和子组件之间如何实现通讯？ 首先是父传子，父在使用子组件的时候，通过v-bind的形式给子组件传递数据，子组件通过 props 项接收，名称要对应。然后是子传父，子组件可以用 this.$emit来发射事件，第二个参数就是要传递的数据，接着父组件就可以通过v-on来触发对应的事件，然后在这个触发的事件函数里，它的参数就是子组件传递过来的数据。 2、非父子关系的组">
 
 
 
@@ -349,7 +349,6 @@
 
       
         <h2 id="vue-interview"><a href="#vue-interview" class="headerlink" title="vue interview"></a>vue interview</h2><p>1、父组件和子组件之间如何实现通讯？</p>
-<a id="more"></a>
 <p>首先是父传子，父在使用子组件的时候，通过v-bind的形式给子组件传递数据，子组件通过 props 项接收，名称要对应。<br>然后是子传父，子组件可以用 this.$emit来发射事件，第二个参数就是要传递的数据，接着父组件就可以通过v-on来触发对应的事件，然后在这个触发的事件函数里，它的参数就是子组件传递过来的数据。</p>
 <p>2、非父子关系的组件之间如何实现通讯？</p>
 <p>可以使用一个空的vue实例作为一个事件中心，相当于中转站。然后在组件1可以使用实例点$emit来发送事件，第一个参数就是事件，第二个参数就是要传递的数据。<br>然后在组件2就可以使用$on来接收数据，第一个参数就是对应的事件，第二个参数就是一个回调，在回调里面就可以拿到数据了。（通过this.msg?）</p>
@@ -417,8 +416,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/07/22/rem 布局/" rel="next" title="rem 布局">
-                <i class="fa fa-chevron-left"></i> rem 布局
+              <a href="/2017/07/22/html interivew/" rel="next" title="html interview">
+                <i class="fa fa-chevron-left"></i> html interview
               </a>
             
           </div>
@@ -427,8 +426,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/07/22/ES6 其它/" rel="prev" title="ES6 其它">
-                ES6 其它 <i class="fa fa-chevron-right"></i>
+              <a href="/2017/07/22/ES6 模块加载/" rel="prev" title="ES6 模块加载">
+                ES6 模块加载 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -500,7 +499,7 @@
                 alt="崭新" />
             
               <p class="site-author-name" itemprop="name">崭新</p>
-              <p class="site-description motion-element" itemprop="description">今天的风儿甚是喧嚣.</p>
+              <p class="site-description motion-element" itemprop="description">今天的风儿甚是喧嚣</p>
           </div>
 
           <nav class="site-state motion-element">
@@ -523,7 +522,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">22</span>
+                  <span class="site-state-item-count">18</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
