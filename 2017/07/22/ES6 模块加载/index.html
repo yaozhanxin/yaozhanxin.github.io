@@ -85,7 +85,7 @@
 <meta property="og:site_name" content="崭新">
 <meta property="og:description" content="一、模块加载1.1 简介ES6 之前已经出现了 js 模块加载的方案，最主要的是 CommonJS 和 AMD 规范。commonjs 主要应用于服务器，实现同步加载，如 nodejs。AMD 规范应用于浏览器，如 requirejs，为异步加载。同时还有 CMD 规范，为同步加载方案如 seaJS。 ES6 属于编译时加载，模块主要有两个功能：export 和 import 二、export 输">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-02-12T09:44:53.238Z">
+<meta property="og:updated_time" content="2018-02-26T06:58:57.090Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ES6 模块加载">
 <meta name="twitter:description" content="一、模块加载1.1 简介ES6 之前已经出现了 js 模块加载的方案，最主要的是 CommonJS 和 AMD 规范。commonjs 主要应用于服务器，实现同步加载，如 nodejs。AMD 规范应用于浏览器，如 requirejs，为异步加载。同时还有 CMD 规范，为同步加载方案如 seaJS。 ES6 属于编译时加载，模块主要有两个功能：export 和 import 二、export 输">
@@ -189,16 +189,6 @@
         </li>
       
         
-        <li class="menu-item menu-item-about">
-          <a href="/about/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
-            
-            关于
-          </a>
-        </li>
-      
-        
         <li class="menu-item menu-item-tags">
           <a href="/tags/" rel="section">
             
@@ -229,22 +219,12 @@
         </li>
       
         
-        <li class="menu-item menu-item-sitemap">
-          <a href="/sitemap.xml" rel="section">
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
             
-            站点地图
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-commonweal">
-          <a href="/404/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
-            
-            公益404
+            关于
           </a>
         </li>
       
@@ -376,6 +356,11 @@
 <p>import语句会执行所加载的模块，因此可以有下面的写法。</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="string">'./ex'</span>;</span><br></pre></td></tr></table></figure>
 <p>上面代码仅仅执行lodash模块，但是不输入任何值</p>
+<h2 id="四、实际应用"><a href="#四、实际应用" class="headerlink" title="四、实际应用"></a>四、实际应用</h2><p>vue 中批量导入多个组件</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; Navbar, Sidebar, AppMain, TagsView &#125; <span class="keyword">from</span> <span class="string">'./components'</span></span><br></pre></td></tr></table></figure>
+<p><code>&#39;./components&#39;</code> 后面没有后缀，会找到名为 <code>components</code> 的文件，如果是文件夹，则会到文件夹下找到  <code>index.js</code> 文件。</p>
+<p>在 <code>index.js</code> 文件中，则可以统一管理组件的导出。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> &#123; <span class="keyword">default</span> <span class="keyword">as</span> Navbar &#125; <span class="keyword">from</span> <span class="string">'./Navbar'</span></span><br><span class="line"><span class="keyword">export</span> &#123; <span class="keyword">default</span> <span class="keyword">as</span> Sidebar &#125; <span class="keyword">from</span> <span class="string">'./Sidebar/index.vue'</span></span><br><span class="line"><span class="keyword">export</span> &#123; <span class="keyword">default</span> <span class="keyword">as</span> TagsView &#125; <span class="keyword">from</span> <span class="string">'./TagsView'</span></span><br><span class="line"><span class="keyword">export</span> &#123; <span class="keyword">default</span> <span class="keyword">as</span> AppMain &#125; <span class="keyword">from</span> <span class="string">'./AppMain'</span></span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -435,8 +420,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/05/22/js 原型与原型链/" rel="next" title="原型与原型链">
-                <i class="fa fa-chevron-left"></i> 原型与原型链
+              <a href="/2017/07/22/Node REPL 环境/" rel="next" title="Node REPL 环境">
+                <i class="fa fa-chevron-left"></i> Node REPL 环境
               </a>
             
           </div>
@@ -445,8 +430,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/07/22/Node REPL 环境/" rel="prev" title="Node REPL 环境">
-                Node REPL 环境 <i class="fa fa-chevron-right"></i>
+              <a href="/2017/07/22/vue interview/" rel="prev" title="vue interview">
+                vue interview <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -528,7 +513,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">32</span>
+                  <span class="site-state-item-count">34</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -588,6 +573,10 @@
               <ul class="links-of-blogroll-list">
                 
                   <li class="links-of-blogroll-item">
+                    <a href="https://developer.mozilla.org/zh-CN/" title="MDN Web Docs" target="_blank">MDN Web Docs</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
                     <a href="https://segmentfault.com/" title="SegmentFault" target="_blank">SegmentFault</a>
                   </li>
                 
@@ -622,7 +611,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#一、模块加载"><span class="nav-number">1.</span> <span class="nav-text">一、模块加载</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-简介"><span class="nav-number">1.1.</span> <span class="nav-text">1.1 简介</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、export-输出"><span class="nav-number">2.</span> <span class="nav-text">二、export 输出</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三、import-导入"><span class="nav-number">3.</span> <span class="nav-text">三、import 导入</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#一、模块加载"><span class="nav-number">1.</span> <span class="nav-text">一、模块加载</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-简介"><span class="nav-number">1.1.</span> <span class="nav-text">1.1 简介</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、export-输出"><span class="nav-number">2.</span> <span class="nav-text">二、export 输出</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三、import-导入"><span class="nav-number">3.</span> <span class="nav-text">三、import 导入</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#四、实际应用"><span class="nav-number">4.</span> <span class="nav-text">四、实际应用</span></a></li></ol></div>
             
 
           </div>
