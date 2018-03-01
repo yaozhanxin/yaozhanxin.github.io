@@ -66,7 +66,7 @@
 
 
 
-  <meta name="keywords" content="打包," />
+  <meta name="keywords" content="vue," />
 
 
 
@@ -77,18 +77,18 @@
 
 
 
-<meta name="description" content="一、plugin使用在项目构建时, 我们可能会有打包之外的其他需求, 那么plugin可以帮我们来完成 1.1 package.json 要使用插件, 首先就得安装他们, 一般会把项目的依赖记录在该文件中 所以, 在使用插件之前, 先创建package.json这个文件: npm init -y  1.2 webpack 插件在运行时依赖与webpack, 要在项目本地安装它 本地安装命令: np">
-<meta name="keywords" content="打包">
+<meta name="description" content="一、如何创建一个组件1.1 局部组件以 vue-clic 生成的项目为例，新建 demo.vue 后缀的文件 可以用 vscode 的 插件 vetur 生成 vue 的模板 12345678910111213141516&amp;lt;template&amp;gt;&amp;lt;/template&amp;gt;&amp;lt;script&amp;gt;	export default &amp;#123;        components:&amp;">
+<meta name="keywords" content="vue">
 <meta property="og:type" content="article">
-<meta property="og:title" content="webpack plugin 使用">
-<meta property="og:url" content="http://yoursite.com/2017/11/22/webpack plugin 使用/index.html">
+<meta property="og:title" content="vue 如何创建一个组件">
+<meta property="og:url" content="http://yoursite.com/2018/01/22/vue 如何创建一个组件/index.html">
 <meta property="og:site_name" content="崭新">
-<meta property="og:description" content="一、plugin使用在项目构建时, 我们可能会有打包之外的其他需求, 那么plugin可以帮我们来完成 1.1 package.json 要使用插件, 首先就得安装他们, 一般会把项目的依赖记录在该文件中 所以, 在使用插件之前, 先创建package.json这个文件: npm init -y  1.2 webpack 插件在运行时依赖与webpack, 要在项目本地安装它 本地安装命令: np">
+<meta property="og:description" content="一、如何创建一个组件1.1 局部组件以 vue-clic 生成的项目为例，新建 demo.vue 后缀的文件 可以用 vscode 的 插件 vetur 生成 vue 的模板 12345678910111213141516&amp;lt;template&amp;gt;&amp;lt;/template&amp;gt;&amp;lt;script&amp;gt;	export default &amp;#123;        components:&amp;">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-02-12T09:47:44.515Z">
+<meta property="og:updated_time" content="2018-03-01T02:54:42.368Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="webpack plugin 使用">
-<meta name="twitter:description" content="一、plugin使用在项目构建时, 我们可能会有打包之外的其他需求, 那么plugin可以帮我们来完成 1.1 package.json 要使用插件, 首先就得安装他们, 一般会把项目的依赖记录在该文件中 所以, 在使用插件之前, 先创建package.json这个文件: npm init -y  1.2 webpack 插件在运行时依赖与webpack, 要在项目本地安装它 本地安装命令: np">
+<meta name="twitter:title" content="vue 如何创建一个组件">
+<meta name="twitter:description" content="一、如何创建一个组件1.1 局部组件以 vue-clic 生成的项目为例，新建 demo.vue 后缀的文件 可以用 vscode 的 插件 vetur 生成 vue 的模板 12345678910111213141516&amp;lt;template&amp;gt;&amp;lt;/template&amp;gt;&amp;lt;script&amp;gt;	export default &amp;#123;        components:&amp;">
 
 
 
@@ -118,13 +118,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/11/22/webpack plugin 使用/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/01/22/vue 如何创建一个组件/"/>
 
 
 
 
 
-  <title>webpack plugin 使用 | 崭新</title>
+  <title>vue 如何创建一个组件 | 崭新</title>
   
 
 
@@ -261,7 +261,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/11/22/webpack plugin 使用/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/22/vue 如何创建一个组件/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="崭新">
@@ -278,7 +278,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">webpack plugin 使用</h1>
+          <h1 class="post-title" itemprop="name headline">vue 如何创建一个组件</h1>
         
 
         <div class="post-meta">
@@ -290,8 +290,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-22T15:08:32+08:00">
-                2017-11-22
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-22T15:08:32+08:00">
+                2018-01-22
               </time>
             
 
@@ -328,51 +328,21 @@
       
 
       
-        <h2 id="一、plugin使用"><a href="#一、plugin使用" class="headerlink" title="一、plugin使用"></a>一、plugin使用</h2><p>在项目构建时, 我们可能会有打包之外的其他需求, 那么<code>plugin</code>可以帮我们来完成</p>
-<h3 id="1-1-package-json"><a href="#1-1-package-json" class="headerlink" title="1.1 package.json"></a>1.1 package.json</h3><ul>
-<li>要使用插件, 首先就得<code>安装</code>他们, 一般会把项目的依赖<code>记录</code>在该文件中</li>
-<li>所以, 在使用插件之前, 先<code>创建</code>package.json这个文件: <code>npm init -y</code></li>
-</ul>
-<h3 id="1-2-webpack"><a href="#1-2-webpack" class="headerlink" title="1.2 webpack"></a>1.2 webpack</h3><ul>
-<li>插件在运行时依赖与webpack, 要在项目本地安装它</li>
-<li>本地安装命令: <code>npm i webpack -D</code>, 这里-D参数是–save-dev的简写</li>
-</ul>
-<h2 id="二、html-webpack-plugin"><a href="#二、html-webpack-plugin" class="headerlink" title="二、html-webpack-plugin"></a>二、html-webpack-plugin</h2><h4 id="2-1-简介"><a href="#2-1-简介" class="headerlink" title="2.1 简介"></a>2.1 简介</h4><ul>
-<li>这是webpack一款用于处理html的插件</li>
-</ul>
-<h4 id="2-2-安装"><a href="#2-2-安装" class="headerlink" title="2.2 安装"></a>2.2 安装</h4><ul>
-<li><code>npm i html-webpack-plugin -D</code></li>
-</ul>
-<h4 id="2-3-使用"><a href="#2-3-使用" class="headerlink" title="2.3 使用"></a>2.3 使用</h4><ul>
-<li>这里用它<code>自动</code>把打包后的js脚本<code>注入</code>到指定的html文件中</li>
-<li>这样就不用<code>手动</code>编写script标签<code>引入</code>打包后的文件了</li>
-</ul>
-<h4 id="2-4-配置"><a href="#2-4-配置" class="headerlink" title="2.4 配置"></a>2.4 配置</h4><ul>
-<li>在webpack.config.js文件中</li>
-<li>首先<code>导入</code>html-webpack-plugin插件</li>
-<li>然后<code>创建实例</code>配置到<code>plugins</code>配置项中</li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> HtmlWP = <span class="built_in">require</span>(<span class="string">'html-webpack-plugin'</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">    <span class="comment">// 插件配置</span></span><br><span class="line">    plugins: [</span><br><span class="line">        <span class="keyword">new</span> HtmlWP(&#123;</span><br><span class="line">            template: <span class="string">'src/index.html'</span>,    <span class="comment">// 源代码文件名</span></span><br><span class="line">            filename: <span class="string">'index.html'</span>,        <span class="comment">// 处理后的文件名</span></span><br><span class="line">            inject: <span class="string">'body'</span>,                <span class="comment">// 脚本自动插入的位置</span></span><br><span class="line">            minify:&#123; <span class="comment">// 压缩优化HTML页面</span></span><br><span class="line">                collapseWhitespace:<span class="literal">true</span>,   <span class="comment">// 合并空白字符</span></span><br><span class="line">                removeComments:<span class="literal">true</span>,       <span class="comment">// 移除注释</span></span><br><span class="line">                removeAttributeQuotes:<span class="literal">true</span> <span class="comment">// 移除属性上的引号</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;)</span><br><span class="line">    ]</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<h2 id="三、clean-webpack-plugin"><a href="#三、clean-webpack-plugin" class="headerlink" title="三、clean-webpack-plugin"></a>三、clean-webpack-plugin</h2><h4 id="3-1-简介"><a href="#3-1-简介" class="headerlink" title="3.1 简介"></a>3.1 简介</h4><ul>
-<li>用于清除目录垃圾文件</li>
-</ul>
-<h4 id="3-2-安装"><a href="#3-2-安装" class="headerlink" title="3.2 安装"></a>3.2 安装</h4><ul>
-<li>脚本：<code>npm i clean-webpack-plugin -D</code></li>
-</ul>
-<h4 id="3-3-使用"><a href="#3-3-使用" class="headerlink" title="3.3 使用"></a>3.3 使用</h4><ul>
-<li>这里用它在打包<code>之前</code>先清除掉dist目录, 防止多次打包<code>后</code>生成过多的垃圾文件</li>
-</ul>
-<h4 id="3-4-webpack配置"><a href="#3-4-webpack配置" class="headerlink" title="3.4 webpack配置"></a>3.4 webpack配置</h4><ul>
-<li>在webpack.config.js文件中</li>
-<li>首先<code>导入</code>clean-webpack-plugin插件</li>
-<li>然后<code>创建实例</code>配置到<code>plugins</code>配置项中</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">const CleanWP = require(&apos;clean-webpack-plugin&apos;);</span><br><span class="line"></span><br><span class="line">module.exports = &#123;</span><br><span class="line">    // 插件配置</span><br><span class="line">    plugins: [</span><br><span class="line">      new CleanWP([&apos;dist&apos;])  // 每次打包前先清除dist目录</span><br><span class="line">    ]</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<p>待续</p>
-<p>webpack.optimize.CommonsChunkPlugin</p>
-<p>webpack.optimize.UglifyJsPlugin</p>
-<p>extract-text-webpack-plugin</p>
-<p>optimize-css-assets-webpack-plugin</p>
+        <h2 id="一、如何创建一个组件"><a href="#一、如何创建一个组件" class="headerlink" title="一、如何创建一个组件"></a>一、如何创建一个组件</h2><h3 id="1-1-局部组件"><a href="#1-1-局部组件" class="headerlink" title="1.1 局部组件"></a>1.1 局部组件</h3><p>以 vue-clic 生成的项目为例，新建 demo.vue 后缀的文件</p>
+<p>可以用 vscode 的 插件 vetur 生成 vue 的模板</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">	export default &#123;</span><br><span class="line">        components:&#123;</span><br><span class="line">        &#125;,</span><br><span class="line">        data() &#123;</span><br><span class="line">          return &#123;&#125;</span><br><span class="line">        &#125;,</span><br><span class="line">		methods:&#123;</span><br><span class="line">		&#125;,</span><br><span class="line">   		computed:&#123;</span><br><span class="line">		&#125;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line">&lt;style&gt;</span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure>
+<p>在该组件中编写完相应的布局，js，样式之后，就可以通过在其它组件中导入该组件进行使用。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">	&lt;demo-component&gt;&lt;/demo-component&gt;</span><br><span class="line">&lt;template&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">import Demo from &apos;./demo.vue&apos;</span><br><span class="line">export default &#123;</span><br><span class="line">    components: &#123;</span><br><span class="line">        // Demo</span><br><span class="line">      	// 下面这种是需要重命名的写法</span><br><span class="line">      	&apos;demo-component&apos;:Demo</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line">&lt;style&gt;</span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="1-2-全局组件"><a href="#1-2-全局组件" class="headerlink" title="1.2 全局组件"></a>1.2 全局组件</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//编写属于自己的公共Vue组件库</span></span><br><span class="line"><span class="comment">//该脚本的作用是，导入所有的公共组件，把它们统一声明成全局组件</span></span><br><span class="line"><span class="comment">//或者是 main.js 中声明，不过这样代码会很多</span></span><br><span class="line"><span class="keyword">import</span> Demo1 <span class="keyword">from</span> <span class="string">'./demo1.vue'</span>;</span><br><span class="line"><span class="keyword">import</span> Demo2 <span class="keyword">from</span> <span class="string">'./demo2.vue'</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 对外暴露一个对象，对象里面定义一个 install 方法，该方法会接收 Vue ，然后通过 Vue.component 方法把导入的组件声明成全局的，将来就可以在任何地方使用了</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">    install(Vue) &#123;</span><br><span class="line">        Vue.component(<span class="string">'app-demo1'</span>,Demo1);</span><br><span class="line">        Vue.component(<span class="string">'app-demo2'</span>,Demo2);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="二、让一个页面同时出现两个组件"><a href="#二、让一个页面同时出现两个组件" class="headerlink" title="二、让一个页面同时出现两个组件"></a>二、让一个页面同时出现两个组件</h2><h3 id="2-1-方法一："><a href="#2-1-方法一：" class="headerlink" title="2.1 方法一："></a>2.1 方法一：</h3><p>在根组件 App.vue 中直接插入其它组件，建议是页面含有全局组件的情况下可以这种写法。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">	&lt;main&gt;</span><br><span class="line">		&lt;app-header&gt;&lt;/app-header&gt;</span><br><span class="line">		&lt;router-view&gt;&lt;/router-view&gt;</span><br><span class="line">		&lt;app-footer&gt;&lt;/app-footer&gt;</span><br><span class="line">	&lt;/main&gt;</span><br><span class="line">&lt;/template&gt;</span><br></pre></td></tr></table></figure>
+<p><code>app-header</code> 和 <code>app-footer</code> 建议注册为全局组件。</p>
+<h3 id="2-2-方法二："><a href="#2-2-方法二：" class="headerlink" title="2.2 方法二："></a>2.2 方法二：</h3><p>父子关系组件中父组件引入子组件。</p>
+<p>使用本文中局部组件的引入方式即可。</p>
+<h3 id="2-3-方法三："><a href="#2-3-方法三：" class="headerlink" title="2.3 方法三："></a>2.3 方法三：</h3><p>使用 vue-route 的嵌套路由来完成</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="keyword">new</span> Router(&#123;</span><br><span class="line">  routes: [</span><br><span class="line">    &#123;</span><br><span class="line">      path: <span class="string">''</span>,</span><br><span class="line">      component: Layout,</span><br><span class="line">      redirect: <span class="string">'home'</span>,</span><br><span class="line">      children: [&#123;</span><br><span class="line">        path: <span class="string">'home'</span>,</span><br><span class="line">        component: Home</span><br><span class="line">      &#125;]</span><br><span class="line">    &#125;</span><br><span class="line">  ]</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>在 Layout.vue 中需要放置  <code>&lt;router-view/&gt;</code></p>
+<p>当访问链接中的描点值为 #/home时会生效</p>
 
       
     </div>
@@ -419,7 +389,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/打包/" rel="tag"><i class="fa fa-tag"></i> 打包</a>
+            <a href="/tags/vue/" rel="tag"><i class="fa fa-tag"></i> vue</a>
           
         </div>
       
@@ -432,8 +402,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/11/22/vue-cli 攻略/" rel="next" title="vue-cli 攻略">
-                <i class="fa fa-chevron-left"></i> vue-cli 攻略
+              <a href="/2018/01/22/vue 自定义指令/" rel="next" title="vue 自定义指令">
+                <i class="fa fa-chevron-left"></i> vue 自定义指令
               </a>
             
           </div>
@@ -442,8 +412,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/11/22/vue 生命周期函数/" rel="prev" title="vue 生命周期函数">
-                vue 生命周期函数 <i class="fa fa-chevron-right"></i>
+              <a href="/2018/01/22/vue-router 攻略/" rel="prev" title="vue-router 攻略">
+                vue-router 攻略 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -619,7 +589,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#一、plugin使用"><span class="nav-number">1.</span> <span class="nav-text">一、plugin使用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-package-json"><span class="nav-number">1.1.</span> <span class="nav-text">1.1 package.json</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-webpack"><span class="nav-number">1.2.</span> <span class="nav-text">1.2 webpack</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、html-webpack-plugin"><span class="nav-number">2.</span> <span class="nav-text">二、html-webpack-plugin</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#2-1-简介"><span class="nav-number">2.0.1.</span> <span class="nav-text">2.1 简介</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-2-安装"><span class="nav-number">2.0.2.</span> <span class="nav-text">2.2 安装</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-3-使用"><span class="nav-number">2.0.3.</span> <span class="nav-text">2.3 使用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-4-配置"><span class="nav-number">2.0.4.</span> <span class="nav-text">2.4 配置</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三、clean-webpack-plugin"><span class="nav-number">3.</span> <span class="nav-text">三、clean-webpack-plugin</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#3-1-简介"><span class="nav-number">3.0.1.</span> <span class="nav-text">3.1 简介</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-2-安装"><span class="nav-number">3.0.2.</span> <span class="nav-text">3.2 安装</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-3-使用"><span class="nav-number">3.0.3.</span> <span class="nav-text">3.3 使用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-4-webpack配置"><span class="nav-number">3.0.4.</span> <span class="nav-text">3.4 webpack配置</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#一、如何创建一个组件"><span class="nav-number">1.</span> <span class="nav-text">一、如何创建一个组件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-局部组件"><span class="nav-number">1.1.</span> <span class="nav-text">1.1 局部组件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-全局组件"><span class="nav-number">1.2.</span> <span class="nav-text">1.2 全局组件</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、让一个页面同时出现两个组件"><span class="nav-number">2.</span> <span class="nav-text">二、让一个页面同时出现两个组件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-方法一："><span class="nav-number">2.1.</span> <span class="nav-text">2.1 方法一：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-方法二："><span class="nav-number">2.2.</span> <span class="nav-text">2.2 方法二：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3-方法三："><span class="nav-number">2.3.</span> <span class="nav-text">2.3 方法三：</span></a></li></ol></li></ol></div>
             
 
           </div>
