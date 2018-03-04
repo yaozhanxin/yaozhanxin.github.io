@@ -66,7 +66,7 @@
 
 
 
-  <meta name="keywords" content="javascript," />
+  <meta name="keywords" content="Hexo, NexT" />
 
 
 
@@ -77,18 +77,17 @@
 
 
 
-<meta name="description" content="mapECMAScript 5.1 (ECMA-262) 中的方法 方法创建一个新数组，其结果是该数组中的每个元素都调用一个提供的函数后返回的结果。 可以用来对原数组中的值进行改造。 12345let arr = [10, 20, 30];let newArr = arr.map((v, k) =&amp;gt; &amp;#123;    return ++v;&amp;#125;)console.log(newArr">
-<meta name="keywords" content="javascript">
+<meta name="description" content="setAttribute(attributename, attributevalue)给 DOM 元素添加指定的属性，并为其赋指定的值。 如果这个指定的属性已存在，则仅设置/更改值。 为 DOM 元素添加 class 时，DOM 元素本身的 class 会被覆盖掉。 1document.getElementById(&apos;box&apos;).setAttribute(&apos;class&apos;,&apos;className&apos;);">
 <meta property="og:type" content="article">
-<meta property="og:title" content="js 遍历">
-<meta property="og:url" content="http://yoursite.com/2018/01/06/JS 遍历的各种方法/index.html">
+<meta property="og:title" content="崭新">
+<meta property="og:url" content="http://yoursite.com/2018/03/01/使用原生JS 操作样式/index.html">
 <meta property="og:site_name" content="崭新">
-<meta property="og:description" content="mapECMAScript 5.1 (ECMA-262) 中的方法 方法创建一个新数组，其结果是该数组中的每个元素都调用一个提供的函数后返回的结果。 可以用来对原数组中的值进行改造。 12345let arr = [10, 20, 30];let newArr = arr.map((v, k) =&amp;gt; &amp;#123;    return ++v;&amp;#125;)console.log(newArr">
+<meta property="og:description" content="setAttribute(attributename, attributevalue)给 DOM 元素添加指定的属性，并为其赋指定的值。 如果这个指定的属性已存在，则仅设置/更改值。 为 DOM 元素添加 class 时，DOM 元素本身的 class 会被覆盖掉。 1document.getElementById(&apos;box&apos;).setAttribute(&apos;class&apos;,&apos;className&apos;);">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-02-12T10:10:27.921Z">
+<meta property="og:updated_time" content="2018-03-03T03:05:53.991Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="js 遍历">
-<meta name="twitter:description" content="mapECMAScript 5.1 (ECMA-262) 中的方法 方法创建一个新数组，其结果是该数组中的每个元素都调用一个提供的函数后返回的结果。 可以用来对原数组中的值进行改造。 12345let arr = [10, 20, 30];let newArr = arr.map((v, k) =&amp;gt; &amp;#123;    return ++v;&amp;#125;)console.log(newArr">
+<meta name="twitter:title" content="崭新">
+<meta name="twitter:description" content="setAttribute(attributename, attributevalue)给 DOM 元素添加指定的属性，并为其赋指定的值。 如果这个指定的属性已存在，则仅设置/更改值。 为 DOM 元素添加 class 时，DOM 元素本身的 class 会被覆盖掉。 1document.getElementById(&apos;box&apos;).setAttribute(&apos;class&apos;,&apos;className&apos;);">
 
 
 
@@ -118,13 +117,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/01/06/JS 遍历的各种方法/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/03/01/使用原生JS 操作样式/"/>
 
 
 
 
 
-  <title>js 遍历 | 崭新</title>
+  <title> | 崭新</title>
   
 
 
@@ -261,7 +260,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/06/JS 遍历的各种方法/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/01/使用原生JS 操作样式/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="崭新">
@@ -278,7 +277,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">js 遍历</h1>
+          <h1 class="post-title" itemprop="name headline"></h1>
         
 
         <div class="post-meta">
@@ -290,8 +289,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-06T15:08:32+08:00">
-                2018-01-06
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-01T18:00:20+08:00">
+                2018-03-01
               </time>
             
 
@@ -328,20 +327,23 @@
       
 
       
-        <h3 id="map"><a href="#map" class="headerlink" title="map"></a>map</h3><p>ECMAScript 5.1 (ECMA-262) 中的方法</p>
-<p>方法创建一个新数组，其结果是该数组中的每个元素都调用一个提供的函数后返回的结果。</p>
-<p>可以用来对原数组中的值进行改造。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> arr = [<span class="number">10</span>, <span class="number">20</span>, <span class="number">30</span>];</span><br><span class="line"><span class="keyword">let</span> newArr = arr.map(<span class="function">(<span class="params">v, k</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> ++v;</span><br><span class="line">&#125;)</span><br><span class="line"><span class="built_in">console</span>.log(newArr); <span class="comment">// [ 11, 21, 31 ]</span></span><br></pre></td></tr></table></figure>
-<h3 id="filter"><a href="#filter" class="headerlink" title="filter"></a>filter</h3><p>ECMAScript 5.1 (ECMA-262) 中的方法</p>
-<p>方法创建一个新数组, 其包含通过所提供函数实现的测试的所有元素。 </p>
-<p>常用来对原数组进行过滤。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> arr = [<span class="number">10</span>, <span class="number">20</span>, <span class="number">30</span>, <span class="number">40</span>, <span class="number">50</span>];</span><br><span class="line"><span class="keyword">let</span> newArr = arr.filter(<span class="function">(<span class="params">v</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="comment">// 此处结果为 true ，才会被插入到 newArr 中</span></span><br><span class="line">    <span class="keyword">return</span> v &gt;= <span class="number">30</span>;</span><br><span class="line">&#125;)</span><br><span class="line"><span class="built_in">console</span>.log(newArr); <span class="comment">// [ 30, 40, 50 ]</span></span><br></pre></td></tr></table></figure>
-<h3 id="forEach"><a href="#forEach" class="headerlink" title="forEach"></a>forEach</h3><p>ECMAScript 5.1 (ECMA-262) 中的方法</p>
-<p>方法对数组的每个元素执行一次提供的函数。</p>
-<p>注意: 没有返回一个新数组! &amp; 没有返回值!</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> arr = [<span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">'a'</span>, <span class="string">'a'</span>];</span><br><span class="line"><span class="keyword">let</span> count = <span class="number">0</span>;</span><br><span class="line">arr.forEach(<span class="function">(<span class="params">v, k</span>) =&gt;</span> &#123;</span><br><span class="line">    v == <span class="string">'a'</span> ? count++ : <span class="string">''</span>;</span><br><span class="line">&#125;)</span><br><span class="line"><span class="built_in">console</span>.log(count); <span class="comment">// 3</span></span><br></pre></td></tr></table></figure>
-<p>keys</p>
-<p>待续</p>
+        <h3 id="setAttribute-attributename-attributevalue"><a href="#setAttribute-attributename-attributevalue" class="headerlink" title="setAttribute(attributename, attributevalue)"></a>setAttribute(<em>attributename</em>, <em>attributevalue</em>)</h3><p>给 DOM 元素添加指定的属性，并为其赋指定的值。</p>
+<p>如果这个指定的属性已存在，则仅设置/更改值。</p>
+<p>为 DOM 元素添加 class 时，DOM 元素本身的 class 会被覆盖掉。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">document</span>.getElementById(<span class="string">'box'</span>).setAttribute(<span class="string">'class'</span>,<span class="string">'className'</span>);</span><br></pre></td></tr></table></figure>
+<h3 id="style-property-new-style"><a href="#style-property-new-style" class="headerlink" title="style.property = new style"></a>style.property = new style</h3><p>对 DOM 元素进行单个样式修改</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">document</span>.getElementById(<span class="string">'box'</span>).style.backgroundColor = <span class="string">'orange'</span>;</span><br></pre></td></tr></table></figure>
+<p>属性名如果含有 <code>&#39;-&#39;</code> ，要去年 <code>&#39;-&#39;</code> ，后一个字母大写。或者用保留 <code>&#39;-&#39;</code> 的写法</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">document</span>.getElementById(<span class="string">'box'</span>).style[<span class="string">'background-color'</span>] = <span class="string">'orange'</span>;</span><br></pre></td></tr></table></figure>
+<h3 id="className"><a href="#className" class="headerlink" title="className"></a>className</h3><p>className 属性设置或返回 DOM 元素的 class 属性。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 会输出 #box 的所有 class 值</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">document</span>.getElementById(<span class="string">'box'</span>).className)</span><br></pre></td></tr></table></figure>
+<p>可以通过为其赋值来增加样式</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">document</span>.getElementById(<span class="string">'box'</span>).className += <span class="string">' newClassName'</span>;</span><br></pre></td></tr></table></figure>
+<p>字符串值前面要加上空格，分个识别</p>
+<h3 id="classList"><a href="#classList" class="headerlink" title="classList"></a>classList</h3><p>添加类名</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">document</span>.getElementById(<span class="string">'box'</span>).classList.add(<span class="string">'className'</span>);</span><br></pre></td></tr></table></figure>
+<p>删除类名</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">document.getElementById(&apos;box&apos;).classList.remove(&apos;className&apos;);</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -386,12 +388,6 @@
 
     <footer class="post-footer">
       
-        <div class="post-tags">
-          
-            <a href="/tags/javascript/" rel="tag"><i class="fa fa-tag"></i> javascript</a>
-          
-        </div>
-      
 
       
       
@@ -401,8 +397,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/01/06/nvm+nrm+全局npm环境搭建/" rel="next" title="nvm+nrm+全局npm环境搭建">
-                <i class="fa fa-chevron-left"></i> nvm+nrm+全局npm环境搭建
+              <a href="/2018/01/23/vue 过滤器/" rel="next" title="vue 过滤器">
+                <i class="fa fa-chevron-left"></i> vue 过滤器
               </a>
             
           </div>
@@ -410,10 +406,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/01/22/vue 自定义指令/" rel="prev" title="vue 自定义指令">
-                vue 自定义指令 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -588,7 +580,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#map"><span class="nav-number">1.</span> <span class="nav-text">map</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#filter"><span class="nav-number">2.</span> <span class="nav-text">filter</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#forEach"><span class="nav-number">3.</span> <span class="nav-text">forEach</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#setAttribute-attributename-attributevalue"><span class="nav-number">1.</span> <span class="nav-text">setAttribute(attributename, attributevalue)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#style-property-new-style"><span class="nav-number">2.</span> <span class="nav-text">style.property = new style</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#className"><span class="nav-number">3.</span> <span class="nav-text">className</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#classList"><span class="nav-number">4.</span> <span class="nav-text">classList</span></a></li></ol></div>
             
 
           </div>
