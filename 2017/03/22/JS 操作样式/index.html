@@ -66,7 +66,7 @@
 
 
 
-  <meta name="keywords" content="interview,移动端,布局," />
+  <meta name="keywords" content="javascript," />
 
 
 
@@ -77,18 +77,18 @@
 
 
 
-<meta name="description" content="详细步骤1、UI 通常会出一张 640 或者 750 的设计图。 2、在代码方面，首先要添加一行 mete 标签 1&amp;lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0&quot;&amp;gt; 这行 viewpo">
-<meta name="keywords" content="interview,移动端,布局">
+<meta name="description" content="setAttribute(attributename, attributevalue)给 DOM 元素添加指定的属性，并为其赋指定的值。 如果这个指定的属性已存在，则仅设置/更改值。 为 DOM 元素添加 class 时，DOM 元素本身的 class 会被覆盖掉。 1document.getElementById(&apos;box&apos;).setAttribute(&apos;class&apos;,&apos;className&apos;);">
+<meta name="keywords" content="javascript">
 <meta property="og:type" content="article">
-<meta property="og:title" content="rem 布局">
-<meta property="og:url" content="http://yoursite.com/2017/07/22/rem 布局/index.html">
+<meta property="og:title" content="JS 操作样式">
+<meta property="og:url" content="http://yoursite.com/2017/03/22/JS 操作样式/index.html">
 <meta property="og:site_name" content="崭新">
-<meta property="og:description" content="详细步骤1、UI 通常会出一张 640 或者 750 的设计图。 2、在代码方面，首先要添加一行 mete 标签 1&amp;lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0&quot;&amp;gt; 这行 viewpo">
+<meta property="og:description" content="setAttribute(attributename, attributevalue)给 DOM 元素添加指定的属性，并为其赋指定的值。 如果这个指定的属性已存在，则仅设置/更改值。 为 DOM 元素添加 class 时，DOM 元素本身的 class 会被覆盖掉。 1document.getElementById(&apos;box&apos;).setAttribute(&apos;class&apos;,&apos;className&apos;);">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-02-24T08:16:48.106Z">
+<meta property="og:updated_time" content="2018-03-05T01:43:40.107Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="rem 布局">
-<meta name="twitter:description" content="详细步骤1、UI 通常会出一张 640 或者 750 的设计图。 2、在代码方面，首先要添加一行 mete 标签 1&amp;lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0&quot;&amp;gt; 这行 viewpo">
+<meta name="twitter:title" content="JS 操作样式">
+<meta name="twitter:description" content="setAttribute(attributename, attributevalue)给 DOM 元素添加指定的属性，并为其赋指定的值。 如果这个指定的属性已存在，则仅设置/更改值。 为 DOM 元素添加 class 时，DOM 元素本身的 class 会被覆盖掉。 1document.getElementById(&apos;box&apos;).setAttribute(&apos;class&apos;,&apos;className&apos;);">
 
 
 
@@ -118,13 +118,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/07/22/rem 布局/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/03/22/JS 操作样式/"/>
 
 
 
 
 
-  <title>rem 布局 | 崭新</title>
+  <title>JS 操作样式 | 崭新</title>
   
 
 
@@ -261,7 +261,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/07/22/rem 布局/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/03/22/JS 操作样式/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="崭新">
@@ -278,7 +278,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">rem 布局</h1>
+          <h1 class="post-title" itemprop="name headline">JS 操作样式</h1>
         
 
         <div class="post-meta">
@@ -290,8 +290,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-22T15:08:32+08:00">
-                2017-07-22
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-22T15:08:32+08:00">
+                2017-03-22
               </time>
             
 
@@ -328,28 +328,23 @@
       
 
       
-        <h2 id="详细步骤"><a href="#详细步骤" class="headerlink" title="详细步骤"></a>详细步骤</h2><p>1、UI 通常会出一张 640 或者 750 的设计图。</p>
-<p>2、在代码方面，首先要添加一行 mete 标签</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"viewport"</span> <span class="attr">content</span>=<span class="string">"width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>这行 viewport 的意思就是<strong><em>视口</em></strong> ，可以让网页宽度默认等于屏幕宽度。</p>
-<p>3、用 JS 修改 html 的 fontSize</p>
-<p>除以 20 的原因是为了将 640 的设计图分为 20 份，纯粹是为了数值好算，并没有其它意义</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">document</span>.querySelector(<span class="string">'html'</span>).style.fontSize = <span class="built_in">window</span>.screen.width / <span class="number">20</span> + <span class="string">'px'</span>;</span><br></pre></td></tr></table></figure>
-<p>如果是调试的时候，可以这样写，动态改变</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">window</span>.onresize = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">	  <span class="built_in">document</span>.querySelector(<span class="string">'html'</span>).style.fontSize = <span class="built_in">window</span>.screen.width / <span class="number">20</span> + <span class="string">'px'</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>这段代码需要放在头部，为了最先加载，单独写这一条要注意 window.onresize 的触发时机。</p>
-</blockquote>
-<p>4、css 中的 rem 计算</p>
-<p>以640的设计图为例，160 为设计图中测量出来的 160 px，32 为 640 / 20 = 32</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.box</span>&#123;</span><br><span class="line">  <span class="attribute">width</span>: (<span class="number">160</span>/<span class="number">32</span>)*<span class="number">1rem</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>如果是 750 的设计图，建议分成 25 份，30 为 750 / 25 = 30</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">.box&#123;</span><br><span class="line">  width: (160/30)*1rem;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>5、简写</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">.box &#123;</span><br><span class="line">  width: (160rem/30);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<hr>
-<p><strong><em>总结：</em></strong></p>
-<p>​    ui出的图就是640的，在头部引入一段JS代码，设置html的fontsize等于屏幕大小除以20，就是分成20分，然后量出设计图中的尺寸，因为640分成20份，就是32，所以再除以32，乘以1rem，就可以得出一个rem的尺寸。</p>
+        <h3 id="setAttribute-attributename-attributevalue"><a href="#setAttribute-attributename-attributevalue" class="headerlink" title="setAttribute(attributename, attributevalue)"></a>setAttribute(<em>attributename</em>, <em>attributevalue</em>)</h3><p>给 DOM 元素添加指定的属性，并为其赋指定的值。</p>
+<p>如果这个指定的属性已存在，则仅设置/更改值。</p>
+<p>为 DOM 元素添加 class 时，DOM 元素本身的 class 会被覆盖掉。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">document</span>.getElementById(<span class="string">'box'</span>).setAttribute(<span class="string">'class'</span>,<span class="string">'className'</span>);</span><br></pre></td></tr></table></figure>
+<h3 id="style-property-new-style"><a href="#style-property-new-style" class="headerlink" title="style.property = new style"></a>style.property = new style</h3><p>对 DOM 元素进行单个样式修改</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">document</span>.getElementById(<span class="string">'box'</span>).style.backgroundColor = <span class="string">'orange'</span>;</span><br></pre></td></tr></table></figure>
+<p>属性名如果含有 <code>&#39;-&#39;</code> ，要去年 <code>&#39;-&#39;</code> ，后一个字母大写。或者用保留 <code>&#39;-&#39;</code> 的写法</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">document</span>.getElementById(<span class="string">'box'</span>).style[<span class="string">'background-color'</span>] = <span class="string">'orange'</span>;</span><br></pre></td></tr></table></figure>
+<h3 id="className"><a href="#className" class="headerlink" title="className"></a>className</h3><p>className 属性设置或返回 DOM 元素的 class 属性。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 会输出 #box 的所有 class 值</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">document</span>.getElementById(<span class="string">'box'</span>).className)</span><br></pre></td></tr></table></figure>
+<p>可以通过为其赋值来增加样式</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">document</span>.getElementById(<span class="string">'box'</span>).className += <span class="string">' newClassName'</span>;</span><br></pre></td></tr></table></figure>
+<p>字符串值前面要加上空格，分个识别</p>
+<h3 id="classList"><a href="#classList" class="headerlink" title="classList"></a>classList</h3><p>添加类名</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">document</span>.getElementById(<span class="string">'box'</span>).classList.add(<span class="string">'className'</span>);</span><br></pre></td></tr></table></figure>
+<p>删除类名</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">document.getElementById(&apos;box&apos;).classList.remove(&apos;className&apos;);</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -396,11 +391,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/interview/" rel="tag"><i class="fa fa-tag"></i> interview</a>
-          
-            <a href="/tags/移动端/" rel="tag"><i class="fa fa-tag"></i> 移动端</a>
-          
-            <a href="/tags/布局/" rel="tag"><i class="fa fa-tag"></i> 布局</a>
+            <a href="/tags/javascript/" rel="tag"><i class="fa fa-tag"></i> javascript</a>
           
         </div>
       
@@ -413,8 +404,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/07/22/vue interview/" rel="next" title="vue interview">
-                <i class="fa fa-chevron-left"></i> vue interview
+              <a href="/2017/03/22/Mockjs 模拟数据/" rel="next" title="Mockjs 模拟数据">
+                <i class="fa fa-chevron-left"></i> Mockjs 模拟数据
               </a>
             
           </div>
@@ -423,8 +414,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/07/22/ES6 其它/" rel="prev" title="ES6 其它">
-                ES6 其它 <i class="fa fa-chevron-right"></i>
+              <a href="/2017/03/22/jquery interview/" rel="prev" title="jquery interview">
+                jquery interview <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -600,7 +591,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#详细步骤"><span class="nav-number">1.</span> <span class="nav-text">详细步骤</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#setAttribute-attributename-attributevalue"><span class="nav-number">1.</span> <span class="nav-text">setAttribute(attributename, attributevalue)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#style-property-new-style"><span class="nav-number">2.</span> <span class="nav-text">style.property = new style</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#className"><span class="nav-number">3.</span> <span class="nav-text">className</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#classList"><span class="nav-number">4.</span> <span class="nav-text">classList</span></a></li></ol></div>
             
 
           </div>
