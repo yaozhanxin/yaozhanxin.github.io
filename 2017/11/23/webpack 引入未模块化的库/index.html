@@ -66,7 +66,7 @@
 
 
 
-  <meta name="keywords" content="vue," />
+  <meta name="keywords" content="webpack," />
 
 
 
@@ -77,18 +77,18 @@
 
 
 
-<meta name="description" content="一、axios1.1、简介 一个基于 promise 的 HTTP 库，可以用在浏览器和 node.js 中。 在浏览器环境中使用 XMLHttpRequest 对象，Node 中使用 http 模块。 vue 作者不再继续维护 vue-resource，并推荐大家使用 axios。  1.2、入门在浏览器环境中导入库，然后使用库暴露的全局变量 axios 发送请求 get请求  函数调用会返回一">
-<meta name="keywords" content="vue">
+<meta name="description" content="一、开始1.1 问题用 webpack 打包项目时，如果用 import 导入 Zepto 这种使用 AMD 规范化的库，会报一个 Uncaught TypeError: Cannot read property &amp;#39;createElement&amp;#39; of undefined 的错误。 1.2 解决方法webpack 要使用两个 loader：exports-loader 和 scrip">
+<meta name="keywords" content="webpack">
 <meta property="og:type" content="article">
-<meta property="og:title" content="axios">
-<meta property="og:url" content="http://yoursite.com/2017/07/22/axios/index.html">
+<meta property="og:title" content="webpack 入门">
+<meta property="og:url" content="http://yoursite.com/2017/11/23/webpack 引入未模块化的库/index.html">
 <meta property="og:site_name" content="崭新">
-<meta property="og:description" content="一、axios1.1、简介 一个基于 promise 的 HTTP 库，可以用在浏览器和 node.js 中。 在浏览器环境中使用 XMLHttpRequest 对象，Node 中使用 http 模块。 vue 作者不再继续维护 vue-resource，并推荐大家使用 axios。  1.2、入门在浏览器环境中导入库，然后使用库暴露的全局变量 axios 发送请求 get请求  函数调用会返回一">
+<meta property="og:description" content="一、开始1.1 问题用 webpack 打包项目时，如果用 import 导入 Zepto 这种使用 AMD 规范化的库，会报一个 Uncaught TypeError: Cannot read property &amp;#39;createElement&amp;#39; of undefined 的错误。 1.2 解决方法webpack 要使用两个 loader：exports-loader 和 scrip">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-02-12T10:10:27.920Z">
+<meta property="og:updated_time" content="2018-03-06T12:54:24.872Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="axios">
-<meta name="twitter:description" content="一、axios1.1、简介 一个基于 promise 的 HTTP 库，可以用在浏览器和 node.js 中。 在浏览器环境中使用 XMLHttpRequest 对象，Node 中使用 http 模块。 vue 作者不再继续维护 vue-resource，并推荐大家使用 axios。  1.2、入门在浏览器环境中导入库，然后使用库暴露的全局变量 axios 发送请求 get请求  函数调用会返回一">
+<meta name="twitter:title" content="webpack 入门">
+<meta name="twitter:description" content="一、开始1.1 问题用 webpack 打包项目时，如果用 import 导入 Zepto 这种使用 AMD 规范化的库，会报一个 Uncaught TypeError: Cannot read property &amp;#39;createElement&amp;#39; of undefined 的错误。 1.2 解决方法webpack 要使用两个 loader：exports-loader 和 scrip">
 
 
 
@@ -118,13 +118,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/07/22/axios/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/11/23/webpack 引入未模块化的库/"/>
 
 
 
 
 
-  <title>axios | 崭新</title>
+  <title>webpack 入门 | 崭新</title>
   
 
 
@@ -261,7 +261,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/07/22/axios/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/11/23/webpack 引入未模块化的库/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="崭新">
@@ -278,7 +278,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">axios</h1>
+          <h1 class="post-title" itemprop="name headline">webpack 入门</h1>
         
 
         <div class="post-meta">
@@ -290,8 +290,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-22T15:08:32+08:00">
-                2017-07-22
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-23T15:08:32+08:00">
+                2017-11-23
               </time>
             
 
@@ -328,32 +328,21 @@
       
 
       
-        <h2 id="一、axios"><a href="#一、axios" class="headerlink" title="一、axios"></a>一、axios</h2><h3 id="1-1、简介"><a href="#1-1、简介" class="headerlink" title="1.1、简介"></a>1.1、简介</h3><ul>
-<li>一个基于 promise 的 HTTP 库，可以用在浏览器和 node.js 中。</li>
-<li>在浏览器环境中使用 XMLHttpRequest 对象，Node 中使用 http 模块。</li>
-<li>vue 作者不再继续维护 vue-resource，并推荐大家使用 axios。</li>
-</ul>
-<h3 id="1-2、入门"><a href="#1-2、入门" class="headerlink" title="1.2、入门"></a>1.2、入门</h3><p>在浏览器环境中导入库，然后使用库暴露的全局变量 axios 发送请求</p>
-<p><strong>get请求</strong></p>
-<ul>
-<li>函数调用会返回一个<code>Promise</code>实例，通过 then 或 catch 添加成功失败回调</li>
-<li>成功回调接收一个<code>response</code>对象，要拿到请求回来的数据，需要通过 respone.data 来取</li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 得到一个 Promise 实例, 通过 then 或 catch 添加成功失败回调</span></span><br><span class="line">axios.get(<span class="string">'http://vue.studyit.io/api/getprodlist'</span>)  </span><br><span class="line"><span class="comment">// 得到response对象, 通过data属性拿数据</span></span><br><span class="line">.then(<span class="function">(<span class="params">rep</span>) =&gt;</span> <span class="built_in">console</span>.log(rep.data))    </span><br><span class="line"><span class="comment">// 得到错误描述对象</span></span><br><span class="line">.catch(<span class="function">(<span class="params">err</span>) =&gt;</span> <span class="built_in">console</span>.log(err))</span><br></pre></td></tr></table></figure>
-<h3 id="1-3、语法"><a href="#1-3、语法" class="headerlink" title="1.3、语法"></a>1.3、语法</h3><p><strong>axios(config)</strong></p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 与 jQ 的 ajax 方法类似</span></span><br><span class="line">axios(&#123;</span><br><span class="line">    url: <span class="string">''</span>,</span><br><span class="line">    method: <span class="string">'post'</span>,</span><br><span class="line">    data: &#123;&#125;</span><br><span class="line">&#125;).then()</span><br></pre></td></tr></table></figure>
-<p><strong>axios.method( )</strong></p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 与 jQ 的 get、post 方法类似</span></span><br><span class="line">axios.get(url, config)</span><br><span class="line">axios.post(url, data, config)</span><br><span class="line">axios.delete(url, config)</span><br><span class="line">axios.head(url, config)</span><br><span class="line">axios.put(url, data, config)</span><br><span class="line">axios.patch(url, data, config)</span><br></pre></td></tr></table></figure>
-<p><strong>特点</strong></p>
-<ul>
-<li>可以拦截请求与响应，或取消请求，或进行统一的请求配置与处理</li>
-</ul>
-<h3 id="1-4、使用"><a href="#1-4、使用" class="headerlink" title="1.4、使用"></a>1.4、使用</h3><p><strong>get请求</strong></p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> config = &#123;</span><br><span class="line">    params: &#123; <span class="attr">pageindex</span>: <span class="number">1</span> &#125;</span><br><span class="line">&#125;;</span><br><span class="line">axios.get(<span class="string">'/news/list'</span>, config)</span><br><span class="line">    .then(<span class="function"><span class="params">rep</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(rep.data);</span><br><span class="line">    &#125;);</span><br></pre></td></tr></table></figure>
-<p><strong>post请求</strong></p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> data = &#123;</span><br><span class="line">    user_name: <span class="string">'self'</span>,</span><br><span class="line">    user_pwd: <span class="number">111111</span></span><br><span class="line">&#125;;</span><br><span class="line">axios.post(<span class="string">'/login'</span>, data)</span><br><span class="line">    .then(<span class="function"><span class="params">rep</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(rep.obj);</span><br><span class="line">    &#125;);</span><br></pre></td></tr></table></figure>
-<p><strong>默认配置</strong></p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> config = &#123;</span><br><span class="line">  url:<span class="string">'/user'</span>,</span><br><span class="line">  method:<span class="string">'get'</span> <span class="comment">//default</span></span><br><span class="line">  baseURL:<span class="string">'https://some-domain.com/api/'</span>,</span><br><span class="line">  transformRequest:[<span class="function"><span class="keyword">function</span>(<span class="params">data</span>)</span>&#123;&#125;],</span><br><span class="line">  headers: &#123;<span class="string">'X-Requested-With'</span>:<span class="string">'XMLHttpRequest'</span>&#125;,</span><br><span class="line">  params: &#123;</span><br><span class="line">    ID:<span class="number">12345</span></span><br><span class="line">  &#125;,</span><br><span class="line">  ...</span><br><span class="line">&#125;;</span><br><span class="line">axios.defaults = <span class="built_in">Object</span>.as</span><br></pre></td></tr></table></figure>
+        <h2 id="一、开始"><a href="#一、开始" class="headerlink" title="一、开始"></a>一、开始</h2><h3 id="1-1-问题"><a href="#1-1-问题" class="headerlink" title="1.1 问题"></a>1.1 问题</h3><p>用 webpack 打包项目时，如果用 <code>import</code> 导入 Zepto 这种使用 AMD 规范化的库，会报一个 <code>Uncaught TypeError: Cannot read property &#39;createElement&#39; of undefined</code> 的错误。</p>
+<h3 id="1-2-解决方法"><a href="#1-2-解决方法" class="headerlink" title="1.2 解决方法"></a>1.2 解决方法</h3><p>webpack 要使用两个 loader：<code>exports-loader</code> 和 <code>script-loader</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm i -D script-loader exports-loader</span><br></pre></td></tr></table></figure>
+<p><strong>配置方法1：</strong></p>
+<p>webpack.config</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">  <span class="built_in">module</span>: &#123;</span><br><span class="line">    loaders: [&#123;</span><br><span class="line">      test: <span class="built_in">require</span>.resolve(<span class="string">'zepto'</span>),</span><br><span class="line">      loader: <span class="string">'exports-loader?window.Zepto!script-loader'</span></span><br><span class="line">    &#125;]</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>文件引用</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> $ <span class="keyword">from</span> <span class="string">'zepto`</span></span><br></pre></td></tr></table></figure>
+<p><strong>配置方法2：</strong></p>
+<p>使用官方的一个插件：<code>webpack.ProvidePlugin</code></p>
+<p><code>webpack.ProvidePlugin</code> 是一个依赖注入类型的插件，可以让你在使用指定变量时，比如直接使用 <code>$</code> 时，自动加载指定的模块 <code>zepto</code>，并将其暴露的对象赋值给 <code>$</code>：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// webpack.config</span></span><br><span class="line">&#123;</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">  plugins: [</span><br><span class="line">    <span class="keyword">new</span> webpack.ProvidePlugin(&#123;</span><br><span class="line">      $: <span class="string">'zepto'</span>,</span><br><span class="line">      <span class="comment">// 把 Zepto 导入为 abc 变量也可以</span></span><br><span class="line">      abc: <span class="string">'zepto'</span></span><br><span class="line">    &#125;)</span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这样就可以直接使用赋值了 Zepto 对象的 <code>$/abc</code> 变量了，不再需要  <code>import $ from &#39;zepto&#39;</code></p>
+<h3 id="1-3-其它"><a href="#1-3-其它" class="headerlink" title="1.3 其它"></a>1.3 其它</h3><p>如果是 vue-cli 生成的项目，需要修改 <code>webpack.base.conf.js</code> 这个文件</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"> <span class="built_in">module</span>: &#123;</span><br><span class="line">    rules: [</span><br><span class="line">      &#123;</span><br><span class="line">        test: <span class="built_in">require</span>.resolve(<span class="string">'zepto'</span>),</span><br><span class="line">        loader: <span class="string">'exports-loader?window.Zepto!script-loader'</span></span><br><span class="line">      &#125;</span><br><span class="line">	]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -400,7 +389,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/vue/" rel="tag"><i class="fa fa-tag"></i> vue</a>
+            <a href="/tags/webpack/" rel="tag"><i class="fa fa-tag"></i> webpack</a>
           
         </div>
       
@@ -413,8 +402,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/07/22/ES6 模块加载/" rel="next" title="ES6 模块加载">
-                <i class="fa fa-chevron-left"></i> ES6 模块加载
+              <a href="/2017/11/23/webpack 入门/" rel="next" title="webpack 入门">
+                <i class="fa fa-chevron-left"></i> webpack 入门
               </a>
             
           </div>
@@ -423,8 +412,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/07/22/css interivew/" rel="prev" title="css interview">
-                css interview <i class="fa fa-chevron-right"></i>
+              <a href="/2018/01/06/nvm+nrm+全局npm环境搭建/" rel="prev" title="nvm+nrm+全局npm环境搭建">
+                nvm+nrm+全局npm环境搭建 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -600,7 +589,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#一、axios"><span class="nav-number">1.</span> <span class="nav-text">一、axios</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1、简介"><span class="nav-number">1.1.</span> <span class="nav-text">1.1、简介</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2、入门"><span class="nav-number">1.2.</span> <span class="nav-text">1.2、入门</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-3、语法"><span class="nav-number">1.3.</span> <span class="nav-text">1.3、语法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-4、使用"><span class="nav-number">1.4.</span> <span class="nav-text">1.4、使用</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#一、开始"><span class="nav-number">1.</span> <span class="nav-text">一、开始</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-问题"><span class="nav-number">1.1.</span> <span class="nav-text">1.1 问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-解决方法"><span class="nav-number">1.2.</span> <span class="nav-text">1.2 解决方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-3-其它"><span class="nav-number">1.3.</span> <span class="nav-text">1.3 其它</span></a></li></ol></li></ol></div>
             
 
           </div>
