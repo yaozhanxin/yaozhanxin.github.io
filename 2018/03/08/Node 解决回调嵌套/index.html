@@ -66,7 +66,7 @@
 
 
 
-  <meta name="keywords" content="HTML5,interview," />
+  <meta name="keywords" content="Node," />
 
 
 
@@ -77,18 +77,18 @@
 
 
 
-<meta name="description" content="html interview1、语义化的好处？ ①、便于搜索引擎爬虫的抓取，seo 优化 ②、代码结构更加清晰，便于开发人员阅读和维护 ③、方便其它的设备解析（如屏幕阅读器、盲人阅读器）">
-<meta name="keywords" content="HTML5,interview">
+<meta name="description" content="一、Node 回调嵌套需求：使用 异步 方法读取文件，按顺序分别读取文件 A、B、C，之后将 A 、B、C 的内容拼接起来输出。在不借助第三方变量的情况下。 1.1 原始嵌套123456789101112const fs = require(&apos;fs&apos;);const path = require(&apos;path&apos;);fs.readFile(path.join(__dirname, &apos;../file/A.">
+<meta name="keywords" content="Node">
 <meta property="og:type" content="article">
-<meta property="og:title" content="html interview">
-<meta property="og:url" content="http://yoursite.com/2017/07/22/html interivew/index.html">
+<meta property="og:title" content="Node 回调嵌套">
+<meta property="og:url" content="http://yoursite.com/2018/03/08/Node 解决回调嵌套/index.html">
 <meta property="og:site_name" content="崭新">
-<meta property="og:description" content="html interview1、语义化的好处？ ①、便于搜索引擎爬虫的抓取，seo 优化 ②、代码结构更加清晰，便于开发人员阅读和维护 ③、方便其它的设备解析（如屏幕阅读器、盲人阅读器）">
+<meta property="og:description" content="一、Node 回调嵌套需求：使用 异步 方法读取文件，按顺序分别读取文件 A、B、C，之后将 A 、B、C 的内容拼接起来输出。在不借助第三方变量的情况下。 1.1 原始嵌套123456789101112const fs = require(&apos;fs&apos;);const path = require(&apos;path&apos;);fs.readFile(path.join(__dirname, &apos;../file/A.">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-02-12T10:10:27.919Z">
+<meta property="og:updated_time" content="2018-03-08T14:23:54.518Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="html interview">
-<meta name="twitter:description" content="html interview1、语义化的好处？ ①、便于搜索引擎爬虫的抓取，seo 优化 ②、代码结构更加清晰，便于开发人员阅读和维护 ③、方便其它的设备解析（如屏幕阅读器、盲人阅读器）">
+<meta name="twitter:title" content="Node 回调嵌套">
+<meta name="twitter:description" content="一、Node 回调嵌套需求：使用 异步 方法读取文件，按顺序分别读取文件 A、B、C，之后将 A 、B、C 的内容拼接起来输出。在不借助第三方变量的情况下。 1.1 原始嵌套123456789101112const fs = require(&apos;fs&apos;);const path = require(&apos;path&apos;);fs.readFile(path.join(__dirname, &apos;../file/A.">
 
 
 
@@ -118,13 +118,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/07/22/html interivew/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/03/08/Node 解决回调嵌套/"/>
 
 
 
 
 
-  <title>html interview | 崭新</title>
+  <title>Node 回调嵌套 | 崭新</title>
   
 
 
@@ -261,7 +261,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/07/22/html interivew/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/08/Node 解决回调嵌套/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="崭新">
@@ -278,7 +278,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">html interview</h1>
+          <h1 class="post-title" itemprop="name headline">Node 回调嵌套</h1>
         
 
         <div class="post-meta">
@@ -290,8 +290,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-22T15:08:32+08:00">
-                2017-07-22
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-08T15:08:32+08:00">
+                2018-03-08
               </time>
             
 
@@ -328,10 +328,14 @@
       
 
       
-        <h2 id="html-interview"><a href="#html-interview" class="headerlink" title="html interview"></a>html interview</h2><p>1、语义化的好处？</p>
-<p>①、便于搜索引擎爬虫的抓取，seo 优化</p>
-<p>②、代码结构更加清晰，便于开发人员阅读和维护</p>
-<p>③、方便其它的设备解析（如屏幕阅读器、盲人阅读器）</p>
+        <h2 id="一、Node-回调嵌套"><a href="#一、Node-回调嵌套" class="headerlink" title="一、Node 回调嵌套"></a>一、Node 回调嵌套</h2><p>需求：使用 <code>异步</code> 方法读取文件，按顺序分别读取文件 A、B、C，之后将 A 、B、C 的内容拼接起来输出。在不借助第三方变量的情况下。</p>
+<h3 id="1-1-原始嵌套"><a href="#1-1-原始嵌套" class="headerlink" title="1.1 原始嵌套"></a>1.1 原始嵌套</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> fs = <span class="built_in">require</span>(<span class="string">'fs'</span>);</span><br><span class="line"><span class="keyword">const</span> path = <span class="built_in">require</span>(<span class="string">'path'</span>);</span><br><span class="line">fs.readFile(path.join(__dirname, <span class="string">'../file/A.txt'</span>), <span class="string">'utf-8'</span>, (error, dataA) =&gt; &#123;</span><br><span class="line">    <span class="keyword">if</span> (error) <span class="keyword">throw</span> error;</span><br><span class="line">    fs.readFile(path.join(__dirname, <span class="string">'../file/B.txt'</span>), <span class="string">'utf-8'</span>, (error, dataB) =&gt; &#123;</span><br><span class="line">        <span class="keyword">if</span> (error) <span class="keyword">throw</span> error;</span><br><span class="line">        fs.readFile(path.join(__dirname, <span class="string">'../file/C.txt'</span>), <span class="string">'utf-8'</span>, (error, dataC) =&gt; &#123;</span><br><span class="line">            <span class="keyword">if</span> (error) <span class="keyword">throw</span> error;</span><br><span class="line">            <span class="built_in">console</span>.log(dataA + dataB + dataC);</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>代码的可阅读性极差，维护起来也是相当困难</p>
+<h3 id="1-2-使用-ES6-的-promise"><a href="#1-2-使用-ES6-的-promise" class="headerlink" title="1.2 使用 ES6 的 promise"></a>1.2 使用 ES6 的 promise</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> fs = <span class="built_in">require</span>(<span class="string">'fs'</span>);</span><br><span class="line"><span class="keyword">const</span> path = <span class="built_in">require</span>(<span class="string">'path'</span>);</span><br><span class="line"><span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve</span>) =&gt;</span> &#123;</span><br><span class="line">    fs.readFile(path.join(__dirname, <span class="string">'../file/A.txt'</span>), <span class="string">'utf-8'</span>, (error, dataA) =&gt; &#123;</span><br><span class="line">        <span class="keyword">if</span> (error) <span class="keyword">throw</span> error;</span><br><span class="line">        resolve(dataA);</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;).then(<span class="function">(<span class="params">dataA</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve</span>)=&gt;</span>&#123;</span><br><span class="line">        fs.readFile(path.join(__dirname, <span class="string">'../file/B.txt'</span>), <span class="string">'utf-8'</span>, (error, dataB) =&gt; &#123;</span><br><span class="line">            <span class="keyword">if</span> (error) <span class="keyword">throw</span> error;</span><br><span class="line">            resolve (dataA + dataB);</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;).then(<span class="function">(<span class="params">dataAB</span>)=&gt;</span>&#123;</span><br><span class="line">    fs.readFile(path.join(__dirname, <span class="string">'../file/C.txt'</span>), <span class="string">'utf-8'</span>, (error, dataC) =&gt; &#123;</span><br><span class="line">        <span class="keyword">if</span> (error) <span class="keyword">throw</span> error;</span><br><span class="line">        <span class="built_in">console</span>.log(dataAB + dataC);</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>1.3</p>
+<blockquote>
+<p>未完待续</p>
+</blockquote>
 
       
     </div>
@@ -378,9 +382,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/HTML5/" rel="tag"><i class="fa fa-tag"></i> HTML5</a>
-          
-            <a href="/tags/interview/" rel="tag"><i class="fa fa-tag"></i> interview</a>
+            <a href="/tags/Node/" rel="tag"><i class="fa fa-tag"></i> Node</a>
           
         </div>
       
@@ -393,8 +395,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/07/22/Express 4.x入门/" rel="next" title="Express 4.x 入门">
-                <i class="fa fa-chevron-left"></i> Express 4.x 入门
+              <a href="/2018/01/23/vue 过滤器/" rel="next" title="vue 过滤器">
+                <i class="fa fa-chevron-left"></i> vue 过滤器
               </a>
             
           </div>
@@ -402,10 +404,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/07/22/Node REPL 环境/" rel="prev" title="Node REPL 环境">
-                Node REPL 环境 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -580,7 +578,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#html-interview"><span class="nav-number">1.</span> <span class="nav-text">html interview</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#一、Node-回调嵌套"><span class="nav-number">1.</span> <span class="nav-text">一、Node 回调嵌套</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-原始嵌套"><span class="nav-number">1.1.</span> <span class="nav-text">1.1 原始嵌套</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-使用-ES6-的-promise"><span class="nav-number">1.2.</span> <span class="nav-text">1.2 使用 ES6 的 promise</span></a></li></ol></li></ol></div>
             
 
           </div>
