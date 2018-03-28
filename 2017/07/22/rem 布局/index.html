@@ -66,7 +66,7 @@
 
 
 
-  <meta name="keywords" content="interview,移动端,布局," />
+  <meta name="keywords" content="移动端,布局," />
 
 
 
@@ -78,14 +78,14 @@
 
 
 <meta name="description" content="详细步骤1、UI 通常会出一张 640 或者 750 的设计图。 2、在代码方面，首先要添加一行 mete 标签 1&amp;lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0&quot;&amp;gt; 这行 viewpo">
-<meta name="keywords" content="interview,移动端,布局">
+<meta name="keywords" content="移动端,布局">
 <meta property="og:type" content="article">
 <meta property="og:title" content="rem 布局">
 <meta property="og:url" content="http://yoursite.com/2017/07/22/rem 布局/index.html">
 <meta property="og:site_name" content="崭新">
 <meta property="og:description" content="详细步骤1、UI 通常会出一张 640 或者 750 的设计图。 2、在代码方面，首先要添加一行 mete 标签 1&amp;lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0&quot;&amp;gt; 这行 viewpo">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-02-24T08:16:48.106Z">
+<meta property="og:updated_time" content="2018-03-27T08:57:12.670Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="rem 布局">
 <meta name="twitter:description" content="详细步骤1、UI 通常会出一张 640 或者 750 的设计图。 2、在代码方面，首先要添加一行 mete 标签 1&amp;lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0&quot;&amp;gt; 这行 viewpo">
@@ -331,10 +331,10 @@
         <h2 id="详细步骤"><a href="#详细步骤" class="headerlink" title="详细步骤"></a>详细步骤</h2><p>1、UI 通常会出一张 640 或者 750 的设计图。</p>
 <p>2、在代码方面，首先要添加一行 mete 标签</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"viewport"</span> <span class="attr">content</span>=<span class="string">"width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>这行 viewport 的意思就是<strong><em>视口</em></strong> ，可以让网页宽度默认等于屏幕宽度。</p>
+<p>这行 viewport 的意思就是<strong><em>视口</em></strong> ，可以让网页宽度默认等于屏幕宽度，并且禁止缩放。</p>
 <p>3、用 JS 修改 html 的 fontSize</p>
-<p>除以 20 的原因是为了将 640 的设计图分为 20 份，纯粹是为了数值好算，并没有其它意义</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">document</span>.querySelector(<span class="string">'html'</span>).style.fontSize = <span class="built_in">window</span>.screen.width / <span class="number">20</span> + <span class="string">'px'</span>;</span><br></pre></td></tr></table></figure>
+<p>除以 20 的原因是为了将 640 的设计图分为 20 份，纯粹是为了数值好算，并没有其它意义。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">document</span>.querySelector(<span class="string">'html'</span>).style.fontSize = <span class="built_in">window</span>.screen.width / <span class="number">20</span> + <span class="string">'px'</span>;</span><br><span class="line"><span class="comment">// 750 分为 25 份</span></span><br><span class="line"><span class="built_in">document</span>.querySelector(<span class="string">'html'</span>).style.fontSize = <span class="built_in">window</span>.screen.width / <span class="number">25</span> + <span class="string">'px'</span>;</span><br></pre></td></tr></table></figure>
 <p>如果是调试的时候，可以这样写，动态改变</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">window</span>.onresize = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">	  <span class="built_in">document</span>.querySelector(<span class="string">'html'</span>).style.fontSize = <span class="built_in">window</span>.screen.width / <span class="number">20</span> + <span class="string">'px'</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <blockquote>
@@ -344,11 +344,13 @@
 <p>以640的设计图为例，160 为设计图中测量出来的 160 px，32 为 640 / 20 = 32</p>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.box</span>&#123;</span><br><span class="line">  <span class="attribute">width</span>: (<span class="number">160</span>/<span class="number">32</span>)*<span class="number">1rem</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>如果是 750 的设计图，建议分成 25 份，30 为 750 / 25 = 30</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">.box&#123;</span><br><span class="line">  width: (160/30)*1rem;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>5、简写</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">.box &#123;</span><br><span class="line">  width: (160rem/30);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.box</span>&#123;</span><br><span class="line">  <span class="attribute">width</span>: (<span class="number">160</span>/<span class="number">30</span>)*<span class="number">1rem</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>简写</strong></p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.box</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: (<span class="number">160rem</span>/<span class="number">30</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>使用方法计算</p>
+<figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// rem</span></span><br><span class="line">@function ptr(<span class="variable">$size</span>) &#123;</span><br><span class="line">    @return <span class="variable">$size</span> / 30 * 1rem;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 百分比同样适用</span></span><br><span class="line">@function ptb(<span class="variable">$size</span>) &#123;</span><br><span class="line">    @return <span class="variable">$size</span> / 1334 * 100%;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 使用</span></span><br><span class="line"><span class="selector-class">.box</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: ptr(<span class="number">160</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <hr>
-<p><strong><em>总结：</em></strong></p>
+<p><strong>总结：</strong></p>
 <p>​    ui出的图就是640的，在头部引入一段JS代码，设置html的fontsize等于屏幕大小除以20，就是分成20分，然后量出设计图中的尺寸，因为640分成20份，就是32，所以再除以32，乘以1rem，就可以得出一个rem的尺寸。</p>
 
       
@@ -396,8 +398,6 @@
       
         <div class="post-tags">
           
-            <a href="/tags/interview/" rel="tag"><i class="fa fa-tag"></i> interview</a>
-          
             <a href="/tags/移动端/" rel="tag"><i class="fa fa-tag"></i> 移动端</a>
           
             <a href="/tags/布局/" rel="tag"><i class="fa fa-tag"></i> 布局</a>
@@ -413,8 +413,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/07/22/ES6 其它/" rel="next" title="ES6 其它">
-                <i class="fa fa-chevron-left"></i> ES6 其它
+              <a href="/2017/07/22/css interivew/" rel="next" title="css interview">
+                <i class="fa fa-chevron-left"></i> css interview
               </a>
             
           </div>
@@ -423,8 +423,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/07/22/Node REPL 环境/" rel="prev" title="Node REPL 环境">
-                Node REPL 环境 <i class="fa fa-chevron-right"></i>
+              <a href="/2017/07/22/http 协议/" rel="prev" title="http 协议">
+                http 协议 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
