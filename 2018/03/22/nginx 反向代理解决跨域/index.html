@@ -66,7 +66,7 @@
 
 
 
-  <meta name="keywords" content="javascript," />
+  <meta name="keywords" content="工具," />
 
 
 
@@ -77,18 +77,18 @@
 
 
 
-<meta name="description" content="一、闭包1.1、概括闭包就是指有权访问另一个函数作用域中的变量的函数。 1.2、如何创建创建闭包的常见方式，就是在一个函数内部创建另一个函数。 1.3、例子​    就是说当一个函数执行的时候，可以让自己内部的变量不受外部的影响，然后会存在一个返回值，一般是一个函数，并且在该函数里面引用局部变量信息。然后在函数执行完毕后，这个局部变量信息不会消失，而是长时间的驻扎在内存里面的这种机制被称为’闭包’">
-<meta name="keywords" content="javascript">
+<meta name="description" content="1.1 原理因为浏览器存在一个同源策略，所以会有一个跨域的问题。即协议、域名、端口号其中一种不同，就会受到限制，访问不了。 用 nginx 配置一个反向代理，浏览器发起请求，访问 nginx 上的地址，nginx 接收到后，再转化为真实的接口地址，由 nginx 发起访问，这样就不会存在跨域。前提是本地项目地址也要通过 nginx 来访问，这样才能确保协议，域名，端口号都相同。 1.2 场景浏览器">
+<meta name="keywords" content="工具">
 <meta property="og:type" content="article">
-<meta property="og:title" content="js 闭包">
-<meta property="og:url" content="http://yoursite.com/2018/01/06/js 闭包/index.html">
+<meta property="og:title" content="nginx 反向代理解决跨域">
+<meta property="og:url" content="http://yoursite.com/2018/03/22/nginx 反向代理解决跨域/index.html">
 <meta property="og:site_name" content="崭新">
-<meta property="og:description" content="一、闭包1.1、概括闭包就是指有权访问另一个函数作用域中的变量的函数。 1.2、如何创建创建闭包的常见方式，就是在一个函数内部创建另一个函数。 1.3、例子​    就是说当一个函数执行的时候，可以让自己内部的变量不受外部的影响，然后会存在一个返回值，一般是一个函数，并且在该函数里面引用局部变量信息。然后在函数执行完毕后，这个局部变量信息不会消失，而是长时间的驻扎在内存里面的这种机制被称为’闭包’">
+<meta property="og:description" content="1.1 原理因为浏览器存在一个同源策略，所以会有一个跨域的问题。即协议、域名、端口号其中一种不同，就会受到限制，访问不了。 用 nginx 配置一个反向代理，浏览器发起请求，访问 nginx 上的地址，nginx 接收到后，再转化为真实的接口地址，由 nginx 发起访问，这样就不会存在跨域。前提是本地项目地址也要通过 nginx 来访问，这样才能确保协议，域名，端口号都相同。 1.2 场景浏览器">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-02-12T09:46:33.750Z">
+<meta property="og:updated_time" content="2018-03-28T06:38:50.610Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="js 闭包">
-<meta name="twitter:description" content="一、闭包1.1、概括闭包就是指有权访问另一个函数作用域中的变量的函数。 1.2、如何创建创建闭包的常见方式，就是在一个函数内部创建另一个函数。 1.3、例子​    就是说当一个函数执行的时候，可以让自己内部的变量不受外部的影响，然后会存在一个返回值，一般是一个函数，并且在该函数里面引用局部变量信息。然后在函数执行完毕后，这个局部变量信息不会消失，而是长时间的驻扎在内存里面的这种机制被称为’闭包’">
+<meta name="twitter:title" content="nginx 反向代理解决跨域">
+<meta name="twitter:description" content="1.1 原理因为浏览器存在一个同源策略，所以会有一个跨域的问题。即协议、域名、端口号其中一种不同，就会受到限制，访问不了。 用 nginx 配置一个反向代理，浏览器发起请求，访问 nginx 上的地址，nginx 接收到后，再转化为真实的接口地址，由 nginx 发起访问，这样就不会存在跨域。前提是本地项目地址也要通过 nginx 来访问，这样才能确保协议，域名，端口号都相同。 1.2 场景浏览器">
 
 
 
@@ -118,13 +118,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/01/06/js 闭包/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/03/22/nginx 反向代理解决跨域/"/>
 
 
 
 
 
-  <title>js 闭包 | 崭新</title>
+  <title>nginx 反向代理解决跨域 | 崭新</title>
   
 
 
@@ -261,7 +261,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/06/js 闭包/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/22/nginx 反向代理解决跨域/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="崭新">
@@ -278,7 +278,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">js 闭包</h1>
+          <h1 class="post-title" itemprop="name headline">nginx 反向代理解决跨域</h1>
         
 
         <div class="post-meta">
@@ -290,8 +290,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-06T15:08:32+08:00">
-                2018-01-06
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-22T15:08:32+08:00">
+                2018-03-22
               </time>
             
 
@@ -328,19 +328,24 @@
       
 
       
-        <h2 id="一、闭包"><a href="#一、闭包" class="headerlink" title="一、闭包"></a>一、闭包</h2><h3 id="1-1、概括"><a href="#1-1、概括" class="headerlink" title="1.1、概括"></a>1.1、概括</h3><p>闭包就是指有权访问另一个函数作用域中的变量的函数。</p>
-<h3 id="1-2、如何创建"><a href="#1-2、如何创建" class="headerlink" title="1.2、如何创建"></a>1.2、如何创建</h3><p>创建闭包的常见方式，就是在一个函数内部创建另一个函数。</p>
-<h3 id="1-3、例子"><a href="#1-3、例子" class="headerlink" title="1.3、例子"></a>1.3、例子</h3><p>​    就是说当一个函数执行的时候，可以让自己内部的变量不受外部的影响，然后会存在一个返回值，一般是一个函数，并且在该函数里面引用局部变量信息。然后在函数执行完毕后，这个局部变量信息不会消失，而是长时间的驻扎在内存里面的这种机制被称为’闭包’。</p>
-<h3 id="1-4、作用"><a href="#1-4、作用" class="headerlink" title="1.4、作用"></a>1.4、作用</h3><p>①、闭包会构成一个封闭的结构，可以避免全局变量的污染；</p>
-<p>②、闭包可以读取到函数内部的变量；</p>
-<p>③、闭包可以让变量的值保持在内存中；</p>
-<h3 id="1-5、坏处"><a href="#1-5、坏处" class="headerlink" title="1.5、坏处"></a>1.5、坏处</h3><p>​    闭包会携带包含它的函数的作用域，因此会比其它函数占用更多的内存。过度使用闭包可能会导致内存占用过多。</p>
-<p>​    在IE中可能导致内存泄露。解决方法是，在退出函数之前，将不使用的局部变量全部删除。就是将其设置为null；</p>
-<h3 id="1-6、实际应用场景"><a href="#1-6、实际应用场景" class="headerlink" title="1.6、实际应用场景"></a>1.6、实际应用场景</h3><p>封装插件</p>
-<h3 id="1-7、code"><a href="#1-7、code" class="headerlink" title="1.7、code"></a>1.7、code</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 创建函数</span></span><br><span class="line"><span class="keyword">var</span> compareNames = createComparisonFunction(<span class="string">"name"</span>);</span><br><span class="line"><span class="comment">// 调用函数</span></span><br><span class="line"><span class="keyword">var</span> result = compareNames(&#123; <span class="attr">name</span>: <span class="string">"Nicholas"</span> &#125;, &#123; <span class="attr">name</span>: <span class="string">"Greg"</span> &#125;);</span><br><span class="line"><span class="comment">// 解除对匿名函数的引用（以便释放内存）</span></span><br><span class="line">compareNames = <span class="literal">null</span>;</span><br></pre></td></tr></table></figure>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="number">10000</span>;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">test</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 此处的变量 a 并不受其它作用域的影响</span></span><br><span class="line">    <span class="keyword">var</span> a = <span class="number">200</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> a;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 此处的 test 函数执行完毕之后并不能被 JS 垃圾回收机制（GC）回收，因为它的局部变量 a 被 fn 所引用</span></span><br><span class="line"><span class="keyword">var</span> fn = test();</span><br><span class="line"><span class="built_in">console</span>.log(fn());</span><br><span class="line"></span><br><span class="line"><span class="comment">// 返回对象而不是函数同样可以达到闭包效果</span></span><br><span class="line"><span class="keyword">var</span> a = <span class="number">10000</span>;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">test</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 此处的变量 a 并不受其它作用域的影响</span></span><br><span class="line">    <span class="keyword">var</span> a = <span class="number">200</span>;</span><br><span class="line">    <span class="keyword">return</span> &#123; <span class="string">'param'</span> : a &#125;;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 此处的 test 函数执行完毕之后并不能被 JS 垃圾回收机制（GC）回收，因为它的局部变量 a 被 obj 所引用</span></span><br><span class="line"><span class="keyword">var</span> obj = test();</span><br><span class="line"><span class="built_in">console</span>.log(obj.param);</span><br></pre></td></tr></table></figure>
-<p>没有返回值，依然构成闭包</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">(<span class="function"><span class="keyword">function</span>(<span class="params">window,$</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> count = <span class="number">0</span>;</span><br><span class="line">    $(<span class="string">'#btn'</span>).click(<span class="function"><span class="keyword">function</span>(<span class="params">event</span>) </span>&#123;</span><br><span class="line">        $(<span class="string">'#count'</span>).html(++count);</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;)(<span class="built_in">window</span>,$)</span><br></pre></td></tr></table></figure>
+        <h3 id="1-1-原理"><a href="#1-1-原理" class="headerlink" title="1.1 原理"></a>1.1 原理</h3><p>因为浏览器存在一个同源策略，所以会有一个跨域的问题。即协议、域名、端口号其中一种不同，就会受到限制，访问不了。</p>
+<p>用 nginx 配置一个反向代理，浏览器发起请求，访问 nginx 上的地址，nginx 接收到后，再转化为真实的接口地址，由 nginx 发起访问，这样就不会存在跨域。前提是本地项目地址也要通过 nginx 来访问，这样才能确保协议，域名，端口号都相同。</p>
+<h3 id="1-2-场景"><a href="#1-2-场景" class="headerlink" title="1.2 场景"></a>1.2 场景</h3><p>浏览器正常访问 <code>192.168.1.126:8080</code> 接口，可以获取数据，而在 js 脚本中发起请求会报跨域问题</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Failed to load http://192.168.1.126:8080/bill/about?username=440300678596215: No &apos;Access-Control-Allow-Origin&apos; header is present on the requested resource. Origin &apos;http://localhost:8111&apos; is therefore not allowed access.</span><br></pre></td></tr></table></figure>
+<p>浏览器访问本地的项目地址为<code>http://127.0.0.1:8111</code></p>
+<h3 id="1-3-解决方案"><a href="#1-3-解决方案" class="headerlink" title="1.3 解决方案"></a>1.3 解决方案</h3><p>配置 nginx.conf 文件，只需配置 server 下的 location</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><span class="line">#user  nobody;</span><br><span class="line">worker_processes  1;</span><br><span class="line"></span><br><span class="line">#error_log  logs/error.log;</span><br><span class="line">#error_log  logs/error.log  notice;</span><br><span class="line">#error_log  logs/error.log  info;</span><br><span class="line"></span><br><span class="line">#pid        logs/nginx.pid;</span><br><span class="line"></span><br><span class="line">events &#123;</span><br><span class="line">    worker_connections  1024;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">http &#123;</span><br><span class="line">    include       mime.types;</span><br><span class="line">    default_type  application/octet-stream;</span><br><span class="line"></span><br><span class="line">    #log_format  main  &apos;$remote_addr - $remote_user [$time_local] &quot;$request&quot; &apos;</span><br><span class="line">    #                  &apos;$status $body_bytes_sent &quot;$http_referer&quot; &apos;</span><br><span class="line">    #                  &apos;&quot;$http_user_agent&quot; &quot;$http_x_forwarded_for&quot;&apos;;</span><br><span class="line"></span><br><span class="line">    #access_log  logs/access.log  main;</span><br><span class="line"></span><br><span class="line">    sendfile        on;</span><br><span class="line">    #tcp_nopush     on;</span><br><span class="line"></span><br><span class="line">    #keepalive_timeout  0;</span><br><span class="line">    keepalive_timeout  65;</span><br><span class="line"></span><br><span class="line">    gzip  on;</span><br><span class="line"></span><br><span class="line">    server &#123;</span><br><span class="line">        listen       80;</span><br><span class="line">        server_name  127.0.0.1;</span><br><span class="line"></span><br><span class="line">        #charset koi8-r;</span><br><span class="line"></span><br><span class="line">        #access_log  logs/host.access.log  main;</span><br><span class="line"></span><br><span class="line">        location / &#123;</span><br><span class="line">            # root   html;</span><br><span class="line">            index  home.html index.htm;</span><br><span class="line">            proxy_pass   http://127.0.0.1:8111/;</span><br><span class="line">            proxy_redirect default;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        location  /bill &#123;</span><br><span class="line">            proxy_pass   http://192.168.1.126:8080/bill;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        #error_page  404              /404.html;</span><br><span class="line"></span><br><span class="line">        # redirect server error pages to the static page /50x.html</span><br><span class="line">        #</span><br><span class="line">        error_page   500 502 503 504  /50x.html;</span><br><span class="line">        location = /50x.html &#123;</span><br><span class="line">            root   html;</span><br><span class="line">        &#125;</span><br><span class="line">        ......</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>重启 nginx</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ./nginx.exe -s reload</span><br></pre></td></tr></table></figure>
+<h3 id="1-4-发起请求"><a href="#1-4-发起请求" class="headerlink" title="1.4 发起请求"></a>1.4 发起请求</h3><p>访问 <code>127.0.0.1:80</code> ，nginx 内部会转发到 <code>http://127.0.0.1:8111</code></p>
+<p>在项目 js 脚本内发出的请求为</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">$.ajax(&#123;</span><br><span class="line">    type: <span class="string">'get'</span>,</span><br><span class="line">    url: <span class="string">'/bill/about?username=440300678596215'</span>,</span><br><span class="line">    data: <span class="string">''</span>,</span><br><span class="line">    success: <span class="function"><span class="keyword">function</span> (<span class="params">data</span>) </span>&#123;</span><br><span class="line">		<span class="built_in">console</span>.log(<span class="string">'data'</span>,data);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>ajax 发出的 url 路径包含 <code>/bill</code> 会被 nginx 拦截，由 ip 端口为 <code>127.0.0.1:80</code> 的 nginx 转发到</p>
+<p><code>http://192.168.1.126:8080/bill/about?username=440300678596215</code></p>
+<p>那么此时访问项目的协议，域名，端口号和 js 脚本发出的请求都相同，不会再造成跨域。</p>
+<blockquote>
+<p>注意：nginx 转发后的真实接口地址并不会体现在浏览器调试工具上，而是由浏览器发出后再被 nginx 转发，所以浏览器查看的话还是显示 nginx 的地址。</p>
+</blockquote>
 
       
     </div>
@@ -387,7 +392,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/javascript/" rel="tag"><i class="fa fa-tag"></i> javascript</a>
+            <a href="/tags/工具/" rel="tag"><i class="fa fa-tag"></i> 工具</a>
           
         </div>
       
@@ -400,8 +405,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/11/23/webpack 多入口打包/" rel="next" title="webpack 多入口打包">
-                <i class="fa fa-chevron-left"></i> webpack 多入口打包
+              <a href="/2018/01/23/vue 过滤器/" rel="next" title="vue 过滤器">
+                <i class="fa fa-chevron-left"></i> vue 过滤器
               </a>
             
           </div>
@@ -409,10 +414,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/01/06/JS 遍历的各种方法/" rel="prev" title="js 遍历">
-                js 遍历 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -587,7 +588,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#一、闭包"><span class="nav-number">1.</span> <span class="nav-text">一、闭包</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1、概括"><span class="nav-number">1.1.</span> <span class="nav-text">1.1、概括</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2、如何创建"><span class="nav-number">1.2.</span> <span class="nav-text">1.2、如何创建</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-3、例子"><span class="nav-number">1.3.</span> <span class="nav-text">1.3、例子</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-4、作用"><span class="nav-number">1.4.</span> <span class="nav-text">1.4、作用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-5、坏处"><span class="nav-number">1.5.</span> <span class="nav-text">1.5、坏处</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-6、实际应用场景"><span class="nav-number">1.6.</span> <span class="nav-text">1.6、实际应用场景</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-7、code"><span class="nav-number">1.7.</span> <span class="nav-text">1.7、code</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-原理"><span class="nav-number">1.</span> <span class="nav-text">1.1 原理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-场景"><span class="nav-number">2.</span> <span class="nav-text">1.2 场景</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-3-解决方案"><span class="nav-number">3.</span> <span class="nav-text">1.3 解决方案</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-4-发起请求"><span class="nav-number">4.</span> <span class="nav-text">1.4 发起请求</span></a></li></ol></div>
             
 
           </div>
