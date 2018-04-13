@@ -66,7 +66,7 @@
 
 
 
-  <meta name="keywords" content="webpack," />
+  <meta name="keywords" content="工具," />
 
 
 
@@ -77,18 +77,18 @@
 
 
 
-<meta name="description" content="一、开始1.1 问题用 webpack 打包项目时，如果用 import 导入 Zepto 这种使用 AMD 规范化的库，会报一个 Uncaught TypeError: Cannot read property &amp;#39;createElement&amp;#39; of undefined 的错误。 1.2 解决方法webpack 要使用两个 loader：exports-loader 和 scrip">
-<meta name="keywords" content="webpack">
+<meta name="description" content="AMD 规范和 CommonJS以同样的方式编写模块，就可以更方便地使用别人的代码，想要什么功能，就加载什么模块。 CommonJSnode.js的模块系统，就是参照CommonJS规范实现的。在CommonJS中，有一个全局性方法require()，用于加载模块。假定有一个数学模块math.js，就可以像下面这样加载。 1var math = require(&amp;apos;math&amp;apos;);">
+<meta name="keywords" content="工具">
 <meta property="og:type" content="article">
-<meta property="og:title" content="webpack 引入未模块化的库">
-<meta property="og:url" content="http://yoursite.com/2017/11/23/webpack 引入未模块化的库/index.html">
+<meta property="og:title" content="模块规范">
+<meta property="og:url" content="http://yoursite.com/2017/07/22/模块规范/index.html">
 <meta property="og:site_name" content="崭新">
-<meta property="og:description" content="一、开始1.1 问题用 webpack 打包项目时，如果用 import 导入 Zepto 这种使用 AMD 规范化的库，会报一个 Uncaught TypeError: Cannot read property &amp;#39;createElement&amp;#39; of undefined 的错误。 1.2 解决方法webpack 要使用两个 loader：exports-loader 和 scrip">
+<meta property="og:description" content="AMD 规范和 CommonJS以同样的方式编写模块，就可以更方便地使用别人的代码，想要什么功能，就加载什么模块。 CommonJSnode.js的模块系统，就是参照CommonJS规范实现的。在CommonJS中，有一个全局性方法require()，用于加载模块。假定有一个数学模块math.js，就可以像下面这样加载。 1var math = require(&amp;apos;math&amp;apos;);">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-03-27T07:05:00.353Z">
+<meta property="og:updated_time" content="2018-04-13T12:29:12.803Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="webpack 引入未模块化的库">
-<meta name="twitter:description" content="一、开始1.1 问题用 webpack 打包项目时，如果用 import 导入 Zepto 这种使用 AMD 规范化的库，会报一个 Uncaught TypeError: Cannot read property &amp;#39;createElement&amp;#39; of undefined 的错误。 1.2 解决方法webpack 要使用两个 loader：exports-loader 和 scrip">
+<meta name="twitter:title" content="模块规范">
+<meta name="twitter:description" content="AMD 规范和 CommonJS以同样的方式编写模块，就可以更方便地使用别人的代码，想要什么功能，就加载什么模块。 CommonJSnode.js的模块系统，就是参照CommonJS规范实现的。在CommonJS中，有一个全局性方法require()，用于加载模块。假定有一个数学模块math.js，就可以像下面这样加载。 1var math = require(&amp;apos;math&amp;apos;);">
 
 
 
@@ -118,13 +118,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/11/23/webpack 引入未模块化的库/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/07/22/模块规范/"/>
 
 
 
 
 
-  <title>webpack 引入未模块化的库 | 崭新</title>
+  <title>模块规范 | 崭新</title>
   
 
 
@@ -261,7 +261,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/11/23/webpack 引入未模块化的库/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/07/22/模块规范/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="崭新">
@@ -278,7 +278,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">webpack 引入未模块化的库</h1>
+          <h1 class="post-title" itemprop="name headline">模块规范</h1>
         
 
         <div class="post-meta">
@@ -290,8 +290,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-23T15:08:32+08:00">
-                2017-11-23
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-22T15:08:32+08:00">
+                2017-07-22
               </time>
             
 
@@ -328,21 +328,25 @@
       
 
       
-        <h2 id="一、开始"><a href="#一、开始" class="headerlink" title="一、开始"></a>一、开始</h2><h3 id="1-1-问题"><a href="#1-1-问题" class="headerlink" title="1.1 问题"></a>1.1 问题</h3><p>用 webpack 打包项目时，如果用 <code>import</code> 导入 Zepto 这种使用 AMD 规范化的库，会报一个 <code>Uncaught TypeError: Cannot read property &#39;createElement&#39; of undefined</code> 的错误。</p>
-<h3 id="1-2-解决方法"><a href="#1-2-解决方法" class="headerlink" title="1.2 解决方法"></a>1.2 解决方法</h3><p>webpack 要使用两个 loader：<code>exports-loader</code> 和 <code>script-loader</code></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm i -D script-loader exports-loader</span><br></pre></td></tr></table></figure>
-<p><strong>配置方法1：</strong></p>
-<p>webpack.config</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">  <span class="built_in">module</span>: &#123;</span><br><span class="line">    loaders: [&#123;</span><br><span class="line">      test: <span class="built_in">require</span>.resolve(<span class="string">'zepto'</span>),</span><br><span class="line">      loader: <span class="string">'exports-loader?window.Zepto!script-loader'</span></span><br><span class="line">    &#125;]</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>文件引用</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> $ <span class="keyword">from</span> <span class="string">'zepto`</span></span><br></pre></td></tr></table></figure>
-<p><strong>配置方法2：</strong></p>
-<p>使用官方的一个插件：<code>webpack.ProvidePlugin</code></p>
-<p><code>webpack.ProvidePlugin</code> 是一个依赖注入类型的插件，可以让你在使用指定变量时，比如直接使用 <code>$</code> 时，自动加载指定的模块 <code>zepto</code>，并将其暴露的对象赋值给 <code>$</code>：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// webpack.config</span></span><br><span class="line">&#123;</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">  plugins: [</span><br><span class="line">    <span class="keyword">new</span> webpack.ProvidePlugin(&#123;</span><br><span class="line">      $: <span class="string">'zepto'</span>,</span><br><span class="line">      <span class="comment">// 把 Zepto 导入为 abc 变量也可以</span></span><br><span class="line">      abc: <span class="string">'zepto'</span></span><br><span class="line">    &#125;)</span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>这样就可以直接使用赋值了 Zepto 对象的 <code>$/abc</code> 变量了，不再需要  <code>import $ from &#39;zepto&#39;</code></p>
-<h3 id="1-3-其它"><a href="#1-3-其它" class="headerlink" title="1.3 其它"></a>1.3 其它</h3><p>如果是 vue-cli 生成的项目，需要修改 <code>webpack.base.conf.js</code> 这个文件</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"> <span class="built_in">module</span>: &#123;</span><br><span class="line">    rules: [</span><br><span class="line">      &#123;</span><br><span class="line">        test: <span class="built_in">require</span>.resolve(<span class="string">'zepto'</span>),</span><br><span class="line">        loader: <span class="string">'exports-loader?window.Zepto!script-loader'</span></span><br><span class="line">      &#125;</span><br><span class="line">	]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <h3 id="AMD-规范和-CommonJS"><a href="#AMD-规范和-CommonJS" class="headerlink" title="AMD 规范和 CommonJS"></a>AMD 规范和 CommonJS</h3><p>以同样的方式编写模块，就可以更方便地使用别人的代码，想要什么功能，就加载什么模块。</p>
+<h3 id="CommonJS"><a href="#CommonJS" class="headerlink" title="CommonJS"></a>CommonJS</h3><p>node.js的模块系统，就是参照CommonJS规范实现的。在CommonJS中，有一个全局性方法require()，用于加载模块。假定有一个数学模块math.js，就可以像下面这样加载。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var math = require(&apos;math&apos;);</span><br></pre></td></tr></table></figure>
+<p>然后，就可以调用模块提供的方法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var math = require(&apos;math&apos;);</span><br><span class="line">math.add(2,3); // 5</span><br></pre></td></tr></table></figure>
+<p>主要适用于 node 环境</p>
+<h3 id="AMD"><a href="#AMD" class="headerlink" title="AMD"></a>AMD</h3><p>AMD 是 “Asynchronous Module Definition” 的缩写，意思就是”异步模块定义”。它采用异步方式加载模块，模块的加载不影响它后面语句的运行。所有依赖这个模块的语句，都定义在一个回调函数中，等到加载完成之后，这个回调函数才会运行。</p>
+<p>AMD 也采用 <code>require()</code> 语句加载模块，但是不同于 CommonJS ，它要求两个参数：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">require</span>([<span class="built_in">module</span>], callback);</span><br></pre></td></tr></table></figure>
+<p>第一个参数 [module]，是一个数组，里面的成员就是要加载的模块；第二个参数 callback，则是加载成功之后的回调函数。如果将前面的代码改写成AMD形式，就是下面这样：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">require([&apos;math&apos;], function (math) &#123;</span><br><span class="line">	math.add(2, 3);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>math.add()与math模块加载不是同步的，浏览器不会发生假死。所以很显然，AMD比较适合浏览器环境。</p>
+<p>目前，主要有两个Javascript库实现了AMD规范：require.js和curl.js。</p>
+<p>按照AMD的规定，模块必须采用特定的define()函数来定义</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">// math.js</span><br><span class="line">define(function ()&#123;</span><br><span class="line">	var add = function (x,y)&#123;</span><br><span class="line">	return x+y;</span><br><span class="line">&#125;;</span><br><span class="line">	return &#123;</span><br><span class="line">		add: add</span><br><span class="line">	&#125;;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>如 Zepto 只使用了 AMD 规范</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">/* Zepto v1.2.0 - zepto event ajax form ie - zeptojs.com/license */</span><br><span class="line">(function(global, factory) &#123;</span><br><span class="line">  if (typeof define === &apos;function&apos; &amp;&amp; define.amd)</span><br><span class="line">    define(function() &#123; return factory(global) &#125;)</span><br><span class="line">  else</span><br><span class="line">    factory(global)</span><br><span class="line">&#125;(this, function(window) &#123;</span><br><span class="line">  var Zepto = (function() &#123;</span><br><span class="line"></span><br><span class="line">    // ...</span><br><span class="line"></span><br><span class="line">    return $</span><br><span class="line">  &#125;)()</span><br><span class="line"></span><br><span class="line">  window.Zepto = Zepto</span><br><span class="line">  window.$ === undefined &amp;&amp; (window.$ = Zepto)</span><br><span class="line"></span><br><span class="line">  return Zepto</span><br><span class="line">&#125;))</span><br></pre></td></tr></table></figure>
+<p>只使用了 AMD 规范的模块导出方法 define，没有用 CommonJs 规范的方法 module.exports 来导出模块</p>
+<h3 id="CMD"><a href="#CMD" class="headerlink" title="CMD"></a>CMD</h3><p>SeaJS 的 CMD 规范，与 AMD 非常类似，是国人开发的。</p>
 
       
     </div>
@@ -389,7 +393,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/webpack/" rel="tag"><i class="fa fa-tag"></i> webpack</a>
+            <a href="/tags/工具/" rel="tag"><i class="fa fa-tag"></i> 工具</a>
           
         </div>
       
@@ -402,8 +406,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/11/23/webpack 多入口打包/" rel="next" title="webpack 多入口打包">
-                <i class="fa fa-chevron-left"></i> webpack 多入口打包
+              <a href="/2017/07/22/Express 4.x入门/" rel="next" title="Express 4.x 入门">
+                <i class="fa fa-chevron-left"></i> Express 4.x 入门
               </a>
             
           </div>
@@ -412,8 +416,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/01/06/nvm+nrm+全局npm环境搭建/" rel="prev" title="nvm+nrm+全局npm环境搭建">
-                nvm+nrm+全局npm环境搭建 <i class="fa fa-chevron-right"></i>
+              <a href="/2017/07/22/Node REPL 环境/" rel="prev" title="Node REPL 环境">
+                Node REPL 环境 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -589,7 +593,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#一、开始"><span class="nav-number">1.</span> <span class="nav-text">一、开始</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-问题"><span class="nav-number">1.1.</span> <span class="nav-text">1.1 问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-解决方法"><span class="nav-number">1.2.</span> <span class="nav-text">1.2 解决方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-3-其它"><span class="nav-number">1.3.</span> <span class="nav-text">1.3 其它</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#AMD-规范和-CommonJS"><span class="nav-number">1.</span> <span class="nav-text">AMD 规范和 CommonJS</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CommonJS"><span class="nav-number">2.</span> <span class="nav-text">CommonJS</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#AMD"><span class="nav-number">3.</span> <span class="nav-text">AMD</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CMD"><span class="nav-number">4.</span> <span class="nav-text">CMD</span></a></li></ol></div>
             
 
           </div>
