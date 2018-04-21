@@ -66,7 +66,7 @@
 
 
 
-  <meta name="keywords" content="Node," />
+  <meta name="keywords" content="webpack," />
 
 
 
@@ -77,18 +77,18 @@
 
 
 
-<meta name="description" content="CentOS 7.4 源码方式安装 node源码的安装一般由3个步骤组成：配置(configure)、编译(make)、安装(make install)。 configure 文件是一个可执行的脚本文件 1$ ./configure “configure”会在你的系统上测试存在的特性，配置环境 make 是编译的意思。就是把源码包编译成二进制可执行文件make install 就是安装的意思。 m">
-<meta name="keywords" content="Node">
+<meta name="description" content="webpack-dev-server 使用代理解决跨域在 webpack.config.js 中配置来自 webpack-dev-server 的 http-proxy 选项，能够用多种方式改变其行为。 如果有单独的后端开发服务器 API，并且希望在同域名下发送 API 请求 ，那么可以代理 URL 来解决跨域。   dev-server 使用了的 http-proxy-middleware 包。">
+<meta name="keywords" content="webpack">
 <meta property="og:type" content="article">
-<meta property="og:title" content="CentOS 7.4 源码方式安装 node">
-<meta property="og:url" content="http://yoursite.com/2018/04/12/CentOS 7.4 源码方式安装 node/index.html">
+<meta property="og:title" content="webpack-dev-server 使用代理解决跨域">
+<meta property="og:url" content="http://yoursite.com/2018/03/23/webpack-dev-server 使用代理解决跨域/index.html">
 <meta property="og:site_name" content="崭新">
-<meta property="og:description" content="CentOS 7.4 源码方式安装 node源码的安装一般由3个步骤组成：配置(configure)、编译(make)、安装(make install)。 configure 文件是一个可执行的脚本文件 1$ ./configure “configure”会在你的系统上测试存在的特性，配置环境 make 是编译的意思。就是把源码包编译成二进制可执行文件make install 就是安装的意思。 m">
+<meta property="og:description" content="webpack-dev-server 使用代理解决跨域在 webpack.config.js 中配置来自 webpack-dev-server 的 http-proxy 选项，能够用多种方式改变其行为。 如果有单独的后端开发服务器 API，并且希望在同域名下发送 API 请求 ，那么可以代理 URL 来解决跨域。   dev-server 使用了的 http-proxy-middleware 包。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-04-20T03:30:14.865Z">
+<meta property="og:updated_time" content="2018-04-20T08:05:22.394Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="CentOS 7.4 源码方式安装 node">
-<meta name="twitter:description" content="CentOS 7.4 源码方式安装 node源码的安装一般由3个步骤组成：配置(configure)、编译(make)、安装(make install)。 configure 文件是一个可执行的脚本文件 1$ ./configure “configure”会在你的系统上测试存在的特性，配置环境 make 是编译的意思。就是把源码包编译成二进制可执行文件make install 就是安装的意思。 m">
+<meta name="twitter:title" content="webpack-dev-server 使用代理解决跨域">
+<meta name="twitter:description" content="webpack-dev-server 使用代理解决跨域在 webpack.config.js 中配置来自 webpack-dev-server 的 http-proxy 选项，能够用多种方式改变其行为。 如果有单独的后端开发服务器 API，并且希望在同域名下发送 API 请求 ，那么可以代理 URL 来解决跨域。   dev-server 使用了的 http-proxy-middleware 包。">
 
 
 
@@ -118,13 +118,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/04/12/CentOS 7.4 源码方式安装 node/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/03/23/webpack-dev-server 使用代理解决跨域/"/>
 
 
 
 
 
-  <title>CentOS 7.4 源码方式安装 node | 崭新</title>
+  <title>webpack-dev-server 使用代理解决跨域 | 崭新</title>
   
 
 
@@ -261,7 +261,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/12/CentOS 7.4 源码方式安装 node/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/23/webpack-dev-server 使用代理解决跨域/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="崭新">
@@ -278,7 +278,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">CentOS 7.4 源码方式安装 node</h1>
+          <h1 class="post-title" itemprop="name headline">webpack-dev-server 使用代理解决跨域</h1>
         
 
         <div class="post-meta">
@@ -290,8 +290,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-12T11:03:42+08:00">
-                2018-04-12
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-23T15:08:32+08:00">
+                2018-03-23
               </time>
             
 
@@ -328,43 +328,21 @@
       
 
       
-        <h3 id="CentOS-7-4-源码方式安装-node"><a href="#CentOS-7-4-源码方式安装-node" class="headerlink" title="CentOS 7.4 源码方式安装 node"></a>CentOS 7.4 源码方式安装 node</h3><p>源码的安装一般由3个步骤组成：配置(configure)、编译(make)、安装(make install)。</p>
-<p>configure 文件是一个可执行的脚本文件</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ./configure</span><br></pre></td></tr></table></figure>
-<p>“configure”会在你的系统上测试存在的特性，配置环境</p>
-<p><code>make</code> 是编译的意思。就是把源码包编译成二进制可执行文件<br><code>make install</code> 就是安装的意思。</p>
-<p><code>make &amp;&amp; make install</code> 的意思是：</p>
-<p><code>make</code> 与 <code>make install</code> 是两个命令，在你 <code>./configuration</code> 生成了 Makefile 之后执行编译安装；<br>与 &amp;&amp; 一起的还有 || ，不过意思不一样，&amp;&amp;是与，||是或；<br><code>make &amp;&amp; make install</code> 的意思就是执行 <code>make</code> 如果没有发生错误就执行 <code>make install</code></p>
-<p>使用 yum 安装依赖包，yum工具会自动的从网上yum源中下载相应的依赖包，并以正确的依赖关系一个个安装依赖包。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ yum install []</span><br></pre></td></tr></table></figure>
-<p><strong>yum 命令</strong></p>
-<ul>
-<li><p>-y: 自动回答为“yes”</p>
-</li>
-<li><p>列出所有已安装的软件包</p>
-</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ yum list installed</span><br></pre></td></tr></table></figure>
-<ul>
-<li>列出所指定的软件包 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ yum list []</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<p><strong>解压参数</strong></p>
-<pre><code>x : 从 tar 包中把文件提取出来
-z : 表示 tar 包是被 gzip 压缩过的，所以解压时需要用 gunzip 解压
-v : 显示详细信息
-f xxx.tar.gz :  指定被处理的文件是 xxx.tar.gz
--C, --directory=DIR        改变至目录 DIR
-</code></pre><h3 id="安装-node"><a href="#安装-node" class="headerlink" title="安装 node"></a>安装 node</h3><ul>
-<li>gcc编译环境</li>
-<li>make 命令工具</li>
-<li>wget命令用来从指定的URL下载文件</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">$ yum -y install gcc make gcc-c++ openssl-devel wget </span><br><span class="line">// 默认下载在当前目录，root</span><br><span class="line">$ wget https://nodejs.org/dist/v8.9.3/node-v8.9.3.tar.gz</span><br><span class="line">$ tar zxvf node-v8.9.3.tar.gz -C /usr/src/  </span><br><span class="line">$ cd /usr/src/node-v8.9.3/  </span><br><span class="line">$ ./configure  </span><br><span class="line">$ make &amp;&amp; make install  </span><br><span class="line">$ node -v  </span><br><span class="line">  v8.9.3</span><br></pre></td></tr></table></figure>
+        <h3 id="webpack-dev-server-使用代理解决跨域"><a href="#webpack-dev-server-使用代理解决跨域" class="headerlink" title="webpack-dev-server 使用代理解决跨域"></a>webpack-dev-server 使用代理解决跨域</h3><p>在 <code>webpack.config.js</code> 中配置来自 <code>webpack-dev-server</code> 的 <code>http-proxy</code> 选项，能够用多种方式改变其行为。</p>
+<p>如果有单独的后端开发服务器 API，并且希望在同域名下发送 API 请求 ，那么可以代理 URL 来解决跨域。</p>
 <blockquote>
-<p>可到 <a href="https://nodejs.org/dist/" target="_blank" rel="noopener">https://nodejs.org/dist/</a> 选择需要的 node 版本</p>
-<p>如报错需再安装 gcc+</p>
+<p> dev-server 使用了的 http-proxy-middleware 包。</p>
 </blockquote>
+<ol>
+<li>在 localhost:3000 上有后端服务的话，你可以这样启用代理：</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">devServer: &#123;</span><br><span class="line">    proxy: &#123;</span><br><span class="line">        <span class="string">"/api"</span>: <span class="string">"http://localhost:3000"</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>以上请求到 <code>/api/users</code> 现在会被代理到请求 <code>http://localhost:3000/api/users</code></p>
+<ol>
+<li>如果接口并没有 <code>/api</code> 的路径 ，可以这样：</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">devServer: &#123;</span><br><span class="line">    proxy: &#123;</span><br><span class="line">      <span class="string">"/api"</span>: &#123;</span><br><span class="line">          target: <span class="string">"http://localhost:3000"</span>,</span><br><span class="line">          pathRewrite: &#123;<span class="string">"^/api"</span> : <span class="string">""</span>&#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这样当请求 <code>/api/getInfo</code> 时会被代理到请求  <code>http://localhost:3000/getInfo</code></p>
 
       
     </div>
@@ -411,7 +389,7 @@ f xxx.tar.gz :  指定被处理的文件是 xxx.tar.gz
       
         <div class="post-tags">
           
-            <a href="/tags/Node/" rel="tag"><i class="fa fa-tag"></i> Node</a>
+            <a href="/tags/webpack/" rel="tag"><i class="fa fa-tag"></i> webpack</a>
           
         </div>
       
@@ -424,8 +402,8 @@ f xxx.tar.gz :  指定被处理的文件是 xxx.tar.gz
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/04/03/Node 解决回调嵌套/" rel="next" title="Node 回调嵌套">
-                <i class="fa fa-chevron-left"></i> Node 回调嵌套
+              <a href="/2018/03/22/nginx 反向代理解决跨域/" rel="next" title="nginx 反向代理解决跨域">
+                <i class="fa fa-chevron-left"></i> nginx 反向代理解决跨域
               </a>
             
           </div>
@@ -434,8 +412,8 @@ f xxx.tar.gz :  指定被处理的文件是 xxx.tar.gz
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/04/12/koa-generator/" rel="prev" title="koa-generator">
-                koa-generator <i class="fa fa-chevron-right"></i>
+              <a href="/2018/04/03/Node 解决回调嵌套/" rel="prev" title="Node 回调嵌套">
+                Node 回调嵌套 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -517,7 +495,7 @@ f xxx.tar.gz :  指定被处理的文件是 xxx.tar.gz
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">46</span>
+                  <span class="site-state-item-count">47</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -611,7 +589,7 @@ f xxx.tar.gz :  指定被处理的文件是 xxx.tar.gz
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#CentOS-7-4-源码方式安装-node"><span class="nav-number">1.</span> <span class="nav-text">CentOS 7.4 源码方式安装 node</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装-node"><span class="nav-number">2.</span> <span class="nav-text">安装 node</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#webpack-dev-server-使用代理解决跨域"><span class="nav-number">1.</span> <span class="nav-text">webpack-dev-server 使用代理解决跨域</span></a></li></ol></div>
             
 
           </div>
