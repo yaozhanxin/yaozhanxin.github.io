@@ -77,18 +77,18 @@
 
 
 
-<meta name="description" content="一、vue 过滤器简介vue 没有提供内置过滤器，有时候需要在视图中对数据进行一些格式化处理，可以自己封装一些常用过滤器来使用。  作用：格式化输出模版中的数据, 其本质就是一个函数 注意：只能在插值表达式中使用 分类：全局过滤器与局部过滤器  使用 通过管道符|来调用不同的过滤器  使用语法： 12// 左边的数据会通过管道流向右边进行处理。&amp;#123;&amp;#123; value | date |">
+<meta name="description" content="将用户登录的状态交由 vuex 来控制 当用户点击登录时，先进行一个表单的有效性验证，通过后将表单数据发送到 vuex 中的 action  12345678this.$store.dispatch(&quot;LoginByUsername&quot;, this.loginForm).then(() =&amp;gt; &amp;#123;    // resolve() 登录成功 	this.$router.push(&amp;#12">
 <meta name="keywords" content="vue">
 <meta property="og:type" content="article">
-<meta property="og:title" content="vue 过滤器">
-<meta property="og:url" content="http://yoursite.com/2018/01/23/vue 过滤器/index.html">
+<meta property="og:title" content="vue 登录权限控制">
+<meta property="og:url" content="http://yoursite.com/2018/01/01/vue 登录权限控制/index.html">
 <meta property="og:site_name" content="崭新">
-<meta property="og:description" content="一、vue 过滤器简介vue 没有提供内置过滤器，有时候需要在视图中对数据进行一些格式化处理，可以自己封装一些常用过滤器来使用。  作用：格式化输出模版中的数据, 其本质就是一个函数 注意：只能在插值表达式中使用 分类：全局过滤器与局部过滤器  使用 通过管道符|来调用不同的过滤器  使用语法： 12// 左边的数据会通过管道流向右边进行处理。&amp;#123;&amp;#123; value | date |">
+<meta property="og:description" content="将用户登录的状态交由 vuex 来控制 当用户点击登录时，先进行一个表单的有效性验证，通过后将表单数据发送到 vuex 中的 action  12345678this.$store.dispatch(&quot;LoginByUsername&quot;, this.loginForm).then(() =&amp;gt; &amp;#123;    // resolve() 登录成功 	this.$router.push(&amp;#12">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-02-12T10:10:27.919Z">
+<meta property="og:updated_time" content="2018-04-26T10:08:22.821Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="vue 过滤器">
-<meta name="twitter:description" content="一、vue 过滤器简介vue 没有提供内置过滤器，有时候需要在视图中对数据进行一些格式化处理，可以自己封装一些常用过滤器来使用。  作用：格式化输出模版中的数据, 其本质就是一个函数 注意：只能在插值表达式中使用 分类：全局过滤器与局部过滤器  使用 通过管道符|来调用不同的过滤器  使用语法： 12// 左边的数据会通过管道流向右边进行处理。&amp;#123;&amp;#123; value | date |">
+<meta name="twitter:title" content="vue 登录权限控制">
+<meta name="twitter:description" content="将用户登录的状态交由 vuex 来控制 当用户点击登录时，先进行一个表单的有效性验证，通过后将表单数据发送到 vuex 中的 action  12345678this.$store.dispatch(&quot;LoginByUsername&quot;, this.loginForm).then(() =&amp;gt; &amp;#123;    // resolve() 登录成功 	this.$router.push(&amp;#12">
 
 
 
@@ -118,13 +118,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/01/23/vue 过滤器/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/01/01/vue 登录权限控制/"/>
 
 
 
 
 
-  <title>vue 过滤器 | 崭新</title>
+  <title>vue 登录权限控制 | 崭新</title>
   
 
 
@@ -261,7 +261,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/23/vue 过滤器/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/01/vue 登录权限控制/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="崭新">
@@ -278,7 +278,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">vue 过滤器</h1>
+          <h1 class="post-title" itemprop="name headline">vue 登录权限控制</h1>
         
 
         <div class="post-meta">
@@ -290,8 +290,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-23T15:08:32+08:00">
-                2018-01-23
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-01T15:08:32+08:00">
+                2018-01-01
               </time>
             
 
@@ -328,38 +328,14 @@
       
 
       
-        <h2 id="一、vue-过滤器"><a href="#一、vue-过滤器" class="headerlink" title="一、vue 过滤器"></a>一、vue 过滤器</h2><h4 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h4><p>vue 没有提供内置过滤器，有时候需要在视图中对数据进行一些格式化处理，可以自己封装一些常用过滤器来使用。</p>
-<ul>
-<li>作用：格式化输出模版中的数据, 其本质就是一个函数</li>
-<li>注意：只能在插值表达式中使用</li>
-<li>分类：全局过滤器与局部过滤器</li>
-</ul>
-<h4 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h4><ul>
-<li><p>通过管道符<code>|</code>来调用不同的过滤器</p>
-</li>
-<li><p>使用语法：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 左边的数据会通过管道流向右边进行处理。</span></span><br><span class="line">&#123;&#123; value | date | json | uppercase | ... &#125;&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>传参语法: </p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;&#123; value | date('YYYY-MM-DD') &#125;&#125;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h4 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h4><ul>
-<li>全局过滤器<ul>
-<li><code>Vue.filter(name, fn)</code></li>
-<li>任何Vue实例所关联的视图中都可以使用</li>
-</ul>
-</li>
-<li>局部过滤器<ul>
-<li><code>new Vue({ filters: { name1: fn, name2: fn } })</code></li>
-<li>只能在当前实例所关联的视图中使用</li>
-</ul>
-</li>
-</ul>
-<h4 id="基本使用"><a href="#基本使用" class="headerlink" title="基本使用"></a>基本使用</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">span</span>&gt;</span>&#123;&#123; time | formatDate &#125;&#125;<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 过滤器回调的第一个值固定为插值表达式中的初始值</span></span><br><span class="line">Vue.filter(<span class="string">'formatDate'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">time</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> date = <span class="keyword">new</span> <span class="built_in">Date</span>(time);</span><br><span class="line">  <span class="comment">// 此处返回什么，管道就会流出什么</span></span><br><span class="line">    <span class="keyword">return</span> <span class="string">`<span class="subst">$&#123; date.getFullYear() &#125;</span>-<span class="subst">$&#123; date.getMonth() + <span class="number">1</span> &#125;</span>-<span class="subst">$&#123; date.getDate() &#125;</span>`</span>;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-<h4 id="使用参数"><a href="#使用参数" class="headerlink" title="使用参数"></a>使用参数</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">span</span>&gt;</span>&#123;&#123; time | formatDate('YYYY-MM-DD') &#125;&#125;<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 过滤器回调的第一个值固定为插值表达式中的初始值，后面为用户指定的参数</span></span><br><span class="line">Vue.filter(<span class="string">'formatDate'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">val, format</span>) </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 先创建匹配年月日的三个不同正则</span></span><br><span class="line">    <span class="keyword">let</span> yReg = <span class="regexp">/YYYY/i</span>;</span><br><span class="line">    <span class="keyword">let</span> mReg = <span class="regexp">/MM/i</span>;</span><br><span class="line">    <span class="keyword">let</span> dReg = <span class="regexp">/DD/i</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 然后通过val得到相应的年月日</span></span><br><span class="line">    <span class="keyword">let</span> date = <span class="keyword">new</span> <span class="built_in">Date</span>(val);</span><br><span class="line">    <span class="keyword">let</span> y = date.getFullYear();</span><br><span class="line">    <span class="keyword">let</span> m = date.getMonth() + <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">let</span> d = date.getDate();</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 最后替换</span></span><br><span class="line">    <span class="keyword">return</span> format.replace(yReg, y).replace(mReg, m).replace(dReg, d);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+        <p>将用户登录的状态交由 vuex 来控制</p>
+<p>当用户点击登录时，先进行一个表单的有效性验证，通过后将表单数据发送到 vuex 中的 action </p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">this</span>.$store</span><br><span class="line">.dispatch(<span class="string">"LoginByUsername"</span>, <span class="keyword">this</span>.loginForm)</span><br><span class="line">.then(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="comment">// resolve() 登录成功 </span></span><br><span class="line">	<span class="keyword">this</span>.$router.push(&#123; <span class="attr">path</span>: <span class="string">"/"</span> &#125;);</span><br><span class="line">&#125;).catch(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">  	<span class="comment">// reject() 登录失败</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>vuex 中的 action 接收到登录事件后使用 promise 异步来处理登录请求</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123;</span><br><span class="line">  loginByUsername</span><br><span class="line">&#125; <span class="keyword">from</span> <span class="string">'@/api/login'</span></span><br><span class="line"><span class="comment">// 获取和设置 cookie</span></span><br><span class="line"><span class="keyword">import</span> &#123;</span><br><span class="line">  getToken,</span><br><span class="line">  setToken</span><br><span class="line">&#125; <span class="keyword">from</span> <span class="string">'@/utils/auth'</span></span><br><span class="line"></span><br><span class="line">actions: &#123;</span><br><span class="line">    <span class="comment">// 用户名登录</span></span><br><span class="line">    LoginByUsername(&#123;</span><br><span class="line">      commit</span><br><span class="line">    &#125;, userInfo) &#123;</span><br><span class="line">      <span class="comment">// 去用户名空格</span></span><br><span class="line">      <span class="keyword">const</span> username = userInfo.username.trim()</span><br><span class="line">      <span class="comment">// 向外抛出 promise 处理登录，在 then 后面处理请求成功或失败</span></span><br><span class="line">      <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="comment">// 发送登录请求</span></span><br><span class="line">        loginByUsername(username, userInfo.password).then(<span class="function"><span class="params">response</span> =&gt;</span> &#123;</span><br><span class="line">          <span class="comment">// 请求成功</span></span><br><span class="line">          <span class="keyword">const</span> data = response.data</span><br><span class="line">          <span class="comment">// 更新 state 的 token 值</span></span><br><span class="line">          commit(<span class="string">'SET_TOKEN'</span>, data.token)</span><br><span class="line">          <span class="comment">// 向 cookie 设置 token</span></span><br><span class="line">          setToken(response.data.token)</span><br><span class="line">          resolve()</span><br><span class="line">        &#125;).catch(<span class="function"><span class="params">error</span> =&gt;</span> &#123;</span><br><span class="line">          <span class="comment">// 请求失败</span></span><br><span class="line">          reject(error)</span><br><span class="line">        &#125;)</span><br><span class="line">      &#125;)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+<p>登录后的权限控制使用全局钩子 <code>router.beforeEach</code> 进行路由拦截</p>
+<p><code>src/router/permission.js</code></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> router <span class="keyword">from</span> <span class="string">'@/router'</span></span><br><span class="line"><span class="keyword">import</span> &#123;</span><br><span class="line">  getToken</span><br><span class="line">&#125; <span class="keyword">from</span> <span class="string">'@/utils/auth'</span></span><br><span class="line"><span class="comment">// 免登录白名单</span></span><br><span class="line"><span class="keyword">const</span> whiteList = [<span class="string">'/login'</span>]</span><br><span class="line"></span><br><span class="line">router.beforeEach(<span class="function">(<span class="params">to, <span class="keyword">from</span>, next</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">if</span> (getToken()) &#123; <span class="comment">// 判断是否登录</span></span><br><span class="line">    <span class="comment">// cookie 有值</span></span><br><span class="line">    <span class="keyword">if</span> (to.path === <span class="string">'/login'</span>) &#123;</span><br><span class="line">      <span class="comment">// cookie 有值，并且路径等于 /login</span></span><br><span class="line">      next(&#123;</span><br><span class="line">        path: <span class="string">'/'</span></span><br><span class="line">      &#125;)</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      <span class="comment">// 处理页面权限问题</span></span><br><span class="line">    &#125;</span><br><span class="line">    next()</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123; <span class="comment">// 没登录则跳转到登录界面</span></span><br><span class="line">    <span class="keyword">if</span> (whiteList.indexOf(to.path) !== <span class="number">-1</span>) &#123; <span class="comment">// 在免登录白名单，直接进入</span></span><br><span class="line">      next()</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      next(<span class="string">'/login'</span>) <span class="comment">// 否则全部重定向到登录页</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -419,8 +395,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/01/22/vue-router 攻略/" rel="next" title="vue-router 攻略">
-                <i class="fa fa-chevron-left"></i> vue-router 攻略
+              <a href="/2017/11/23/webpack 入门/" rel="next" title="webpack 入门">
+                <i class="fa fa-chevron-left"></i> webpack 入门
               </a>
             
           </div>
@@ -429,8 +405,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/03/22/nginx 反向代理解决跨域/" rel="prev" title="nginx 反向代理解决跨域">
-                nginx 反向代理解决跨域 <i class="fa fa-chevron-right"></i>
+              <a href="/2018/01/06/JS 遍历的各种方法/" rel="prev" title="js 遍历">
+                js 遍历 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -483,17 +459,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <section class="site-overview-wrap sidebar-panel">
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -596,22 +563,6 @@
         </div>
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#一、vue-过滤器"><span class="nav-number">1.</span> <span class="nav-text">一、vue 过滤器</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#简介"><span class="nav-number">1.0.1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#使用"><span class="nav-number">1.0.2.</span> <span class="nav-text">使用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#定义"><span class="nav-number">1.0.3.</span> <span class="nav-text">定义</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#基本使用"><span class="nav-number">1.0.4.</span> <span class="nav-text">基本使用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#使用参数"><span class="nav-number">1.0.5.</span> <span class="nav-text">使用参数</span></a></li></ol></li></ol></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       

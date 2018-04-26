@@ -85,7 +85,7 @@
 <meta property="og:site_name" content="崭新">
 <meta property="og:description" content="初始化1$ npm install -g koa-generator 生成 koa2 项目 1$ koa2 projectName 可选参数 12345678-h, --help          帮助-V, --version       版本号-e, --ejs           添加ejs模板引擎支持(默认是jade)    --hbs           添加hbs模板引擎支持(默认是h">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-04-17T13:40:02.598Z">
+<meta property="og:updated_time" content="2018-04-25T08:55:43.700Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="koa-generator">
 <meta name="twitter:description" content="初始化1$ npm install -g koa-generator 生成 koa2 项目 1$ koa2 projectName 可选参数 12345678-h, --help          帮助-V, --version       版本号-e, --ejs           添加ejs模板引擎支持(默认是jade)    --hbs           添加hbs模板引擎支持(默认是h">
@@ -353,6 +353,7 @@
 <ul>
 <li>koa-json</li>
 </ul>
+<p>将返回的 text 格式自动排列为 json 格式</p>
 <figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">var json = require('koa-json');</span><br><span class="line">var Koa = require('koa');</span><br><span class="line">var app = new Koa();</span><br><span class="line"></span><br><span class="line">app.use(json());</span><br><span class="line"></span><br><span class="line">app.use((ctx) =&gt; &#123;</span><br><span class="line">  ctx.body = &#123; foo: 'bar' &#125;;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 <ul>
 <li>koa-logger</li>
@@ -378,6 +379,10 @@
 <li>koa-views</li>
 </ul>
 <p>模板引擎</p>
+<blockquote>
+<p>在 ctx 中会出现 render API</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">router.get(<span class="string">'/'</span>, <span class="keyword">async</span> (ctx, next) =&gt; &#123;</span><br><span class="line">  <span class="keyword">await</span> ctx.render(<span class="string">'index'</span>, &#123;</span><br><span class="line">    title: <span class="string">'Hello Koa 2!'</span></span><br><span class="line">  &#125;)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 <ul>
 <li>pug</li>
 </ul>
@@ -454,6 +459,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/04/24/vue 搭建 axios 拦截器/" rel="prev" title="vue 搭建 axios 拦截器">
+                vue 搭建 axios 拦截器 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -534,7 +543,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">48</span>
+                  <span class="site-state-item-count">50</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
