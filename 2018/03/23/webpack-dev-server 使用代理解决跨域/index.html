@@ -85,7 +85,7 @@
 <meta property="og:site_name" content="崭新">
 <meta property="og:description" content="webpack-dev-server 使用代理解决跨域在 webpack.config.js 中配置来自 webpack-dev-server 的 http-proxy 选项，能够用多种方式改变其行为。 如果有单独的后端开发服务器 API，并且希望在同域名下发送 API 请求 ，那么可以代理 URL 来解决跨域。   dev-server 使用了的 http-proxy-middleware 包。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-04-20T08:05:22.394Z">
+<meta property="og:updated_time" content="2018-05-02T10:28:01.856Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="webpack-dev-server 使用代理解决跨域">
 <meta name="twitter:description" content="webpack-dev-server 使用代理解决跨域在 webpack.config.js 中配置来自 webpack-dev-server 的 http-proxy 选项，能够用多种方式改变其行为。 如果有单独的后端开发服务器 API，并且希望在同域名下发送 API 请求 ，那么可以代理 URL 来解决跨域。   dev-server 使用了的 http-proxy-middleware 包。">
@@ -343,6 +343,8 @@
 </ol>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">devServer: &#123;</span><br><span class="line">    proxy: &#123;</span><br><span class="line">      <span class="string">"/api"</span>: &#123;</span><br><span class="line">          target: <span class="string">"http://localhost:3000"</span>,</span><br><span class="line">          pathRewrite: &#123;<span class="string">"^/api"</span> : <span class="string">""</span>&#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>这样当请求 <code>/api/getInfo</code> 时会被代理到请求  <code>http://localhost:3000/getInfo</code></p>
+<p>如果是 <code>vue-cli</code> 生成的项目结构，可以在 <code>config/index.js</code> 中配置</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">dev: &#123;</span><br><span class="line">      proxyTable: &#123;</span><br><span class="line">      <span class="string">"/api"</span>: &#123;</span><br><span class="line">        target: <span class="string">"http://localhost:7001"</span>,</span><br><span class="line">        pathRewrite: &#123; <span class="string">"^/api"</span>: <span class="string">""</span> &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>
