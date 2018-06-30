@@ -77,18 +77,18 @@
 
 
 
-<meta name="description" content="以 vue-cli  生成的项目为例 配置环境: 123$ npm i -g eslint-plugin-vue#or$ npm i -S eslint-plugin-vue 创建项目跟路径下的文件：.eslintrc | .eslint.js 1234//　添加插件&quot;plugins&quot;: [    &quot;vue&quot;] 安装 vscode 插件  ESLint Vetur  修改 setting.json">
+<meta name="description" content="以 vue-cli  生成的项目为例 配置环境:123$ npm i -g eslint-plugin-vue#or$ npm i -S eslint-plugin-vue 创建项目跟路径下的文件：.eslintrc | .eslint.js 1234//　添加插件&quot;plugins&quot;: [    &quot;vue&quot;] 安装 vscode 插件 ESLint Vetur  修改 setting.json12">
 <meta name="keywords" content="工具">
 <meta property="og:type" content="article">
 <meta property="og:title" content="vscode eslint 自动格式化">
 <meta property="og:url" content="http://yoursite.com/2017/01/22/vscode eslint 自动格式化/index.html">
 <meta property="og:site_name">
-<meta property="og:description" content="以 vue-cli  生成的项目为例 配置环境: 123$ npm i -g eslint-plugin-vue#or$ npm i -S eslint-plugin-vue 创建项目跟路径下的文件：.eslintrc | .eslint.js 1234//　添加插件&quot;plugins&quot;: [    &quot;vue&quot;] 安装 vscode 插件  ESLint Vetur  修改 setting.json">
+<meta property="og:description" content="以 vue-cli  生成的项目为例 配置环境:123$ npm i -g eslint-plugin-vue#or$ npm i -S eslint-plugin-vue 创建项目跟路径下的文件：.eslintrc | .eslint.js 1234//　添加插件&quot;plugins&quot;: [    &quot;vue&quot;] 安装 vscode 插件 ESLint Vetur  修改 setting.json12">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-06-14T09:07:03.495Z">
+<meta property="og:updated_time" content="2018-06-14T10:40:52.474Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="vscode eslint 自动格式化">
-<meta name="twitter:description" content="以 vue-cli  生成的项目为例 配置环境: 123$ npm i -g eslint-plugin-vue#or$ npm i -S eslint-plugin-vue 创建项目跟路径下的文件：.eslintrc | .eslint.js 1234//　添加插件&quot;plugins&quot;: [    &quot;vue&quot;] 安装 vscode 插件  ESLint Vetur  修改 setting.json">
+<meta name="twitter:description" content="以 vue-cli  生成的项目为例 配置环境:123$ npm i -g eslint-plugin-vue#or$ npm i -S eslint-plugin-vue 创建项目跟路径下的文件：.eslintrc | .eslint.js 1234//　添加插件&quot;plugins&quot;: [    &quot;vue&quot;] 安装 vscode 插件 ESLint Vetur  修改 setting.json12">
 
 
 
@@ -329,20 +329,21 @@
 
       
         <p>以 <code>vue-cli</code>  生成的项目为例</p>
-<p>配置环境:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ npm i -g eslint-plugin-vue</span><br><span class="line">#or</span><br><span class="line">$ npm i -S eslint-plugin-vue</span><br></pre></td></tr></table></figure>
+<h4 id="配置环境"><a href="#配置环境" class="headerlink" title="配置环境:"></a>配置环境:</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ npm i -g eslint-plugin-vue</span><br><span class="line">#or</span><br><span class="line">$ npm i -S eslint-plugin-vue</span><br></pre></td></tr></table></figure>
 <p>创建项目跟路径下的文件：<code>.eslintrc</code> | <code>.eslint.js</code></p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//　添加插件</span></span><br><span class="line"><span class="string">"plugins"</span>: [</span><br><span class="line">    <span class="string">"vue"</span></span><br><span class="line">]</span><br></pre></td></tr></table></figure>
-<p>安装 vscode 插件</p>
-<ul>
+<h4 id="安装-vscode-插件"><a href="#安装-vscode-插件" class="headerlink" title="安装 vscode 插件"></a>安装 vscode 插件</h4><ul>
 <li>ESLint</li>
 <li>Vetur</li>
 </ul>
-<p>修改 <code>setting.json</code></p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 添加进你的vscode的 setting.json</span></span><br><span class="line"></span><br><span class="line"><span class="string">"eslint.autoFixOnSave"</span>: <span class="literal">true</span>,</span><br><span class="line"><span class="string">"eslint.validate"</span>: [</span><br><span class="line">    <span class="string">"javascript"</span>,&#123;</span><br><span class="line">        <span class="string">"language"</span>: <span class="string">"vue"</span>,</span><br><span class="line">        <span class="string">"autoFix"</span>: <span class="literal">true</span></span><br><span class="line">    &#125;,<span class="string">"html"</span>,</span><br><span class="line">    <span class="string">"vue"</span></span><br><span class="line">]</span><br><span class="line"></span><br><span class="line"><span class="comment">// "eslint.alwaysShowStatus": true,</span></span><br></pre></td></tr></table></figure>
+<h4 id="修改-setting-json"><a href="#修改-setting-json" class="headerlink" title="修改 setting.json"></a>修改 <code>setting.json</code></h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 添加进你的vscode的 setting.json</span></span><br><span class="line"></span><br><span class="line"><span class="string">"eslint.autoFixOnSave"</span>: <span class="literal">true</span>,</span><br><span class="line"><span class="string">"eslint.validate"</span>: [</span><br><span class="line">    <span class="string">"javascript"</span>,&#123;</span><br><span class="line">        <span class="string">"language"</span>: <span class="string">"vue"</span>,</span><br><span class="line">        <span class="string">"autoFix"</span>: <span class="literal">true</span></span><br><span class="line">    &#125;,<span class="string">"html"</span>,</span><br><span class="line">    <span class="string">"vue"</span></span><br><span class="line">]</span><br><span class="line"></span><br><span class="line"><span class="comment">// "eslint.alwaysShowStatus": true,</span></span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>保存时会自动进行格式化</p>
 </blockquote>
+<h4 id="自动修复"><a href="#自动修复" class="headerlink" title="自动修复"></a>自动修复</h4><p>将所有文件自动格式化</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm run lint -- --fix</span><br></pre></td></tr></table></figure>
+<p><code>package.json</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&quot;lint&quot;: &quot;eslint --ext .js,.vue src&quot;,</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -466,8 +467,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -486,7 +496,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">54</span>
+                  <span class="site-state-item-count">55</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -570,6 +580,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#配置环境"><span class="nav-number">1.</span> <span class="nav-text">配置环境:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#安装-vscode-插件"><span class="nav-number">2.</span> <span class="nav-text">安装 vscode 插件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#修改-setting-json"><span class="nav-number">3.</span> <span class="nav-text">修改 setting.json</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#自动修复"><span class="nav-number">4.</span> <span class="nav-text">自动修复</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
