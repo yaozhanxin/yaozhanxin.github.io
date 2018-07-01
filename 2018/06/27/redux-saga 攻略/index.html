@@ -66,7 +66,7 @@
 
 
 
-  <meta name="keywords" content="工具," />
+  <meta name="keywords" content="react," />
 
 
 
@@ -77,18 +77,18 @@
 
 
 
-<meta name="description" content="AMD 规范和 CommonJS以同样的方式编写模块，就可以更方便地使用别人的代码，想要什么功能，就加载什么模块。 CommonJSnode.js的模块系统，就是参照CommonJS规范实现的。在CommonJS中，有一个全局性方法require()，用于加载模块。假定有一个数学模块math.js，就可以像下面这样加载。 1var math = require(&amp;apos;math&amp;apos;);">
-<meta name="keywords" content="工具">
+<meta name="description" content="在 reducers 中的所有操作都是同步的并且是纯粹的，即 reducer 都是纯函数，纯函数是指一个函数的返回结果只依赖于它的参数，并且在执行过程中不会对外部产生副作用，即给它传什么，就吐出什么。但是在实际的应用开发中，可能希望做一些异步的（如Ajax请求，异步获取数据，访问浏览器缓存）且不纯粹的操作（如改变外部的状态），这些在函数式编程范式中被称为“副作用”。 Redux 的作者将这些副作用">
+<meta name="keywords" content="react">
 <meta property="og:type" content="article">
-<meta property="og:title" content="模块规范">
-<meta property="og:url" content="http://yoursite.com/2017/07/22/模块规范/index.html">
+<meta property="og:title" content="react-saga 攻略">
+<meta property="og:url" content="http://yoursite.com/2018/06/27/redux-saga 攻略/index.html">
 <meta property="og:site_name">
-<meta property="og:description" content="AMD 规范和 CommonJS以同样的方式编写模块，就可以更方便地使用别人的代码，想要什么功能，就加载什么模块。 CommonJSnode.js的模块系统，就是参照CommonJS规范实现的。在CommonJS中，有一个全局性方法require()，用于加载模块。假定有一个数学模块math.js，就可以像下面这样加载。 1var math = require(&amp;apos;math&amp;apos;);">
+<meta property="og:description" content="在 reducers 中的所有操作都是同步的并且是纯粹的，即 reducer 都是纯函数，纯函数是指一个函数的返回结果只依赖于它的参数，并且在执行过程中不会对外部产生副作用，即给它传什么，就吐出什么。但是在实际的应用开发中，可能希望做一些异步的（如Ajax请求，异步获取数据，访问浏览器缓存）且不纯粹的操作（如改变外部的状态），这些在函数式编程范式中被称为“副作用”。 Redux 的作者将这些副作用">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-04-13T12:29:12.803Z">
+<meta property="og:updated_time" content="2018-07-01T03:25:43.113Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="模块规范">
-<meta name="twitter:description" content="AMD 规范和 CommonJS以同样的方式编写模块，就可以更方便地使用别人的代码，想要什么功能，就加载什么模块。 CommonJSnode.js的模块系统，就是参照CommonJS规范实现的。在CommonJS中，有一个全局性方法require()，用于加载模块。假定有一个数学模块math.js，就可以像下面这样加载。 1var math = require(&amp;apos;math&amp;apos;);">
+<meta name="twitter:title" content="react-saga 攻略">
+<meta name="twitter:description" content="在 reducers 中的所有操作都是同步的并且是纯粹的，即 reducer 都是纯函数，纯函数是指一个函数的返回结果只依赖于它的参数，并且在执行过程中不会对外部产生副作用，即给它传什么，就吐出什么。但是在实际的应用开发中，可能希望做一些异步的（如Ajax请求，异步获取数据，访问浏览器缓存）且不纯粹的操作（如改变外部的状态），这些在函数式编程范式中被称为“副作用”。 Redux 的作者将这些副作用">
 
 
 
@@ -118,13 +118,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/07/22/模块规范/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/06/27/redux-saga 攻略/"/>
 
 
 
 
 
-  <title>模块规范 | </title>
+  <title>react-saga 攻略 | </title>
   
 
 
@@ -261,7 +261,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/07/22/模块规范/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/27/redux-saga 攻略/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="rv">
@@ -278,7 +278,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">模块规范</h1>
+          <h1 class="post-title" itemprop="name headline">react-saga 攻略</h1>
         
 
         <div class="post-meta">
@@ -290,8 +290,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-22T15:08:32+08:00">
-                2017-07-22
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-27T07:18:43+08:00">
+                2018-06-27
               </time>
             
 
@@ -328,25 +328,23 @@
       
 
       
-        <h3 id="AMD-规范和-CommonJS"><a href="#AMD-规范和-CommonJS" class="headerlink" title="AMD 规范和 CommonJS"></a>AMD 规范和 CommonJS</h3><p>以同样的方式编写模块，就可以更方便地使用别人的代码，想要什么功能，就加载什么模块。</p>
-<h3 id="CommonJS"><a href="#CommonJS" class="headerlink" title="CommonJS"></a>CommonJS</h3><p>node.js的模块系统，就是参照CommonJS规范实现的。在CommonJS中，有一个全局性方法require()，用于加载模块。假定有一个数学模块math.js，就可以像下面这样加载。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var math = require(&apos;math&apos;);</span><br></pre></td></tr></table></figure>
-<p>然后，就可以调用模块提供的方法：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var math = require(&apos;math&apos;);</span><br><span class="line">math.add(2,3); // 5</span><br></pre></td></tr></table></figure>
-<p>主要适用于 node 环境</p>
-<h3 id="AMD"><a href="#AMD" class="headerlink" title="AMD"></a>AMD</h3><p>AMD 是 “Asynchronous Module Definition” 的缩写，意思就是”异步模块定义”。它采用异步方式加载模块，模块的加载不影响它后面语句的运行。所有依赖这个模块的语句，都定义在一个回调函数中，等到加载完成之后，这个回调函数才会运行。</p>
-<p>AMD 也采用 <code>require()</code> 语句加载模块，但是不同于 CommonJS ，它要求两个参数：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">require</span>([<span class="built_in">module</span>], callback);</span><br></pre></td></tr></table></figure>
-<p>第一个参数 [module]，是一个数组，里面的成员就是要加载的模块；第二个参数 callback，则是加载成功之后的回调函数。如果将前面的代码改写成AMD形式，就是下面这样：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">require([&apos;math&apos;], function (math) &#123;</span><br><span class="line">	math.add(2, 3);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-<p>math.add()与math模块加载不是同步的，浏览器不会发生假死。所以很显然，AMD比较适合浏览器环境。</p>
-<p>目前，主要有两个Javascript库实现了AMD规范：require.js和curl.js。</p>
-<p>按照AMD的规定，模块必须采用特定的define()函数来定义</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">// math.js</span><br><span class="line">define(function ()&#123;</span><br><span class="line">	var add = function (x,y)&#123;</span><br><span class="line">	return x+y;</span><br><span class="line">&#125;;</span><br><span class="line">	return &#123;</span><br><span class="line">		add: add</span><br><span class="line">	&#125;;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-<p>如 Zepto 只使用了 AMD 规范</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">/* Zepto v1.2.0 - zepto event ajax form ie - zeptojs.com/license */</span><br><span class="line">(function(global, factory) &#123;</span><br><span class="line">  if (typeof define === &apos;function&apos; &amp;&amp; define.amd)</span><br><span class="line">    define(function() &#123; return factory(global) &#125;)</span><br><span class="line">  else</span><br><span class="line">    factory(global)</span><br><span class="line">&#125;(this, function(window) &#123;</span><br><span class="line">  var Zepto = (function() &#123;</span><br><span class="line"></span><br><span class="line">    // ...</span><br><span class="line"></span><br><span class="line">    return $</span><br><span class="line">  &#125;)()</span><br><span class="line"></span><br><span class="line">  window.Zepto = Zepto</span><br><span class="line">  window.$ === undefined &amp;&amp; (window.$ = Zepto)</span><br><span class="line"></span><br><span class="line">  return Zepto</span><br><span class="line">&#125;))</span><br></pre></td></tr></table></figure>
-<p>只使用了 AMD 规范的模块导出方法 define，没有用 CommonJs 规范的方法 module.exports 来导出模块</p>
-<h3 id="CMD"><a href="#CMD" class="headerlink" title="CMD"></a>CMD</h3><p>SeaJS 的 CMD 规范，与 AMD 非常类似，是国人开发的。</p>
+        <p>在 reducers 中的所有操作都是同步的并且是纯粹的，即 reducer 都是纯函数，纯函数是指一个函数的返回结果只依赖于它的参数，并且在执行过程中不会对外部产生副作用，即给它传什么，就吐出什么。但是在实际的应用开发中，可能希望做一些异步的（如Ajax请求，异步获取数据，访问浏览器缓存）且不纯粹的操作（如改变外部的状态），这些在函数式编程范式中被称为“副作用”。</p>
+<p>Redux 的作者将这些副作用的处理通过提供中间件的方式让开发者自行选择进行实现。</p>
+<p>redux-thunk 和 redux-saga 是 redux 应用中最常用的两种异步流处理方式。</p>
+<p>redux-saga 可以对指定的 action 请求进行一次拦截，处理完所需的异步操作后，再发送其它 action  去修改 state</p>
+<p>以一个计数器为例</p>
+<p>当点击自增按钮时，发送一个 type 为 increaseAsync 的异步自增请求。</p>
+<p><code>src/container/action.js</code> </p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 自增请求</span></span><br><span class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">handleIncreaseAction</span>(<span class="params">num</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> &#123;</span><br><span class="line">    type: <span class="string">"increase"</span>,</span><br><span class="line">    num: num</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 自减请求</span></span><br><span class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">handleInReduceAction</span>(<span class="params">num</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> &#123;</span><br><span class="line">    type: <span class="string">"inReduce"</span>,</span><br><span class="line">    num: num</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 异步自增请求</span></span><br><span class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">handleIncreaseActionAsync</span>(<span class="params">num</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> &#123;</span><br><span class="line">    type: <span class="string">"increaseAsync"</span>,</span><br><span class="line">    num: num</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Sagas 都用 Generator 函数实现</p>
+<p>此处 saga 会调用 watchIncrementAsync 方法对 type 为 increaseAsync 的 action 进行监听，一但发现该请求发出，会调用 fetchCounter 方法。然后会阻塞 3s ，发出另外一个 action 去改变 state 的值。</p>
+<p><code>src/container/saga.js</code></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; call, put, takeEvery, takeLatest &#125; <span class="keyword">from</span> <span class="string">'redux-saga/effects'</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span>* <span class="title">fetchCounter</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">       <span class="keyword">yield</span> call(asyncFn);</span><br><span class="line">       <span class="keyword">yield</span> put(&#123;<span class="attr">type</span>: <span class="string">"increase"</span>&#125;);</span><br><span class="line"> &#125;</span><br><span class="line"></span><br><span class="line"> <span class="comment">// 异步执行，测试用</span></span><br><span class="line"> <span class="function"><span class="keyword">function</span> <span class="title">asyncFn</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">     <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve</span>)=&gt;</span> &#123;</span><br><span class="line">        setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">            <span class="built_in">console</span>.log(<span class="string">'3s end'</span>);</span><br><span class="line">            resolve();</span><br><span class="line">        &#125;, <span class="number">3000</span>);</span><br><span class="line">     &#125;)</span><br><span class="line"> &#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span>* <span class="title">watchIncrementAsync</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">yield</span> takeLatest(<span class="string">"increaseAsync"</span>, fetchCounter);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> watchIncrementAsync;</span><br></pre></td></tr></table></figure>
+<p><code>src/configureStore.js</code></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// compose 用来组和插件和中间件</span></span><br><span class="line"><span class="keyword">import</span> &#123; createStore, applyMiddleware, compose &#125; <span class="keyword">from</span> <span class="string">"redux"</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; composeWithDevTools &#125; <span class="keyword">from</span> <span class="string">"redux-devtools-extension"</span>;</span><br><span class="line"><span class="keyword">import</span> createReducer <span class="keyword">from</span> <span class="string">'./reducers'</span>;</span><br><span class="line"><span class="keyword">import</span> createSagaMiddleware <span class="keyword">from</span> <span class="string">'redux-saga'</span>;</span><br><span class="line"><span class="keyword">import</span> counterSaga <span class="keyword">from</span> <span class="string">'./containers/Counter/saga.js'</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// create the saga middleware</span></span><br><span class="line"><span class="keyword">const</span> sagaMiddleware = createSagaMiddleware()</span><br><span class="line"><span class="keyword">let</span> middleware = [sagaMiddleware]</span><br><span class="line"></span><br><span class="line"><span class="comment">// createStore 第一个参数为 reducer</span></span><br><span class="line"><span class="keyword">var</span> store;</span><br><span class="line"><span class="keyword">if</span> (<span class="built_in">window</span>.__REDUX_DEVTOOLS_EXTENSION__) &#123;</span><br><span class="line">  store = createStore(createReducer(), compose(applyMiddleware(...middleware), composeWithDevTools()))</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">  store = createStore(createReducer(), applyMiddleware(...middleware))</span><br><span class="line">&#125;</span><br><span class="line">sagaMiddleware.run(counterSaga)</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="function"><span class="keyword">function</span> <span class="title">configureStore</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> store;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>中文文档 <a href="https://redux-saga-in-chinese.js.org" target="_blank" rel="noopener">https://redux-saga-in-chinese.js.org</a></p>
+</blockquote>
 
       
     </div>
@@ -393,7 +391,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/工具/" rel="tag"><i class="fa fa-tag"></i> 工具</a>
+            <a href="/tags/react/" rel="tag"><i class="fa fa-tag"></i> react</a>
           
         </div>
       
@@ -406,8 +404,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/07/22/vue interview/" rel="next" title="vue interview">
-                <i class="fa fa-chevron-left"></i> vue interview
+              <a href="/2018/06/26/react-redux 攻略/" rel="next" title="react-redux 攻略">
+                <i class="fa fa-chevron-left"></i> react-redux 攻略
               </a>
             
           </div>
@@ -415,10 +413,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/07/22/Node REPL 环境/" rel="prev" title="Node REPL 环境">
-                Node REPL 环境 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -470,17 +464,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <section class="site-overview-wrap sidebar-panel">
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -583,22 +568,6 @@
         </div>
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#AMD-规范和-CommonJS"><span class="nav-number">1.</span> <span class="nav-text">AMD 规范和 CommonJS</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CommonJS"><span class="nav-number">2.</span> <span class="nav-text">CommonJS</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#AMD"><span class="nav-number">3.</span> <span class="nav-text">AMD</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CMD"><span class="nav-number">4.</span> <span class="nav-text">CMD</span></a></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       
