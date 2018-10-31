@@ -1,0 +1,794 @@
+<!DOCTYPE html>
+
+
+
+
+<html class="theme-next gemini" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico?v=5.1.3">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.3" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="可视化," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="矩形12345678910111213141516171819202122232425262728g    .append(&quot;rect&quot;)    .attr(&quot;class&quot;, &quot;rect&quot;)    .attr(&quot;width&quot;, 100)    .attr(&quot;height&quot;, 100)    .attr(&quot;stroke&quot;, &quot;#000&quot;)    .attr(&quot;fill&quot;, &quot;#eee&quot;)	// x,">
+<meta name="keywords" content="可视化">
+<meta property="og:type" content="article">
+<meta property="og:title" content="d3.js">
+<meta property="og:url" content="http://yoursite.com/2018/01/01/可视化/d3js/index.html">
+<meta property="og:site_name">
+<meta property="og:description" content="矩形12345678910111213141516171819202122232425262728g    .append(&quot;rect&quot;)    .attr(&quot;class&quot;, &quot;rect&quot;)    .attr(&quot;width&quot;, 100)    .attr(&quot;height&quot;, 100)    .attr(&quot;stroke&quot;, &quot;#000&quot;)    .attr(&quot;fill&quot;, &quot;#eee&quot;)	// x,">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-10-31T09:10:19.472Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="d3.js">
+<meta name="twitter:description" content="矩形12345678910111213141516171819202122232425262728g    .append(&quot;rect&quot;)    .attr(&quot;class&quot;, &quot;rect&quot;)    .attr(&quot;width&quot;, 100)    .attr(&quot;height&quot;, 100)    .attr(&quot;stroke&quot;, &quot;#000&quot;)    .attr(&quot;fill&quot;, &quot;#eee&quot;)	// x,">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.3',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/01/01/可视化/d3js/"/>
+
+
+
+
+
+  <title>d3.js | </title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title"></span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/01/可视化/d3js/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="崭">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/toux.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">d3.js</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-01T12:08:32+08:00">
+                2018-01-01
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="矩形"><a href="#矩形" class="headerlink" title="矩形"></a>矩形</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">g</span><br><span class="line">    .append(<span class="string">"rect"</span>)</span><br><span class="line">    .attr(<span class="string">"class"</span>, <span class="string">"rect"</span>)</span><br><span class="line">    .attr(<span class="string">"width"</span>, <span class="number">100</span>)</span><br><span class="line">    .attr(<span class="string">"height"</span>, <span class="number">100</span>)</span><br><span class="line">    .attr(<span class="string">"stroke"</span>, <span class="string">"#000"</span>)</span><br><span class="line">    .attr(<span class="string">"fill"</span>, <span class="string">"#eee"</span>)</span><br><span class="line">	<span class="comment">// x, y 起点位置</span></span><br><span class="line">    .attr(<span class="string">'x'</span>, (d, i) =&gt; &#123;</span><br><span class="line">   	<span class="comment">// d 是元素本身</span></span><br><span class="line">            <span class="keyword">return</span> d;</span><br><span class="line">        &#125;)</span><br><span class="line">    .attr(<span class="string">'y'</span>, (d, i) =&gt; &#123;</span><br><span class="line">            <span class="keyword">return</span> d;</span><br><span class="line">        &#125;)</span><br><span class="line">     <span class="comment">// 圆角</span></span><br><span class="line">     .attr(<span class="string">'rx'</span>, <span class="number">4</span>)</span><br><span class="line">     .attr(<span class="string">'ry'</span>, <span class="number">4</span>)</span><br><span class="line">	 <span class="comment">// 旋转</span></span><br><span class="line">     .attr(<span class="string">'transform'</span>, <span class="string">"translate("</span> + <span class="number">-65</span> + <span class="string">","</span> + <span class="number">-20</span> + <span class="string">")"</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// attr 属性的数值可以通过函数 return </span></span><br><span class="line">      .attr(<span class="string">'width'</span>, (d) =&gt; &#123;</span><br><span class="line">      	<span class="keyword">const</span> width = d.length * <span class="number">18</span>;</span><br><span class="line">      	<span class="keyword">return</span> width;</span><br><span class="line">      &#125;)</span><br><span class="line"><span class="comment">// 颜色可以使用 rgba</span></span><br><span class="line">	  .attr(<span class="string">'stroke'</span>, <span class="string">'rgba(181, 181, 181, 0.75)'</span>)</span><br></pre></td></tr></table></figure>
+<h2 id="圆形"><a href="#圆形" class="headerlink" title="圆形"></a>圆形</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">g.append(<span class="string">'circle'</span>)</span><br><span class="line">  <span class="comment">// 圆的半径</span></span><br><span class="line">  .attr(<span class="string">'r'</span>, <span class="string">'5'</span>)</span><br><span class="line">  <span class="comment">// cx, cy 位置</span></span><br><span class="line">  .attr(<span class="string">'cx'</span>, (d, i) =&gt; &#123;</span><br><span class="line"> 	 <span class="keyword">return</span> d;</span><br><span class="line">  &#125;)</span><br><span class="line">  .attr(<span class="string">'cy'</span>, (d, i) =&gt; &#123;</span><br><span class="line">  	 <span class="keyword">return</span> d;</span><br><span class="line">  &#125;)</span><br><span class="line">  .style(<span class="string">'fill'</span>, <span class="string">'#1890ff'</span>)</span><br><span class="line">  .attr(<span class="string">'cursor'</span>, <span class="string">'pointer'</span>)</span><br></pre></td></tr></table></figure>
+<h2 id="文字"><a href="#文字" class="headerlink" title="文字"></a>文字</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">g.append(<span class="string">'text'</span>)</span><br><span class="line">    .text(<span class="string">'显示的文字'</span>)</span><br><span class="line">    .attr(<span class="string">'dy'</span>, <span class="string">'2em'</span>)</span><br><span class="line">    .attr(<span class="string">'dx'</span>, <span class="string">'1.2em'</span>)</span><br><span class="line">    .attr(<span class="string">'fill'</span>, <span class="string">'#fff'</span>)</span><br><span class="line">    .attr(<span class="string">"font-size"</span>, <span class="string">"18px"</span>)</span><br><span class="line">    .attr(<span class="string">'x'</span>, (d, i) =&gt; &#123;</span><br><span class="line">    	<span class="keyword">return</span> d;</span><br><span class="line">  	&#125;)</span><br><span class="line">	.attr(<span class="string">'y'</span>, (d, i) =&gt; &#123;</span><br><span class="line">    	<span class="keyword">return</span> d;</span><br><span class="line">  	&#125;)</span><br><span class="line">	.style(<span class="string">"font-family"</span>, fontfamily);</span><br></pre></td></tr></table></figure>
+<h2 id="封装文本自动换行"><a href="#封装文本自动换行" class="headerlink" title="封装文本自动换行"></a>封装文本自动换行</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 参数</span></span><br><span class="line">appendMultiText(</span><br><span class="line">	container,			<span class="comment">//文本的容器，可以是&lt;svg&gt;或&lt;g&gt; </span></span><br><span class="line">	str, 				<span class="comment">//字符串</span></span><br><span class="line">	posX, 				<span class="comment">//文本的x坐标</span></span><br><span class="line">	posY, 				<span class="comment">//文本的y坐标</span></span><br><span class="line">	width, 				<span class="comment">//每一行的宽度，单位为像素</span></span><br><span class="line">	fontsize, 			<span class="comment">//文字的大小（可省略），默认为 14</span></span><br><span class="line">	fontfamily			<span class="comment">//文字的字体（可省略），默认为 simsun, arial</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 使用</span></span><br><span class="line">    rectTextG</span><br><span class="line">        .append(<span class="string">'text'</span>)</span><br><span class="line">        .text(<span class="function"><span class="keyword">function</span> (<span class="params">d,i</span>) </span>&#123;</span><br><span class="line">            <span class="keyword">if</span>(d.data.name.length &gt;= <span class="number">6</span>) &#123;</span><br><span class="line">                appendMultiText(d3.select(rectTextG._groups[<span class="number">0</span>][i]), d.data.name, <span class="number">-58</span>, <span class="number">-18</span>, <span class="number">104</span>,<span class="number">14</span>);</span><br><span class="line">                <span class="keyword">return</span> <span class="string">''</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">return</span> d.data.name;</span><br><span class="line">        &#125;);</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">appendMultiText</span>(<span class="params">container, str, posX, posY, width, fontsize, fontfamily</span>)</span>&#123;</span><br><span class="line">			</span><br><span class="line">			<span class="keyword">if</span>( <span class="built_in">arguments</span>.length &lt; <span class="number">6</span>)&#123;</span><br><span class="line">				fontsize = <span class="number">14</span>;</span><br><span class="line">			&#125;		</span><br><span class="line">			</span><br><span class="line">			<span class="keyword">if</span>( <span class="built_in">arguments</span>.length &lt; <span class="number">7</span>)&#123;</span><br><span class="line">				fontfamily = <span class="string">"simsun, arial"</span>;</span><br><span class="line">			&#125;</span><br><span class="line">			</span><br><span class="line">			<span class="comment">//</span></span><br><span class="line">			<span class="keyword">var</span> strs = splitByLine(str,width,fontsize);</span><br><span class="line">			</span><br><span class="line">			<span class="keyword">var</span> mulText = container.append(<span class="string">"text"</span>)</span><br><span class="line">				.attr(<span class="string">"x"</span>,posX)</span><br><span class="line">				.attr(<span class="string">"y"</span>,posY)</span><br><span class="line">				.style(<span class="string">"font-size"</span>,fontsize)</span><br><span class="line">				.style(<span class="string">"font-family"</span>,fontfamily);</span><br><span class="line">				</span><br><span class="line">			mulText.selectAll(<span class="string">"tspan"</span>)</span><br><span class="line">				.data(strs)</span><br><span class="line">				.enter()</span><br><span class="line">				.append(<span class="string">"tspan"</span>)</span><br><span class="line">				.attr(<span class="string">"x"</span>,mulText.attr(<span class="string">"x"</span>))</span><br><span class="line">				.attr(<span class="string">"dy"</span>,<span class="string">"1em"</span>)</span><br><span class="line">				.text(<span class="function"><span class="keyword">function</span>(<span class="params">d</span>)</span>&#123;</span><br><span class="line">					<span class="keyword">return</span> d;</span><br><span class="line">				&#125;);</span><br><span class="line">				</span><br><span class="line">			<span class="keyword">return</span> mulText;</span><br><span class="line">			</span><br><span class="line">			<span class="function"><span class="keyword">function</span> <span class="title">splitByLine</span>(<span class="params">str,max,fontsize</span>)</span>&#123;</span><br><span class="line">				<span class="keyword">var</span> curLen = <span class="number">0</span>;</span><br><span class="line">				<span class="keyword">var</span> result = [];</span><br><span class="line">				<span class="keyword">var</span> start = <span class="number">0</span>, end = <span class="number">0</span>;</span><br><span class="line">				<span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;str.length;i++)&#123;</span><br><span class="line">					<span class="keyword">var</span> code = str.charCodeAt(i);</span><br><span class="line">					<span class="keyword">var</span> pixelLen = code &gt; <span class="number">255</span> ? fontsize : fontsize/<span class="number">2</span>;</span><br><span class="line">					curLen += pixelLen;</span><br><span class="line">					<span class="keyword">if</span>(curLen &gt; max)&#123;</span><br><span class="line">						end = i;</span><br><span class="line">						result.push(str.substring(start,end));</span><br><span class="line">						start = i;</span><br><span class="line">						curLen = pixelLen;</span><br><span class="line">					&#125;</span><br><span class="line">					<span class="keyword">if</span>( i === str.length - <span class="number">1</span> )&#123;</span><br><span class="line">						end = i;</span><br><span class="line">						result.push(str.substring(start,end+<span class="number">1</span>));</span><br><span class="line">					&#125;</span><br><span class="line">				&#125;</span><br><span class="line">				<span class="keyword">return</span> result;</span><br><span class="line">			&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div><div class="end-remind">本文结束，感谢您的阅读</div></div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.png" alt="崭 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.png" alt="崭 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/可视化/" rel="tag"><i class="fa fa-tag"></i> 可视化</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/11/23/webpack 引入未模块化的库/" rel="next" title="webpack 引入未模块化的库">
+                <i class="fa fa-chevron-left"></i> webpack 引入未模块化的库
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/01/01/vue 登录权限控制/" rel="prev" title="vue 登录权限控制">
+                vue 登录权限控制 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/toux.jpg"
+                alt="崭" />
+            
+              <p class="site-author-name" itemprop="name">崭</p>
+              <p class="site-description motion-element" itemprop="description">海底月是天上月</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">61</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">21</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/yaozhanxin" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:yaozhanxin@qq.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="undefined" target="_blank" title="QQ 290101916">
+                      
+                        <i class="fa fa-fw fa-globe"></i>QQ 290101916</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://developer.mozilla.org/zh-CN/" title="MDN Web Docs" target="_blank">MDN Web Docs</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://segmentfault.com/" title="SegmentFault" target="_blank">SegmentFault</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.jianshu.com/" title="简书" target="_blank">简书</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.ruanyifeng.com/blog/" title="阮一峰" target="_blank">阮一峰</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#矩形"><span class="nav-number">1.</span> <span class="nav-text">矩形</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#圆形"><span class="nav-number">2.</span> <span class="nav-text">圆形</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#文字"><span class="nav-number">3.</span> <span class="nav-text">文字</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#封装文本自动换行"><span class="nav-number">4.</span> <span class="nav-text">封装文本自动换行</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 1995 &mdash; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">崭</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.3</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.3"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
