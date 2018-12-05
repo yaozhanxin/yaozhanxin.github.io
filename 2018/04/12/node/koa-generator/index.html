@@ -66,7 +66,7 @@
 
 
 
-  <meta name="keywords" content="Node," />
+  <meta name="keywords" content="node," />
 
 
 
@@ -77,18 +77,18 @@
 
 
 
-<meta name="description" content="1.1 安装先在项目目录创建一个 package.json 文件，记录包的依赖 1$ npm init 安装 Express 并将其保存到依赖列表中： 1$ npm install express --save 1.2 快速构建进入项目根目录，编辑 index.js 12345678910111213141516var express = require(&apos;express&apos;)var app = e">
-<meta name="keywords" content="Node">
+<meta name="description" content="初始化1$ npm install -g koa-generator 生成 koa2 项目 1$ koa2 projectName 可选参数 12345678-h, --help          帮助-V, --version       版本号-e, --ejs           添加ejs模板引擎支持(默认是jade)    --hbs           添加hbs模板引擎支持(默认是h">
+<meta name="keywords" content="node">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Express 4.x Demo">
-<meta property="og:url" content="http://yoursite.com/2017/07/22/Express 4.x入门/index.html">
+<meta property="og:title" content="koa-generator">
+<meta property="og:url" content="http://yoursite.com/2018/04/12/node/koa-generator/index.html">
 <meta property="og:site_name">
-<meta property="og:description" content="1.1 安装先在项目目录创建一个 package.json 文件，记录包的依赖 1$ npm init 安装 Express 并将其保存到依赖列表中： 1$ npm install express --save 1.2 快速构建进入项目根目录，编辑 index.js 12345678910111213141516var express = require(&apos;express&apos;)var app = e">
+<meta property="og:description" content="初始化1$ npm install -g koa-generator 生成 koa2 项目 1$ koa2 projectName 可选参数 12345678-h, --help          帮助-V, --version       版本号-e, --ejs           添加ejs模板引擎支持(默认是jade)    --hbs           添加hbs模板引擎支持(默认是h">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-04-20T03:30:14.865Z">
+<meta property="og:updated_time" content="2018-12-05T06:15:52.749Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Express 4.x Demo">
-<meta name="twitter:description" content="1.1 安装先在项目目录创建一个 package.json 文件，记录包的依赖 1$ npm init 安装 Express 并将其保存到依赖列表中： 1$ npm install express --save 1.2 快速构建进入项目根目录，编辑 index.js 12345678910111213141516var express = require(&apos;express&apos;)var app = e">
+<meta name="twitter:title" content="koa-generator">
+<meta name="twitter:description" content="初始化1$ npm install -g koa-generator 生成 koa2 项目 1$ koa2 projectName 可选参数 12345678-h, --help          帮助-V, --version       版本号-e, --ejs           添加ejs模板引擎支持(默认是jade)    --hbs           添加hbs模板引擎支持(默认是h">
 
 
 
@@ -118,13 +118,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/07/22/Express 4.x入门/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/04/12/node/koa-generator/"/>
 
 
 
 
 
-  <title>Express 4.x Demo | </title>
+  <title>koa-generator | </title>
   
 
 
@@ -261,10 +261,10 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/07/22/Express 4.x入门/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/12/node/koa-generator/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="崭">
+      <meta itemprop="name" content="yaozx">
       <meta itemprop="description" content="">
       <meta itemprop="image" content="/images/toux.jpg">
     </span>
@@ -278,7 +278,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Express 4.x Demo</h1>
+          <h1 class="post-title" itemprop="name headline">koa-generator</h1>
         
 
         <div class="post-meta">
@@ -290,8 +290,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-22T15:08:32+08:00">
-                2017-07-22
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-12T11:18:42+08:00">
+                2018-04-12
               </time>
             
 
@@ -328,14 +328,69 @@
       
 
       
-        <h3 id="1-1-安装"><a href="#1-1-安装" class="headerlink" title="1.1 安装"></a>1.1 安装</h3><p>先在项目目录创建一个 package.json 文件，记录包的依赖</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm init</span><br></pre></td></tr></table></figure>
-<p>安装 Express 并将其保存到依赖列表中：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install express --save</span><br></pre></td></tr></table></figure>
-<h3 id="1-2-快速构建"><a href="#1-2-快速构建" class="headerlink" title="1.2 快速构建"></a>1.2 快速构建</h3><p>进入项目根目录，编辑 index.js</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> express = <span class="built_in">require</span>(<span class="string">'express'</span>)</span><br><span class="line"><span class="keyword">var</span> app = express()</span><br><span class="line"></span><br><span class="line"><span class="comment">// GET method route</span></span><br><span class="line">app.get(<span class="string">'/'</span>, (req, res) =&gt; &#123;</span><br><span class="line">    res.send(<span class="string">'GET request to the homepage'</span>)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// POST method route</span></span><br><span class="line">app.post(<span class="string">'/'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">req, res</span>) </span>&#123;</span><br><span class="line">    res.send(<span class="string">'POST request to the homepage'</span>)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">app.listen(<span class="number">3000</span>,() =&gt; &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'start success!'</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-<h3 id="1-3-启动"><a href="#1-3-启动" class="headerlink" title="1.3 启动"></a>1.3 启动</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm index</span><br></pre></td></tr></table></figure>
-<p>访问本地的 3000 端口，get 或 post 请求均可响应。</p>
+        <h3 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install -g koa-generator</span><br></pre></td></tr></table></figure>
+<p>生成 koa2 项目</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ koa2 projectName</span><br></pre></td></tr></table></figure>
+<p>可选参数</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">-h, --help          帮助</span><br><span class="line">-V, --version       版本号</span><br><span class="line">-e, --ejs           添加ejs模板引擎支持(默认是jade)</span><br><span class="line">    --hbs           添加hbs模板引擎支持(默认是hbs)</span><br><span class="line">-H, --hogan         添加hogan.js支持</span><br><span class="line">-c, --css &lt;engine&gt;  添加css样式 支持 less sass styus css(默认是css)</span><br><span class="line">    --git           添加 .gitignore</span><br><span class="line">-f, --force         force on non-empty directory</span><br></pre></td></tr></table></figure>
+<p>创建成功后安装项目依赖</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ cd projectName</span><br><span class="line">$ npm i</span><br></pre></td></tr></table></figure>
+<p>启动</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm start</span><br></pre></td></tr></table></figure>
+<p>访问地址 <a href="http://localhost:3000/" target="_blank" rel="noopener">http://localhost:3000/</a></p>
+<h3 id="运行依赖"><a href="#运行依赖" class="headerlink" title="运行依赖"></a>运行依赖</h3><ul>
+<li>koa-bodyparser</li>
+</ul>
+<p>用来解析 post 传递过来的数据</p>
+<p>koa2没有处理 post 请求参数的方法</p>
+<p>post 请求通过 bodyparser 中间件后，可以由 req.body 拿到数据</p>
+<p>此控件支持Josn,form,text类型</p>
+<ul>
+<li>koa-convert</li>
+</ul>
+<p>将所有传统生成器中间件转换为现代承诺中间件。</p>
+<p>以generator作为中间件的写法将在koa@3里不支持，但是用co或koa-convert转过的还是可以的</p>
+<ul>
+<li>koa-json</li>
+</ul>
+<p>将返回的 text 格式自动排列为 json 格式</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">var json = require('koa-json');</span><br><span class="line">var Koa = require('koa');</span><br><span class="line">var app = new Koa();</span><br><span class="line"></span><br><span class="line">app.use(json());</span><br><span class="line"></span><br><span class="line">app.use((ctx) =&gt; &#123;</span><br><span class="line">  ctx.body = &#123; foo: 'bar' &#125;;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<ul>
+<li>koa-logger</li>
+</ul>
+<p>记录请求响应时间</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> logger = <span class="built_in">require</span>(<span class="string">'koa-logger'</span>)</span><br><span class="line"><span class="keyword">const</span> Koa = <span class="built_in">require</span>(<span class="string">'koa'</span>)</span><br><span class="line"> </span><br><span class="line"><span class="keyword">const</span> app = <span class="keyword">new</span> Koa()</span><br><span class="line">app.use(logger())</span><br></pre></td></tr></table></figure>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;-- GET /</span><br><span class="line">--&gt; GET / 200 835ms 746b</span><br><span class="line">&lt;-- GET /</span><br><span class="line">--&gt; GET / 200 960ms 1.9kb</span><br></pre></td></tr></table></figure>
+<ul>
+<li>koa-onerror</li>
+</ul>
+<p>可定制化处理错误的中间件</p>
+<ul>
+<li>koa-router</li>
+</ul>
+<p>路由</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> Koa = <span class="built_in">require</span>(<span class="string">'koa'</span>);</span><br><span class="line"><span class="keyword">var</span> Router = <span class="built_in">require</span>(<span class="string">'koa-router'</span>);</span><br><span class="line"> </span><br><span class="line"><span class="keyword">var</span> app = <span class="keyword">new</span> Koa();</span><br><span class="line"><span class="keyword">var</span> router = <span class="keyword">new</span> Router();</span><br><span class="line"> </span><br><span class="line">router.get(<span class="string">'/'</span>, (ctx, next) =&gt; &#123;</span><br><span class="line">  <span class="comment">// ctx.router available</span></span><br><span class="line">&#125;);</span><br><span class="line"> </span><br><span class="line">app</span><br><span class="line">  .use(router.routes())</span><br><span class="line">  .use(router.allowedMethods());</span><br></pre></td></tr></table></figure>
+<ul>
+<li>koa-static</li>
+</ul>
+<p>托管服务器内的静态资源</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">const Koa = require(&apos;koa&apos;);</span><br><span class="line">const app = new Koa();</span><br><span class="line">app.use(require(&apos;koa-static&apos;)(root, opts));</span><br></pre></td></tr></table></figure>
+<ul>
+<li>koa-views</li>
+</ul>
+<p>模板引擎</p>
+<blockquote>
+<p>在 ctx 中会出现 render API</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">router.get(<span class="string">'/'</span>, <span class="keyword">async</span> (ctx, next) =&gt; &#123;</span><br><span class="line">  <span class="keyword">await</span> ctx.render(<span class="string">'index'</span>, &#123;</span><br><span class="line">    title: <span class="string">'Hello Koa 2!'</span></span><br><span class="line">  &#125;)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<ul>
+<li>pug</li>
+</ul>
+<p>模板，原名 Jade</p>
+<h3 id="开发依赖"><a href="#开发依赖" class="headerlink" title="开发依赖"></a>开发依赖</h3><ul>
+<li>nodemon</li>
+</ul>
+<p>修改代码后自动重启服务器</p>
 
       
     </div>
@@ -356,14 +411,14 @@
 
     
       <div id="wechat" style="display: inline-block">
-        <img id="wechat_qr" src="/images/wechatpay.png" alt="崭 微信支付"/>
+        <img id="wechat_qr" src="/images/wechatpay.png" alt="yaozx 微信支付"/>
         <p>微信支付</p>
       </div>
     
 
     
       <div id="alipay" style="display: inline-block">
-        <img id="alipay_qr" src="/images/alipay.png" alt="崭 支付宝"/>
+        <img id="alipay_qr" src="/images/alipay.png" alt="yaozx 支付宝"/>
         <p>支付宝</p>
       </div>
     
@@ -382,7 +437,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Node/" rel="tag"><i class="fa fa-tag"></i> Node</a>
+            <a href="/tags/node/" rel="tag"><i class="fa fa-tag"></i> node</a>
           
         </div>
       
@@ -395,8 +450,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/07/22/ES6 其它/" rel="next" title="ES6 其它">
-                <i class="fa fa-chevron-left"></i> ES6 其它
+              <a href="/2018/04/12/node/CentOS 7.4 源码安装及部署 node/" rel="next" title="CentOS 7.4 源码安装及部署 node">
+                <i class="fa fa-chevron-left"></i> CentOS 7.4 源码安装及部署 node
               </a>
             
           </div>
@@ -405,8 +460,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/07/22/axios/" rel="prev" title="axios">
-                axios <i class="fa fa-chevron-right"></i>
+              <a href="/2018/04/24/vue 搭建 axios 拦截器/" rel="prev" title="vue 搭建 axios 拦截器">
+                vue 搭建 axios 拦截器 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -475,10 +530,10 @@
             
               <img class="site-author-image" itemprop="image"
                 src="/images/toux.jpg"
-                alt="崭" />
+                alt="yaozx" />
             
-              <p class="site-author-name" itemprop="name">崭</p>
-              <p class="site-description motion-element" itemprop="description">海底月是天上月</p>
+              <p class="site-author-name" itemprop="name">yaozx</p>
+              <p class="site-description motion-element" itemprop="description">yaozhanxin</p>
           </div>
 
           <nav class="site-state motion-element">
@@ -488,7 +543,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">63</span>
+                  <span class="site-state-item-count">64</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -582,7 +637,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-安装"><span class="nav-number">1.</span> <span class="nav-text">1.1 安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-快速构建"><span class="nav-number">2.</span> <span class="nav-text">1.2 快速构建</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-3-启动"><span class="nav-number">3.</span> <span class="nav-text">1.3 启动</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#初始化"><span class="nav-number">1.</span> <span class="nav-text">初始化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#运行依赖"><span class="nav-number">2.</span> <span class="nav-text">运行依赖</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#开发依赖"><span class="nav-number">3.</span> <span class="nav-text">开发依赖</span></a></li></ol></div>
             
 
           </div>
@@ -606,7 +661,7 @@
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
-  <span class="author" itemprop="copyrightHolder">崭</span>
+  <span class="author" itemprop="copyrightHolder">yaozx</span>
 
   
 </div>
