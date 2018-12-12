@@ -1,0 +1,838 @@
+<!DOCTYPE html>
+
+
+
+
+<html class="theme-next gemini" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico?v=5.1.3">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.3" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="vue," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="一、vue 生命周期函数vue提供了一系列的生命周期函数供我们在需要的时候使用 这些函数会在恰当的时机被自动调用 beforeCreate 实例被创建, 但数据还未进行观察, 实例身上也无法访问数据 可以认为MVVM模式中的VM已初始化完毕 这些函数内的this指向当前组件  可以在函数里面加一些 log，或者提示信息类的东西 因为该函数执行，vue仅仅是刚刚初始化了这个组件，还没有对数据进行监听">
+<meta name="keywords" content="vue">
+<meta property="og:type" content="article">
+<meta property="og:title" content="vue 生命周期函数">
+<meta property="og:url" content="http://yoursite.com/2017/11/22/vue/vue 生命周期函数/index.html">
+<meta property="og:site_name">
+<meta property="og:description" content="一、vue 生命周期函数vue提供了一系列的生命周期函数供我们在需要的时候使用 这些函数会在恰当的时机被自动调用 beforeCreate 实例被创建, 但数据还未进行观察, 实例身上也无法访问数据 可以认为MVVM模式中的VM已初始化完毕 这些函数内的this指向当前组件  可以在函数里面加一些 log，或者提示信息类的东西 因为该函数执行，vue仅仅是刚刚初始化了这个组件，还没有对数据进行监听">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-02-12T10:10:27.920Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="vue 生命周期函数">
+<meta name="twitter:description" content="一、vue 生命周期函数vue提供了一系列的生命周期函数供我们在需要的时候使用 这些函数会在恰当的时机被自动调用 beforeCreate 实例被创建, 但数据还未进行观察, 实例身上也无法访问数据 可以认为MVVM模式中的VM已初始化完毕 这些函数内的this指向当前组件  可以在函数里面加一些 log，或者提示信息类的东西 因为该函数执行，vue仅仅是刚刚初始化了这个组件，还没有对数据进行监听">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.3',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/11/22/vue/vue 生命周期函数/"/>
+
+
+
+
+
+  <title>vue 生命周期函数 | </title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title"></span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/11/22/vue/vue 生命周期函数/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="yaozx">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/toux.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">vue 生命周期函数</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-22T15:08:32+08:00">
+                2017-11-22
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="一、vue-生命周期函数"><a href="#一、vue-生命周期函数" class="headerlink" title="一、vue 生命周期函数"></a>一、vue 生命周期函数</h2><p>vue提供了一系列的<code>生命周期</code>函数供我们在需要的时候使用</p>
+<p>这些函数会在恰当的时机被<code>自动</code>调用</p>
+<h3 id="beforeCreate"><a href="#beforeCreate" class="headerlink" title="beforeCreate"></a>beforeCreate</h3><ul>
+<li>实例被创建, 但<code>数据</code>还未进行观察, 实例身上也无法访问数据</li>
+<li>可以认为MVVM模式中的<code>VM</code>已初始化完毕</li>
+<li>这些函数内的<code>this</code>指向<code>当前</code>组件</li>
+</ul>
+<p>可以在函数里面加一些 log，或者提示信息类的东西</p>
+<p>因为该函数执行，vue仅仅是刚刚初始化了这个组件，还没有对数据进行监听，所以组件实例 this 是不能使用数据的。（就是data里面的数据）    </p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">Vue.component(<span class="string">'app-header'</span>, &#123;</span><br><span class="line">    template: <span class="string">'&lt;header&gt;首页&lt;/header&gt;'</span>,</span><br><span class="line">    data: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> &#123; <span class="attr">title</span>: <span class="string">'首页'</span> &#125;;</span><br><span class="line">    &#125;,</span><br><span class="line">    beforeCreate() &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'beforeCreate'</span>);</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="keyword">this</span>);	<span class="comment">// 当前组件实例</span></span><br><span class="line">        <span class="built_in">console</span>.log(<span class="keyword">this</span>.title);	<span class="comment">// undefined</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h3 id="created"><a href="#created" class="headerlink" title="created"></a>created</h3><ul>
+<li>实例被创建, 数据已经被监听, 所以在实例身上也可以访问数据了</li>
+<li>可以认为MVVM模式中的<code>M</code>已初始化完毕</li>
+<li>该函数使用<code>频率</code>比较高, 一般的数据<code>初始化</code>操作就写在这里, 比如发送<code>ajax</code>请求</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">Vue.component(<span class="string">'app-header'</span>, &#123;</span><br><span class="line">    template: <span class="string">'&lt;header&gt;首页&lt;/header&gt;'</span>,</span><br><span class="line">    data: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> &#123; <span class="attr">title</span>: <span class="string">'首页'</span> &#125;;</span><br><span class="line">    &#125;,</span><br><span class="line">    created() &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'created'</span>);</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="keyword">this</span>);  <span class="comment">// 实例</span></span><br><span class="line">        <span class="built_in">console</span>.log(<span class="keyword">this</span>.title);  <span class="comment">// 首页</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h3 id="beforeMount"><a href="#beforeMount" class="headerlink" title="beforeMount"></a>beforeMount</h3><ul>
+<li>模版已编译好，但视图还没有进行渲染，未插入到页面中</li>
+<li>可以认为MVVM模式中的<code>V</code>已初始化完毕</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">Vue.component(<span class="string">'app-header'</span>, &#123;</span><br><span class="line">    template: <span class="string">'&lt;header&gt;首页&lt;/header&gt;'</span>,</span><br><span class="line">    data: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> &#123; <span class="attr">title</span>: <span class="string">'首页'</span> &#125;;</span><br><span class="line">    &#125;,</span><br><span class="line">    beforeMount() &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'beforeMount'</span>);</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="keyword">this</span>);	<span class="comment">// 实例</span></span><br><span class="line">        <span class="comment">// $el 为 Vue 实例使用的根 DOM 元素。</span></span><br><span class="line">        <span class="built_in">console</span>.log(<span class="keyword">this</span>.$el);	<span class="comment">// undefined, 视图未挂载</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h3 id="mounted"><a href="#mounted" class="headerlink" title="mounted"></a>mounted</h3><ul>
+<li>模版已插入页面, <code>this.$el</code>属性被创建</li>
+<li>项目已经<code>成功</code>运行, 从这个函数开始可以进行<code>DOM</code>操作了</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">Vue.component(<span class="string">'app-header'</span>, &#123;</span><br><span class="line">    template: <span class="string">'&lt;header&gt;首页&lt;/header&gt;'</span>,</span><br><span class="line">    data: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> &#123; <span class="attr">title</span>: <span class="string">'首页'</span> &#125;;</span><br><span class="line">    &#125;,</span><br><span class="line">    beforeMount() &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'mounted'</span>);</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="keyword">this</span>);                  <span class="comment">// 实例</span></span><br><span class="line">      	<span class="comment">// $el 为 Vue 实例使用的根 DOM 元素。</span></span><br><span class="line">        <span class="built_in">console</span>.log(<span class="keyword">this</span>.$el);            <span class="comment">// header标签, 视图已挂载</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h3 id="beforeUpdate"><a href="#beforeUpdate" class="headerlink" title="beforeUpdate"></a>beforeUpdate</h3><ul>
+<li>数据被修改, 但<code>视图</code>还未重新渲染</li>
+<li>在这个函数中, 可以根据<code>数据</code>变化做进一步修改处理</li>
+</ul>
+<p>只要有数据变化就会执行，不用特意去监听某个数据，这个时候视图还没有更新 。在这里可以根据数据的变化，看看要不要有其它特殊逻辑处理。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">Vue.component(<span class="string">'app-header'</span>, &#123;</span><br><span class="line">    template: <span class="string">'&lt;header ref="hd" @click="changeTitle"&gt;首页&lt;/header&gt;'</span>,</span><br><span class="line">    data: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> &#123; <span class="attr">title</span>: <span class="string">'首页'</span> &#125;;</span><br><span class="line">    &#125;,</span><br><span class="line">    methods: &#123;</span><br><span class="line">        changeTitle() &#123;</span><br><span class="line">            <span class="keyword">this</span>.title = <span class="string">'登陆'</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="comment">// 数据变化时才会被调用</span></span><br><span class="line">    beforeUpdate() &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'beforeUpdate'</span>);</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="keyword">this</span>);  <span class="comment">// 实例</span></span><br><span class="line">        <span class="built_in">console</span>.log(<span class="keyword">this</span>.title);  <span class="comment">// 登陆</span></span><br><span class="line">        <span class="built_in">console</span>.log(<span class="keyword">this</span>.$refs.hd.innerHTML);  <span class="comment">// 首页, 因为视图还未更新</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h3 id="updated"><a href="#updated" class="headerlink" title="updated"></a>updated</h3><ul>
+<li>数据被修改, <code>视图</code>也更新完毕</li>
+<li>在这个函数中, 可以对更新后的视图进行<code>DOM</code>操作</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">Vue.component(<span class="string">'app-header'</span>, &#123;</span><br><span class="line">    template: <span class="string">'&lt;header ref="hd" @click="changeTitle"&gt;首页&lt;/header&gt;'</span>,</span><br><span class="line">    data: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> &#123; <span class="attr">title</span>: <span class="string">'首页'</span> &#125;;</span><br><span class="line">    &#125;,</span><br><span class="line">    methods: &#123;</span><br><span class="line">        changeTitle() &#123;</span><br><span class="line">            <span class="keyword">this</span>.title = <span class="string">'登陆'</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    updated() &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'updated'</span>);</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="keyword">this</span>);  <span class="comment">// 实例</span></span><br><span class="line">        <span class="built_in">console</span>.log(<span class="keyword">this</span>.title);  <span class="comment">// 登陆</span></span><br><span class="line">        <span class="built_in">console</span>.log(<span class="keyword">this</span>.$refs.hd.innerHTML);  <span class="comment">// 登陆, 视图已更新</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h3 id="beforeDestroy"><a href="#beforeDestroy" class="headerlink" title="beforeDestroy"></a>beforeDestroy</h3><ul>
+<li>实例/组件销毁前执行</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"app"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">app-header</span> <span class="attr">v-if</span>=<span class="string">"headerIsShow"</span>&gt;</span><span class="tag">&lt;/<span class="name">app-header</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">Vue.component(<span class="string">'app-header'</span>, &#123;</span><br><span class="line">    template: <span class="string">'&lt;header ref="hd"&gt;首页&lt;/header&gt;'</span>,</span><br><span class="line">    data: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> &#123; <span class="attr">title</span>: <span class="string">'首页'</span> &#125;;</span><br><span class="line">    &#125;,</span><br><span class="line">    beforeDestroy() &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'beforeDestroy'</span>);</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="keyword">this</span>);  <span class="comment">// 实例</span></span><br><span class="line">        <span class="built_in">console</span>.log(<span class="keyword">this</span>.$refs.hd);  <span class="comment">// header标签</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 使用headerIsShow控制header组件的诞生与销毁</span></span><br><span class="line"><span class="keyword">var</span> vm = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">    el: <span class="string">'#app'</span>,</span><br><span class="line">    data: &#123;</span><br><span class="line">        headerIsShow: <span class="literal">true</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h3 id="destroyed"><a href="#destroyed" class="headerlink" title="destroyed"></a>destroyed</h3><ul>
+<li>实例/组件销毁后执行，所有绑定都已解除</li>
+<li>在这个函数中可以释放一些资源</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"app"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">app-header</span> <span class="attr">v-if</span>=<span class="string">"headerIsShow"</span>&gt;</span><span class="tag">&lt;/<span class="name">app-header</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">Vue.component(<span class="string">'app-header'</span>, &#123;</span><br><span class="line">    template: <span class="string">'&lt;header ref="hd"&gt;首页&lt;/header&gt;'</span>,</span><br><span class="line">    data: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> &#123; <span class="attr">title</span>: <span class="string">'首页'</span> &#125;;</span><br><span class="line">    &#125;,</span><br><span class="line">    destroyed() &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'destroyed'</span>);</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="keyword">this</span>);  <span class="comment">// 实例</span></span><br><span class="line">        <span class="built_in">console</span>.log(<span class="keyword">this</span>.$refs.hd);  <span class="comment">// undefined</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 使用headerIsShow控制header组件的诞生与销毁</span></span><br><span class="line"><span class="keyword">var</span> vm = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">    el: <span class="string">'#app'</span>,</span><br><span class="line">    data: &#123;</span><br><span class="line">        headerIsShow: <span class="literal">true</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div><div class="end-remind">本文结束，感谢您的阅读</div></div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.png" alt="yaozx 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.png" alt="yaozx 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/vue/" rel="tag"><i class="fa fa-tag"></i> vue</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/11/22/vue/vue other/" rel="next" title="vue other">
+                <i class="fa fa-chevron-left"></i> vue other
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/11/23/webpack 引入未模块化的库/" rel="prev" title="webpack 引入未模块化的库">
+                webpack 引入未模块化的库 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/toux.jpg"
+                alt="yaozx" />
+            
+              <p class="site-author-name" itemprop="name">yaozx</p>
+              <p class="site-description motion-element" itemprop="description">yaozhanxin</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">65</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">21</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/yaozhanxin" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:yaozhanxin@qq.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="undefined" target="_blank" title="QQ 290101916">
+                      
+                        <i class="fa fa-fw fa-globe"></i>QQ 290101916</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://developer.mozilla.org/zh-CN/" title="MDN Web Docs" target="_blank">MDN Web Docs</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://segmentfault.com/" title="SegmentFault" target="_blank">SegmentFault</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.jianshu.com/" title="简书" target="_blank">简书</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.ruanyifeng.com/blog/" title="阮一峰" target="_blank">阮一峰</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#一、vue-生命周期函数"><span class="nav-number">1.</span> <span class="nav-text">一、vue 生命周期函数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#beforeCreate"><span class="nav-number">1.1.</span> <span class="nav-text">beforeCreate</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#created"><span class="nav-number">1.2.</span> <span class="nav-text">created</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#beforeMount"><span class="nav-number">1.3.</span> <span class="nav-text">beforeMount</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#mounted"><span class="nav-number">1.4.</span> <span class="nav-text">mounted</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#beforeUpdate"><span class="nav-number">1.5.</span> <span class="nav-text">beforeUpdate</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#updated"><span class="nav-number">1.6.</span> <span class="nav-text">updated</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#beforeDestroy"><span class="nav-number">1.7.</span> <span class="nav-text">beforeDestroy</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#destroyed"><span class="nav-number">1.8.</span> <span class="nav-text">destroyed</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 1995 &mdash; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">yaozx</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.3</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.3"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
