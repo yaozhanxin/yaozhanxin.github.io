@@ -77,18 +77,18 @@
 
 
 
-<meta name="description" content="在 reducers 中的所有操作都是同步的并且是纯粹的，即 reducer 都是纯函数，纯函数是指一个函数的返回结果只依赖于它的参数，并且在执行过程中不会对外部产生副作用，即给它传什么，就吐出什么。但是在实际的应用开发中，可能希望做一些异步的（如Ajax请求，异步获取数据，访问浏览器缓存）且不纯粹的操作（如改变外部的状态），这些在函数式编程范式中被称为“副作用”。 Redux 的作者将这些副作用">
+<meta name="description" content="简介 在 reducers 中的所有操作都是同步的并且是纯粹的，即 reducer 都是纯函数，纯函数是指一个函数的返回结果只依赖于它的参数，并且在执行过程中不会对外部产生副作用，即给它传什么，就吐出什么。但是在实际的应用开发中，可能希望做一些异步的（如Ajax请求，异步获取数据，访问浏览器缓存）且不纯粹的操作（如改变外部的状态），这些在函数式编程范式中被称为“副作用”。 Redux 的作者将这些">
 <meta name="keywords" content="react">
 <meta property="og:type" content="article">
-<meta property="og:title" content="react-saga">
-<meta property="og:url" content="http://yoursite.com/2018/06/27/react/redux-saga/index.html">
+<meta property="og:title" content="react-thunk">
+<meta property="og:url" content="http://yoursite.com/2019/01/21/react/redux-thunk/index.html">
 <meta property="og:site_name">
-<meta property="og:description" content="在 reducers 中的所有操作都是同步的并且是纯粹的，即 reducer 都是纯函数，纯函数是指一个函数的返回结果只依赖于它的参数，并且在执行过程中不会对外部产生副作用，即给它传什么，就吐出什么。但是在实际的应用开发中，可能希望做一些异步的（如Ajax请求，异步获取数据，访问浏览器缓存）且不纯粹的操作（如改变外部的状态），这些在函数式编程范式中被称为“副作用”。 Redux 的作者将这些副作用">
+<meta property="og:description" content="简介 在 reducers 中的所有操作都是同步的并且是纯粹的，即 reducer 都是纯函数，纯函数是指一个函数的返回结果只依赖于它的参数，并且在执行过程中不会对外部产生副作用，即给它传什么，就吐出什么。但是在实际的应用开发中，可能希望做一些异步的（如Ajax请求，异步获取数据，访问浏览器缓存）且不纯粹的操作（如改变外部的状态），这些在函数式编程范式中被称为“副作用”。 Redux 的作者将这些">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-12-12T03:30:03.626Z">
+<meta property="og:updated_time" content="2019-01-21T08:11:51.792Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="react-saga">
-<meta name="twitter:description" content="在 reducers 中的所有操作都是同步的并且是纯粹的，即 reducer 都是纯函数，纯函数是指一个函数的返回结果只依赖于它的参数，并且在执行过程中不会对外部产生副作用，即给它传什么，就吐出什么。但是在实际的应用开发中，可能希望做一些异步的（如Ajax请求，异步获取数据，访问浏览器缓存）且不纯粹的操作（如改变外部的状态），这些在函数式编程范式中被称为“副作用”。 Redux 的作者将这些副作用">
+<meta name="twitter:title" content="react-thunk">
+<meta name="twitter:description" content="简介 在 reducers 中的所有操作都是同步的并且是纯粹的，即 reducer 都是纯函数，纯函数是指一个函数的返回结果只依赖于它的参数，并且在执行过程中不会对外部产生副作用，即给它传什么，就吐出什么。但是在实际的应用开发中，可能希望做一些异步的（如Ajax请求，异步获取数据，访问浏览器缓存）且不纯粹的操作（如改变外部的状态），这些在函数式编程范式中被称为“副作用”。 Redux 的作者将这些">
 
 
 
@@ -118,13 +118,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/06/27/react/redux-saga/"/>
+  <link rel="canonical" href="http://yoursite.com/2019/01/21/react/redux-thunk/"/>
 
 
 
 
 
-  <title>react-saga | </title>
+  <title>react-thunk | </title>
   
 
 
@@ -261,7 +261,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/27/react/redux-saga/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/01/21/react/redux-thunk/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="yaozx">
@@ -278,7 +278,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">react-saga</h1>
+          <h1 class="post-title" itemprop="name headline">react-thunk</h1>
         
 
         <div class="post-meta">
@@ -290,8 +290,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-27T07:18:43+08:00">
-                2018-06-27
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-01-21T16:11:20+08:00">
+                2019-01-21
               </time>
             
 
@@ -328,23 +328,31 @@
       
 
       
-        <p>在 reducers 中的所有操作都是同步的并且是纯粹的，即 reducer 都是纯函数，纯函数是指一个函数的返回结果只依赖于它的参数，并且在执行过程中不会对外部产生副作用，即给它传什么，就吐出什么。但是在实际的应用开发中，可能希望做一些异步的（如Ajax请求，异步获取数据，访问浏览器缓存）且不纯粹的操作（如改变外部的状态），这些在函数式编程范式中被称为“副作用”。</p>
+        <p><strong>简介</strong></p>
+<p>在 reducers 中的所有操作都是同步的并且是纯粹的，即 reducer 都是纯函数，纯函数是指一个函数的返回结果只依赖于它的参数，并且在执行过程中不会对外部产生副作用，即给它传什么，就吐出什么。但是在实际的应用开发中，可能希望做一些异步的（如Ajax请求，异步获取数据，访问浏览器缓存）且不纯粹的操作（如改变外部的状态），这些在函数式编程范式中被称为“副作用”。</p>
 <p>Redux 的作者将这些副作用的处理通过提供中间件的方式让开发者自行选择进行实现。</p>
 <p>redux-thunk 和 redux-saga 是 redux 应用中最常用的两种异步流处理方式。</p>
-<p>redux-saga 可以对指定的 action 请求进行一次拦截，处理完所需的异步操作后，再发送其它 action  去修改 state</p>
+<p>redux-thunk中间件可以让action创建函数先不返回一个action对象，而是返回一个函数，函数传递两个参数(dispatch,getState)，在函数体内进行有负作用的业务逻辑封装，处理完所需的异步操作后，再发送其它 action  去修改 state。</p>
+<p><strong>使用方式</strong></p>
+<ul>
+<li>安装:npm install redux-thunk –save-dev</li>
+<li>导入thunk： import thunk from ‘redux-thunk’</li>
+<li>导入中间件: import {createStore,applyMiddleware} from ‘redux’</li>
+<li>创建store：let store = createStore(reducer函数，applyMiddleware(thunk))</li>
+<li>激活redux-thunk中间件，只需要在createStore中加入applyMiddleware(thunk)就可以</li>
+</ul>
+<p><strong>代码</strong></p>
 <p>以一个计数器为例</p>
-<p>当点击自增按钮时，发送一个 type 为 increaseAsync 的异步自增请求。</p>
+<p>当点击自增按钮时，2秒后再对 store 的值进行自增。</p>
+<p>action </p>
 <p><code>src/container/action.js</code> </p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 自增请求</span></span><br><span class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">handleIncreaseAction</span>(<span class="params">num</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> &#123;</span><br><span class="line">    type: <span class="string">"increase"</span>,</span><br><span class="line">    num: num</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 自减请求</span></span><br><span class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">handleInReduceAction</span>(<span class="params">num</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> &#123;</span><br><span class="line">    type: <span class="string">"inReduce"</span>,</span><br><span class="line">    num: num</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 异步自增请求</span></span><br><span class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">handleIncreaseActionAsync</span>(<span class="params">num</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> &#123;</span><br><span class="line">    type: <span class="string">"increaseAsync"</span>,</span><br><span class="line">    num: num</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>Sagas 都用 Generator 函数实现</p>
-<p>此处 saga 会调用 watchIncrementAsync 方法对 type 为 increaseAsync 的 action 进行监听，一但发现该请求发出，会调用 fetchCounter 方法。然后会阻塞 3s ，发出另外一个 action 去改变 state 的值。</p>
-<p><code>src/container/saga.js</code></p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; call, put, takeEvery, takeLatest &#125; <span class="keyword">from</span> <span class="string">'redux-saga/effects'</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 创建 Effect</span></span><br><span class="line"><span class="function"><span class="keyword">function</span>* <span class="title">fetchCounter</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">       <span class="keyword">yield</span> call(asyncFn);</span><br><span class="line">       <span class="keyword">yield</span> put(&#123;<span class="attr">type</span>: <span class="string">"increase"</span>&#125;);</span><br><span class="line"> &#125;</span><br><span class="line"></span><br><span class="line"> <span class="comment">// 异步执行，测试用</span></span><br><span class="line"> <span class="function"><span class="keyword">function</span> <span class="title">asyncFn</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">     <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve</span>)=&gt;</span> &#123;</span><br><span class="line">        setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">            <span class="built_in">console</span>.log(<span class="string">'3s end'</span>);</span><br><span class="line">            resolve();</span><br><span class="line">        &#125;, <span class="number">3000</span>);</span><br><span class="line">     &#125;)</span><br><span class="line"> &#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span>* <span class="title">watchIncrementAsync</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">yield</span> takeLatest(<span class="string">"increaseAsync"</span>, fetchCounter);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> watchIncrementAsync;</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 自增请求</span></span><br><span class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">handleIncreaseAction</span>(<span class="params">num</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> &#123;</span><br><span class="line">    type: <span class="string">"increase"</span>,</span><br><span class="line">    num: num</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 自减请求</span></span><br><span class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">handleInReduceAction</span>(<span class="params">num</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> &#123;</span><br><span class="line">    type: <span class="string">"inReduce"</span>,</span><br><span class="line">    num: num</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 异步自增请求</span></span><br><span class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">handleIncreaseActionAsync</span>(<span class="params">num</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// getState() 拿到当前 store 的值</span></span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">async</span> (dispatch, getState) =&gt; &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'getState'</span>,getState());</span><br><span class="line">    <span class="keyword">await</span> asyncFn();</span><br><span class="line">    <span class="comment">//分发一个任务</span></span><br><span class="line">    dispatch(handleInReduceAction());</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">async</span> <span class="function"><span class="keyword">function</span> <span class="title">asyncFn</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="params">resolve</span> =&gt;</span> &#123;</span><br><span class="line">    setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">"2s end"</span>);</span><br><span class="line">      resolve();</span><br><span class="line">    &#125;, <span class="number">2000</span>);</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>激活redux-thunk中间件 </p>
 <p><code>src/configureStore.js</code></p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// compose 用来组和插件和中间件</span></span><br><span class="line"><span class="keyword">import</span> &#123; createStore, applyMiddleware, compose &#125; <span class="keyword">from</span> <span class="string">"redux"</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; composeWithDevTools &#125; <span class="keyword">from</span> <span class="string">"redux-devtools-extension"</span>;</span><br><span class="line"><span class="keyword">import</span> createReducer <span class="keyword">from</span> <span class="string">'./reducers'</span>;</span><br><span class="line"><span class="keyword">import</span> createSagaMiddleware <span class="keyword">from</span> <span class="string">'redux-saga'</span>;</span><br><span class="line"><span class="keyword">import</span> counterSaga <span class="keyword">from</span> <span class="string">'./containers/Counter/saga.js'</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// create the saga middleware</span></span><br><span class="line"><span class="keyword">const</span> sagaMiddleware = createSagaMiddleware()</span><br><span class="line"><span class="keyword">let</span> middleware = [sagaMiddleware]</span><br><span class="line"></span><br><span class="line"><span class="comment">// createStore 第一个参数为 reducer</span></span><br><span class="line"><span class="keyword">var</span> store;</span><br><span class="line"><span class="keyword">if</span> (<span class="built_in">window</span>.__REDUX_DEVTOOLS_EXTENSION__) &#123;</span><br><span class="line">  store = createStore(createReducer(), compose(applyMiddleware(...middleware), composeWithDevTools()))</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">  store = createStore(createReducer(), applyMiddleware(...middleware))</span><br><span class="line">&#125;</span><br><span class="line">sagaMiddleware.run(counterSaga)</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="function"><span class="keyword">function</span> <span class="title">configureStore</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> store;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>中文文档 <a href="https://redux-saga-in-chinese.js.org" target="_blank" rel="noopener">https://redux-saga-in-chinese.js.org</a></p>
-</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">import React from &quot;react&quot;;</span><br><span class="line">import ReactDOM from &quot;react-dom&quot;;</span><br><span class="line">import &quot;./style/index.scss&quot;;</span><br><span class="line">import registerServiceWorker from &quot;./registerServiceWorker&quot;;</span><br><span class="line">import CRouter from &quot;./router&quot;;</span><br><span class="line">import thunk from &apos;redux-thunk&apos;</span><br><span class="line">import &#123;</span><br><span class="line">  createStore,</span><br><span class="line">  applyMiddleware,</span><br><span class="line">&#125; from &quot;redux&quot;;</span><br><span class="line">import createReducer from &apos;./reducers&apos;;</span><br><span class="line"></span><br><span class="line">// redux</span><br><span class="line">import &#123; Provider &#125; from &quot;react-redux&quot;;</span><br><span class="line"></span><br><span class="line">const store = createStore(createReducer(),applyMiddleware(thunk));</span><br><span class="line"></span><br><span class="line">ReactDOM.render(</span><br><span class="line">  &lt;Provider store=&#123;store&#125;&gt;</span><br><span class="line">    &lt;CRouter/&gt;</span><br><span class="line">  &lt;/Provider&gt;,</span><br><span class="line">  document.getElementById(&quot;root&quot;)</span><br><span class="line">);</span><br><span class="line">registerServiceWorker();</span><br></pre></td></tr></table></figure>
+<p>组件</p>
+<p><code>Counter.js</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">import React, &#123; Component &#125; from &quot;react&quot;;</span><br><span class="line">import &#123; connect &#125; from &quot;react-redux&quot;;</span><br><span class="line">import &#123; handleInReduceAction, handleIncreaseActionAsync &#125; from &apos;./actions&apos;</span><br><span class="line">class Counter extends Component &#123;</span><br><span class="line">  render() &#123;</span><br><span class="line">    const &#123; value, onIncreaseClick, onReduceClick &#125; = this.props;</span><br><span class="line">    return (</span><br><span class="line">      &lt;div&gt;</span><br><span class="line">        &lt;span&gt;&#123;value&#125;&lt;/span&gt;</span><br><span class="line">        &lt;button onClick=&#123;onIncreaseClick&#125;&gt;增加&lt;/button&gt;</span><br><span class="line">        &lt;button onClick=&#123;onReduceClick&#125;&gt;减少&lt;/button&gt;</span><br><span class="line">      &lt;/div&gt;</span><br><span class="line">    );</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function mapStateToProps(state) &#123;</span><br><span class="line">  return &#123;</span><br><span class="line">    value: state.counterReducer.count</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function mapDispatchToProps(dispatch) &#123;</span><br><span class="line">  return &#123;</span><br><span class="line">    onIncreaseClick: () =&gt; &#123;</span><br><span class="line">      dispatch(handleIncreaseActionAsync());</span><br><span class="line">    &#125;,</span><br><span class="line">    onReduceClick: () =&gt; &#123;</span><br><span class="line">      dispatch(handleInReduceAction());</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">export default connect(</span><br><span class="line">  mapStateToProps,</span><br><span class="line">  mapDispatchToProps</span><br><span class="line">)(Counter);</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -404,8 +412,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/06/26/react/react-redux/" rel="next" title="react-redux">
-                <i class="fa fa-chevron-left"></i> react-redux
+              <a href="/2019/01/17/react/css module 主题切换/" rel="next" title="css module 主题切换">
+                <i class="fa fa-chevron-left"></i> css module 主题切换
               </a>
             
           </div>
@@ -413,10 +421,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/07/11/webpack/" rel="prev" title="webpack">
-                webpack <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
