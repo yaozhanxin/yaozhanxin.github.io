@@ -66,7 +66,7 @@
 
 
 
-  <meta name="keywords" content="vue," />
+  <meta name="keywords" content="chrome," />
 
 
 
@@ -77,18 +77,20 @@
 
 
 
-<meta name="description" content="将用户登录的状态交由 vuex 来控制 当用户点击登录时，先进行一个表单的有效性验证，通过后将表单数据发送到 vuex 中的 action  12345678this.$store.dispatch(&quot;LoginByUsername&quot;, this.loginForm).then(() =&amp;gt; &amp;#123;    // resolve() 登录成功 	this.$router.push(&amp;#12">
-<meta name="keywords" content="vue">
+<meta name="description" content="1111111">
+<meta name="keywords" content="chrome">
 <meta property="og:type" content="article">
-<meta property="og:title" content="vue 登录权限控制">
-<meta property="og:url" content="http://yoursite.com/2018/01/01/vue/vue 登录权限控制/index.html">
+<meta property="og:title" content="chrome 性能调试">
+<meta property="og:url" content="http://yoursite.com/2018/10/01/chrome 性能调试/index.html">
 <meta property="og:site_name">
-<meta property="og:description" content="将用户登录的状态交由 vuex 来控制 当用户点击登录时，先进行一个表单的有效性验证，通过后将表单数据发送到 vuex 中的 action  12345678this.$store.dispatch(&quot;LoginByUsername&quot;, this.loginForm).then(() =&amp;gt; &amp;#123;    // resolve() 登录成功 	this.$router.push(&amp;#12">
+<meta property="og:description" content="1111111">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-04-26T10:08:22.821Z">
+<meta property="og:image" content="d:/hard/Code/alive%20-%20code/blog/source/_posts/chrome%20性能调试.assets/1548140561484.png">
+<meta property="og:updated_time" content="2019-01-22T07:02:47.357Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="vue 登录权限控制">
-<meta name="twitter:description" content="将用户登录的状态交由 vuex 来控制 当用户点击登录时，先进行一个表单的有效性验证，通过后将表单数据发送到 vuex 中的 action  12345678this.$store.dispatch(&quot;LoginByUsername&quot;, this.loginForm).then(() =&amp;gt; &amp;#123;    // resolve() 登录成功 	this.$router.push(&amp;#12">
+<meta name="twitter:title" content="chrome 性能调试">
+<meta name="twitter:description" content="1111111">
+<meta name="twitter:image" content="d:/hard/Code/alive%20-%20code/blog/source/_posts/chrome%20性能调试.assets/1548140561484.png">
 
 
 
@@ -118,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/01/01/vue/vue 登录权限控制/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/10/01/chrome 性能调试/"/>
 
 
 
 
 
-  <title>vue 登录权限控制 | </title>
+  <title>chrome 性能调试 | </title>
   
 
 
@@ -261,7 +263,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/01/vue/vue 登录权限控制/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/01/chrome 性能调试/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="yaozx">
@@ -278,7 +280,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">vue 登录权限控制</h1>
+          <h1 class="post-title" itemprop="name headline">chrome 性能调试</h1>
         
 
         <div class="post-meta">
@@ -290,8 +292,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-01T15:08:32+08:00">
-                2018-01-01
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-10-01T09:28:10+08:00">
+                2018-10-01
               </time>
             
 
@@ -328,14 +330,8 @@
       
 
       
-        <p>将用户登录的状态交由 vuex 来控制</p>
-<p>当用户点击登录时，先进行一个表单的有效性验证，通过后将表单数据发送到 vuex 中的 action </p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">this</span>.$store</span><br><span class="line">.dispatch(<span class="string">"LoginByUsername"</span>, <span class="keyword">this</span>.loginForm)</span><br><span class="line">.then(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="comment">// resolve() 登录成功 </span></span><br><span class="line">	<span class="keyword">this</span>.$router.push(&#123; <span class="attr">path</span>: <span class="string">"/"</span> &#125;);</span><br><span class="line">&#125;).catch(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">  	<span class="comment">// reject() 登录失败</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-<p>vuex 中的 action 接收到登录事件后使用 promise 异步来处理登录请求</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123;</span><br><span class="line">  loginByUsername</span><br><span class="line">&#125; <span class="keyword">from</span> <span class="string">'@/api/login'</span></span><br><span class="line"><span class="comment">// 获取和设置 cookie</span></span><br><span class="line"><span class="keyword">import</span> &#123;</span><br><span class="line">  getToken,</span><br><span class="line">  setToken</span><br><span class="line">&#125; <span class="keyword">from</span> <span class="string">'@/utils/auth'</span></span><br><span class="line"></span><br><span class="line">actions: &#123;</span><br><span class="line">    <span class="comment">// 用户名登录</span></span><br><span class="line">    LoginByUsername(&#123;</span><br><span class="line">      commit</span><br><span class="line">    &#125;, userInfo) &#123;</span><br><span class="line">      <span class="comment">// 去用户名空格</span></span><br><span class="line">      <span class="keyword">const</span> username = userInfo.username.trim()</span><br><span class="line">      <span class="comment">// 向外抛出 promise 处理登录，在 then 后面处理请求成功或失败</span></span><br><span class="line">      <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="comment">// 发送登录请求</span></span><br><span class="line">        loginByUsername(username, userInfo.password).then(<span class="function"><span class="params">response</span> =&gt;</span> &#123;</span><br><span class="line">          <span class="comment">// 请求成功</span></span><br><span class="line">          <span class="keyword">const</span> data = response.data</span><br><span class="line">          <span class="comment">// 更新 state 的 token 值</span></span><br><span class="line">          commit(<span class="string">'SET_TOKEN'</span>, data.token)</span><br><span class="line">          <span class="comment">// 向 cookie 设置 token</span></span><br><span class="line">          setToken(response.data.token)</span><br><span class="line">          resolve()</span><br><span class="line">        &#125;).catch(<span class="function"><span class="params">error</span> =&gt;</span> &#123;</span><br><span class="line">          <span class="comment">// 请求失败</span></span><br><span class="line">          reject(error)</span><br><span class="line">        &#125;)</span><br><span class="line">      &#125;)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
-<p>登录后的权限控制使用全局钩子 <code>router.beforeEach</code> 进行路由拦截</p>
-<p><code>src/router/permission.js</code></p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> router <span class="keyword">from</span> <span class="string">'@/router'</span></span><br><span class="line"><span class="keyword">import</span> &#123;</span><br><span class="line">  getToken</span><br><span class="line">&#125; <span class="keyword">from</span> <span class="string">'@/utils/auth'</span></span><br><span class="line"><span class="comment">// 免登录白名单</span></span><br><span class="line"><span class="keyword">const</span> whiteList = [<span class="string">'/login'</span>]</span><br><span class="line"></span><br><span class="line">router.beforeEach(<span class="function">(<span class="params">to, <span class="keyword">from</span>, next</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">if</span> (getToken()) &#123; <span class="comment">// 判断是否登录</span></span><br><span class="line">    <span class="comment">// cookie 有值</span></span><br><span class="line">    <span class="keyword">if</span> (to.path === <span class="string">'/login'</span>) &#123;</span><br><span class="line">      <span class="comment">// cookie 有值，并且路径等于 /login</span></span><br><span class="line">      next(&#123;</span><br><span class="line">        path: <span class="string">'/'</span></span><br><span class="line">      &#125;)</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      <span class="comment">// 处理页面权限问题</span></span><br><span class="line">    &#125;</span><br><span class="line">    next()</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123; <span class="comment">// 没登录则跳转到登录界面</span></span><br><span class="line">    <span class="keyword">if</span> (whiteList.indexOf(to.path) !== <span class="number">-1</span>) &#123; <span class="comment">// 在免登录白名单，直接进入</span></span><br><span class="line">      next()</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      next(<span class="string">'/login'</span>) <span class="comment">// 否则全部重定向到登录页</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+        <p>1111111</p>
+<p><img src="D:\hard\Code\alive - code\blog\source\_posts\chrome 性能调试.assets\1548140561484.png" alt="1548140561484"></p>
 
       
     </div>
@@ -382,7 +378,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/vue/" rel="tag"><i class="fa fa-tag"></i> vue</a>
+            <a href="/tags/chrome/" rel="tag"><i class="fa fa-tag"></i> chrome</a>
           
         </div>
       
@@ -395,8 +391,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/01/01/可视化/d3js/" rel="next" title="d3.js">
-                <i class="fa fa-chevron-left"></i> d3.js
+              <a href="/2018/09/22/node/egg-init/" rel="next" title="egg-init">
+                <i class="fa fa-chevron-left"></i> egg-init
               </a>
             
           </div>
@@ -405,8 +401,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/01/06/js 闭包/" rel="prev" title="js 闭包">
-                js 闭包 <i class="fa fa-chevron-right"></i>
+              <a href="/2018/10/01/Commit message 编写/" rel="prev" title="Commit message 的格式">
+                Commit message 的格式 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
